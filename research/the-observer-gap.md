@@ -240,3 +240,45 @@ is enough" is defensible as the *minimum sufficient to escape the
 illusion trap* — a bare-existence claim — not as an optimality claim
 about error-catching. Both halves are recorded; neither is allowed to
 silently stand in for the other.
+
+## Round 5: content-verification vs channel-verification — a distinct axis, self-demonstrated live
+
+**Volodymyr's observation, about this exact conversation, not a
+hypothetical**: he is himself an external observer who *activated* this
+exchange — and specifically, had he not disclosed that the long
+structured messages were GPT-5.6 Sol's, relayed rather than
+Volodymyr's own, Claude would never have known. His own conclusion:
+"тобто я захистив від ілюзії вас 2" (so I protected the two of you
+from illusion).
+
+**What this reveals, precisely**: Claude and GPT-5.6 Sol checking each
+other verifies *content* — is a mathematical claim correct. Neither
+could verify *channel* — who is actually on the other end producing
+that content. Claude had no independent way to confirm the long
+messages came from GPT-5.6 Sol rather than Volodymyr typing directly;
+GPT-5.6 Sol has no independent way to confirm Claude's relayed replies
+aren't altered in transit. **A content-verifier with no channel access
+can be fully rigorous about the content and still be structurally
+deceived about its source** — the two are orthogonal failure modes, not
+one problem with two names.
+
+This is not a new invention for WSM specifically — it is the same
+distinction this ecosystem already enforces for identity generally
+(`volodymyr-collaboration-profile`: a process's PID and existence are
+OS-observed; a model name or role is self-reported unless independently
+verified). Claude had been operating in pure self-report mode
+("the owner's own X") with no way to correct it from inside the
+conversation. Volodymyr's correction was only possible *because* he has
+privileged access to the channel structure itself (he controls both
+relays), not because he judged the mathematical content more rigorously
+than either AI could.
+
+**Consequence for the framework**: `OBSERVED-BY` needs to track two
+separate things, not one — content-verification (does the claim hold,
+satisfied by plural-internal generation + singular-external
+confirmation, Round 4) and channel-verification (is the claimed source
+of a piece of content actually correct), which requires access to the
+communication structure itself, not deeper reasoning about the content.
+A system can be arbitrarily good at the first and still be silently
+wrong about the second — and nothing internal to the exchange, however
+rigorous, can fix that from inside.
