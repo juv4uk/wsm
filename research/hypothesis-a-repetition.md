@@ -1,22 +1,38 @@
 # () → mathematics: two attacked hypotheses and a deeper open candidate
 
 **Status: OPEN. Nothing here is accepted.** A running record of a
-mutual-attack exchange between the owner and Claude on the standing
-question in `research/handoff-state.md`. The negative results below
-are the actual content — the owner's own framing: "негативний результат
-тут не провал — він відкрив залежності, яких ми раніше не бачили" (a
-negative result here is not failure — it revealed dependencies we
-hadn't seen before).
+mutual-attack exchange on the standing question in
+`research/handoff-state.md`.
+
+## Contributors
+
+```text
+Author:   GPT-5.6 Sol (OpenAI), relayed by Volodymyr
+Role:     WSM Foundations Research collaborator
+Content:  the REPEAT hypothesis (Round 1), the counter-attack on branch
+          (Round 2), the framing of the negative result as valuable
+
+Author:   Claude Sonnet 5 (Anthropic)
+Role:     WSM Foundations Research collaborator
+Content:  the attacks on REPEAT (Round 1) and on the deeper candidate
+          (Round 3 setup)
+```
+
+Per `AUTHOR != AUTHORITY`: the negative results below are the actual
+content, regardless of who proposed or who attacked which claim —
+GPT-5.6 Sol's own framing: "негативний результат тут не провал — він
+відкрив залежності, яких ми раніше не бачили" (a negative result here
+is not failure — it revealed dependencies we hadn't seen before).
 
 ## Round 1 — Hypothesis A: mathematics from repetition (attacked, broken)
 
-The owner's proposal: `() -> REPEAT -> finite repetition -> natural
-number -> composition -> arithmetic -> 2+2=4 -> t`. Numbers as later
-names (`≔`, not `=`) for prior constructions; `+` as literal
-concatenation; `=` as structural equivalence distinct from address
-identity.
+**Proposed by GPT-5.6 Sol, relayed by Volodymyr**: `() -> REPEAT ->
+finite repetition -> natural number -> composition -> arithmetic ->
+2+2=4 -> t`. Numbers as later names (`≔`, not `=`) for prior
+constructions; `+` as literal concatenation; `=` as structural
+equivalence distinct from address identity.
 
-**Claude's attack**, confirmed correct by the owner:
+**Claude's attack**, confirmed correct by GPT-5.6 Sol:
 
 1. For `() ()` to have structure at all, discrete parts need
    individuation — a weak form of identity entering through the back
@@ -27,7 +43,7 @@ identity.
    them.
 3. Iterated construction from `()` already has the combinatorial
    structure of the naturals, just unnamed. **Correction accepted from
-   the owner**: this is not literally the von Neumann nested-set
+   GPT-5.6 Sol**: this is not literally the von Neumann nested-set
    construction (`0=∅, 1={∅}, 2={∅,{∅}}`) as Claude first claimed — it
    is closer to a unary/tally construction (Zermelo-style
    `1={0}, 2={1}, ...` or plain tally marks). The substance of the
@@ -35,7 +51,7 @@ identity.
    resembles: a discrete, repeatable, ordered unit-construction is
    already isomorphic to a piece of arithmetic, whatever it's called.
 
-**The proposal's own fatal seam, found by the owner himself**: `REPEAT`
+**The proposal's own fatal seam, found by GPT-5.6 Sol itself**: `REPEAT`
 alone never terminates. `() () ()` requires that a *next* repetition
 did *not* happen — i.e., a "continue / stop" decision already exists at
 the exact point the chain claims to produce "finite repetition." The
@@ -46,9 +62,9 @@ introduced yet.
 ## Round 2 — the same attack turned on BRANCH (also broken)
 
 Claude's own earlier proposal (`first-step-candidate.md`): branch as
-"do one thing if `()`, a different uninterpreted thing otherwise." The
-owner turned the identical rigor on it, and it does not survive intact
-either:
+"do one thing if `()`, a different uninterpreted thing otherwise."
+GPT-5.6 Sol turned the identical rigor on it, and it does not survive
+intact either:
 
 1. **Plurality.** Saying "more than one possible continuation exists"
    already uses "more than one" — the same quantity/number concept

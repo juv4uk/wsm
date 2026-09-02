@@ -1,11 +1,30 @@
 # Grounding in real physical constants, not pure logical construction
 
-**Status: OPEN, unattacked past the first pass below.** The owner's
-own new direction: instead of trying to logically *derive*
-distinction/plurality from nothing (repeatedly breaking into
-circularity, see `three-relations-formalized.md`), can some part of
-the foundation be grounded as an **observed physical fact** about the
-real machine, rather than a constructed logical primitive?
+**Status: OPEN, unattacked past the first pass below.** A new
+direction: instead of trying to logically *derive* distinction/
+plurality from nothing (repeatedly breaking into circularity, see
+`three-relations-formalized.md`), can some part of the foundation be
+grounded as an **observed physical fact** about the real machine,
+rather than a constructed logical primitive?
+
+## Contributors
+
+```text
+Author:   Volodymyr
+Role:     WSM project owner
+Content:  the originating question -- "can we reach mathematics
+          through really-existing constants?"
+
+Author:   GPT-5.6 Sol (OpenAI), relayed by Volodymyr
+Role:     WSM Foundations Research collaborator
+Content:  elaborating into Path A vs Path B, the dimensional/
+          dimensionless-constant distinction, the invariant-before-
+          number refinement, the comparator/threshold follow-up
+
+Author:   Claude Sonnet 5 (Anthropic)
+Role:     WSM Foundations Research collaborator
+Content:  the hardware-import tension, the attacks on both rounds
+```
 
 ## The appeal
 
@@ -78,7 +97,7 @@ quietly ignored in either direction.
 
 ## Round 2: Path A vs Path B, and why B is not cheaper than A
 
-The owner refined the direction into a named alternative path:
+GPT-5.6 Sol refined the direction into a named alternative path:
 
 ```text
 PATH A: () -> explicit assumptions -> mathematics
@@ -93,12 +112,12 @@ Dimensionless constants or bare *ratios* are more interesting.
 Cleanest of all: don't start from a numeric constant at all — start
 from a repeated real experiment (a real circle, a real pendulum)
 yielding the *same structural result* across repetitions, and only
-later build the concept of ratio, then number, from that. He posed his
-own sharp question against it before any defense: "що мінімально
-потрібно WSM, щоб узагалі здійснити observation, не вкравши вже
-distinction, identity, time і comparison?"
+later build the concept of ratio, then number, from that. GPT-5.6 Sol
+posed its own sharp question against it before any defense: "що
+мінімально потрібно WSM, щоб узагалі здійснити observation, не
+вкравши вже distinction, identity, time і comparison?"
 
-**Claude's attack, using his own wording against his own proposal**:
+**Claude's attack, using GPT-5.6 Sol's own wording against its own proposal**:
 "той самий структурний результат" already uses identity (`the same`)
 — the exact problem that broke `REPEAT`. "Повторено" already imports
 sequence/time — the unhealed wound shared by `REPEAT` and `BRANCH`.
@@ -115,14 +134,14 @@ needed to add.**
 
 **The obvious rescue, and why it fails**: let some external apparatus
 (the observing machine, `wsm-os`) do the observing, and have WSM merely
-*receive* the finished invariant. The owner's own proposal already
+*receive* the finished invariant. GPT-5.6 Sol's own proposal already
 forbade exactly this ("не можна взяти готове число як старт — це буде
 контрабанда") — if an external process already performed
 distinction+identity+time+comparison and hands WSM only the result,
 that is the identical contraband, wearing "observation" instead of
 "axiom" as its label.
 
-**Answered with the owner's own partial-order methodology**
+**Answered with GPT-5.6 Sol's own partial-order methodology**
 (`three-relations-formalized.md`): since Path B's requirements are a
 superset of Path A's, `Path A ⪯ Path B` and not the reverse — Path A is
 no worse, and appears strictly better, under the minimality criterion

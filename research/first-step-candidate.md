@@ -2,16 +2,32 @@
 
 **Status: ATTACKED, broken as stated.** Answers the standing open
 question in `research/handoff-state.md` ("Який найменший додатковий
-крок після `()`..."). Written by Claude (Sonnet 5) on request. The
-owner turned the same rigor used against his own counter-proposal
-(`hypothesis-a-repetition.md`) back onto this one: branch does not
+крок після `()`..."). `asm/` stays empty — nothing here is materialized.
+
+## Contributors
+
+```text
+Author:   Claude Sonnet 5 (Anthropic)
+Role:     WSM Foundations Research collaborator
+Content:  the branch proposal, the rejected-candidates survey, the
+          four-criteria validation
+
+Author:   GPT-5.6 Sol (OpenAI), relayed by Volodymyr
+Role:     WSM Foundations Research collaborator
+Content:  the counter-attack on branch (plurality/distinction/modality)
+          -- see hypothesis-a-repetition.md for the full exchange
+```
+
+Per `AUTHOR != AUTHORITY` / `ATTRIBUTION != EVIDENCE` (GPT-5.6 Sol's
+own framing, adopted going forward): who proposed a claim says nothing
+about whether it's correct. GPT-5.6 Sol turned the same rigor used
+against its own `REPEAT` proposal back onto this one: branch does not
 avoid the number trap either (it relocates "how many repetitions" into
 "how many alternatives" — "more than one possible continuation" already
 uses "more than one"), and "possible" continuation additionally imports
 modality, arguably a heavier import than arithmetic. See
 `hypothesis-a-repetition.md` for the full exchange and the deeper,
-still-unnamed third candidate it produced. `asm/` stays empty — nothing
-here is materialized.
+still-unnamed third candidate it produced.
 
 ## Candidates considered and rejected first
 

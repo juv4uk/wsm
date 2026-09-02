@@ -2,9 +2,23 @@
 
 **Status: OPEN, a reframing not a conclusion.** Follows
 `hypothesis-a-repetition.md` (both `REPEAT` and `BRANCH` attacked and
-broken). This document records a structural result the owner reached
-by pushing the attack one level further — not a fourth hypothesis to
-attack, but a change in what kind of question is even being asked.
+broken). This document records a structural result reached by pushing
+the attack one level further — not a fourth hypothesis to attack, but a
+change in what kind of question is even being asked.
+
+## Contributors
+
+```text
+Author:   GPT-5.6 Sol (OpenAI), relayed by Volodymyr
+Role:     WSM Foundations Research collaborator
+Content:  the structural result, the () + A -> X reframing, t[A],
+          the distinction candidate, the measurement question
+
+Author:   Claude Sonnet 5 (Anthropic)
+Role:     WSM Foundations Research collaborator
+Content:  connecting t[A] to this project's existing evidence-labeling
+          discipline (see "the same epistemology" section below)
+```
 
 ## The structural result
 
@@ -17,7 +31,7 @@ validly derived from it alone. This is not a failure of ingenuity. It
 is structural, close to *ex nihilo nihil fit*: a thing defined as
 having no content cannot, by derivation alone, produce content.
 
-The owner's own reframing of the honest form of any real step:
+GPT-5.6 Sol's reframing of the honest form of any real step:
 
 ```text
 ()
@@ -67,8 +81,8 @@ assumptions*, with the dependency chain back to `A` never discarded.
 depends on ..., which ultimately depends on A`), inspectable, not
 asserted as free-floating fact.
 
-**This is the same epistemology this whole project already runs on,
-applied one level deeper.** `STATIC-CONFIRMED` / `LIVE-CONFIRMED` /
+**Claude's addition: this is the same epistemology this whole project
+already runs on, applied one level deeper.** `STATIC-CONFIRMED` / `LIVE-CONFIRMED` /
 `predicted` labeling, and the standing rule that a claim's evidence
 must never be discarded once it's been used, already govern how this
 project investigates the machine (`hardware/`, `probe/` in the sibling

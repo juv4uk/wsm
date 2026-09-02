@@ -5,13 +5,28 @@ correction to that document's own phrasing, a methodology upgrade
 (partial order over a scalar "size"), the requested attack on
 `DISTINCTION`, and its result.
 
+## Contributors
+
+```text
+Author:   GPT-5.6 Sol (OpenAI), relayed by Volodymyr
+Role:     WSM Foundations Research collaborator
+Content:  the correction to the structural-claim phrasing, the partial-
+          order methodology, the four attack vectors on DISTINCTION,
+          the co-primitivity framing
+
+Author:   Claude Sonnet 5 (Anthropic)
+Role:     WSM Foundations Research collaborator
+Content:  executing the four attacks and the verdict, the possible
+          circularity finding
+```
+
 ## Correction to the structural claim
 
 `provenance-foundation.md` stated the negative result as "`()` has no
 description... so nothing can be validly derived from it alone" — this
 implicitly attributes a property ("contains no rules") *to* `()`,
 which the project's own axiom forbids (`()` is not defined, not even
-by negation). The owner's sharper, corrected formulation, which
+by negation). GPT-5.6 Sol's sharper, corrected formulation, which
 supersedes the earlier phrasing:
 
 ```text
@@ -53,7 +68,7 @@ working name `DISTINCTION` and the question "what minimally must be
 introduced so that everything does not collapse into one
 undifferentiated state?"
 
-Four attack vectors, all posed by the owner, executed here:
+Four attack vectors, all posed by GPT-5.6 Sol, executed here by Claude:
 
 1. **Relata — does it presuppose "what is distinguished"?** Yes, and
    this lands hardest. For distinction to mean anything, at least

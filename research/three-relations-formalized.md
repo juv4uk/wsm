@@ -1,7 +1,24 @@
 # Three relations formalized: requires / equivalent / co-primitive
 
 **Status: OPEN.** Follows `distinction-attacked.md`'s cycle finding.
-Per the owner's own next move — not a new candidate, but a formal
+
+## Contributors
+
+```text
+Author:   GPT-5.6 Sol (OpenAI), relayed by Volodymyr
+Role:     WSM Foundations Research collaborator
+Content:  the "not a new candidate, formalize three relations" move,
+          the CLOSURE/SUFFICIENCY/IRREDUCIBILITY tests for a joint
+          basis, the observation that a cycle may signal bedrock
+          rather than error
+
+Author:   Claude Sonnet 5 (Anthropic)
+Role:     WSM Foundations Research collaborator
+Content:  the definitional test distinguishing the three relations,
+          applying it to distinction/plurality, the CLOSURE caveat
+```
+
+Per GPT-5.6 Sol's own next move — not a new candidate, but a formal
 distinction between three things that were being conflated.
 
 ## The three relations
@@ -53,7 +70,7 @@ twice.
 ## Honest caveat: the joint basis is not yet closed
 
 Confirming co-primitivity does **not** mean `A* = {distinction,
-plurality}` has passed all three tests the owner set for a minimal
+plurality}` has passed all three tests GPT-5.6 Sol set for a minimal
 joint basis:
 
 ```text
