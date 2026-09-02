@@ -1,157 +1,168 @@
-# DISTINCTION attacked; a possible circularity with plurality found
+# DISTINCTION атаковано; знайдено можливу циклічність із plurality
 
-**Status: OPEN.** Follows `provenance-foundation.md`. Records: a
-correction to that document's own phrasing, a methodology upgrade
-(partial order over a scalar "size"), the requested attack on
-`DISTINCTION`, and its result.
+**Статус: ВІДКРИТО.** Продовжує `provenance-foundation.md`. Записує:
+поправку до власного формулювання того документа, апгрейд методології
+(частковий порядок замість скалярного "розміру"), запитану атаку на
+`DISTINCTION`, і її результат.
 
-## Contributors
+## Учасники
 
 ```text
-Author:   GPT-5.6 Sol (OpenAI), relayed by Volodymyr
-Role:     WSM Foundations Research collaborator
-Content:  the correction to the structural-claim phrasing, the partial-
-          order methodology, the four attack vectors on DISTINCTION,
-          the co-primitivity framing
+Автор:    GPT-5.6 Sol (OpenAI), передано через Volodymyr
+Роль:     дослідницький партнер WSM Foundations Research
+Внесок:   поправка до формулювання структурного твердження,
+          методологія часткового порядку, чотири вектори атаки на
+          DISTINCTION, формулювання co-primitivity
 
-Author:   Claude Sonnet 5 (Anthropic)
-Role:     WSM Foundations Research collaborator
-Content:  executing the four attacks and the verdict, the possible
-          circularity finding
+Автор:    Claude Sonnet 5 (Anthropic)
+Роль:     дослідницький партнер WSM Foundations Research
+Внесок:   виконання чотирьох атак і вердикт, знахідка можливої
+          циклічності
 ```
 
-## Correction to the structural claim
+## Поправка до структурного твердження
 
-`provenance-foundation.md` stated the negative result as "`()` has no
-description... so nothing can be validly derived from it alone" — this
-implicitly attributes a property ("contains no rules") *to* `()`,
-which the project's own axiom forbids (`()` is not defined, not even
-by negation). GPT-5.6 Sol's sharper, corrected formulation, which
-supersedes the earlier phrasing:
+`provenance-foundation.md` сформулював негативний результат як "`()`
+не має опису... тож нічого не може бути законно виведене з нього
+самого" — це неявно приписує властивість ("не містить правил") *самому*
+`()`, чого власна аксіома проєкту забороняє (`()` не визначено, навіть
+через заперечення). Гостріше, виправлене формулювання GPT-5.6 Sol, яке
+заміняє раніше формулювання:
 
 ```text
-given: ()
-and nothing else introduced
+дано: ()
+і більше нічого не введено
 ------------------------------
-no justified nontrivial transition
+немає обґрунтованого нетривіального переходу
 ```
 
-This is a claim about the construction system, not about `()`'s
-nature. Any honest step is `() + A -> X`, where `A` is the first
-explicitly introduced assumption.
+Це твердження про систему побудови, не про природу `()`. Будь-який
+чесний крок — `() + A -> X`, де `A` — перша явно введена передумова.
 
-## Methodology upgrade: partial order, not scalar size
+## Апгрейд методології: частковий порядок, не скалярний розмір
 
-Counting a candidate's dependency-closure size (e.g. "REPEAT needs 3
-things, BRANCH needs 3 things") is misleading — one concept can be
-strictly stronger than three others combined. Replaced with a partial
-order: `A ⪯ B` holds if `B`'s full foundational structure can be
-constructed from `A` alone, introducing no new independent primitive.
-If `A ⪯ B` and `B ⋠ A`, `A` is strictly weaker. If both hold, they are
-equally fundamental, just different presentations. This is checkable,
-not aesthetic — proving `A ⪯ B` is real derivation work, and doing that
-work will itself likely require external mathematics as a research
-tool (see below), not something WSM has to internalize.
+Підрахунок розміру dependency closure кандидата (наприклад, "REPEAT
+потребує 3 речі, BRANCH потребує 3 речі") оманливий — один концепт
+може бути строго сильнішим за три інших разом. Замінено на частковий
+порядок: `A ⪯ B` виконується, якщо повну фундаментальну структуру `B`
+можна побудувати лише з `A`, не вводячи нового незалежного примітива.
+Якщо `A ⪯ B` і `B ⋠ A`, `A` строго слабше. Якщо виконуються обидва,
+вони однаково фундаментальні, лише різні представлення. Це
+перевірюване, не естетичне — довести `A ⪯ B` — реальна робота
+виведення, і сама ця робота, ймовірно, потребуватиме зовнішньої
+математики як дослідницького інструмента (див. нижче), не чогось, що
+WSM мусить інтерналізувати.
 
 Dependency closures (`REPEAT: individuation, sequence, termination`;
-`BRANCH: distinction, plurality, modality`) are demoted from "measure"
-to **diagnostic**: they say what to attack next, not how big a
-candidate "is" — because those listed dependencies may themselves
-decompose further, changing the closure.
+`BRANCH: distinction, plurality, modality`) понижені з "міри" до
+**діагностики**: вони кажуть, що атакувати далі, не наскільки
+"великий" кандидат — бо ці перелічені залежності самі можуть далі
+розкладатись, змінюючи closure.
 
-## The attack on DISTINCTION
+## Атака на DISTINCTION
 
-Formulated deliberately without smuggling content: not "this ≠ that"
-(already has `this`, `that`, `≠`), not "A / not-A" (already has
-negation), not "two different things" (already has number) — just the
-working name `DISTINCTION` and the question "what minimally must be
-introduced so that everything does not collapse into one
-undifferentiated state?"
+Сформульована навмисно без контрабанди змісту: не "це ≠ те" (уже має
+`це`, `те`, `≠`), не "A / не-A" (уже має заперечення), не "дві різні
+речі" (уже має число) — лише робоча назва `DISTINCTION` і питання "що
+мінімально мусить бути введено, щоб усе не колапсувало в один
+нерозрізнений стан?"
 
-Four attack vectors, all posed by GPT-5.6 Sol, executed here by Claude:
+Чотири вектори атаки, усі поставлені GPT-5.6 Sol, виконані тут Claude:
 
-1. **Relata — does it presuppose "what is distinguished"?** Yes, and
-   this lands hardest. For distinction to mean anything, at least
-   something and some *other* thing must be presupposed — which is
-   already a form of plurality, the exact thing that broke `BRANCH`.
-   `DISTINCTION` does not avoid plurality; it requires it directly to
-   be coherent at all.
-2. **Boundary — does it presuppose where the split occurs?** Weaker
-   hit — a purely relational, non-spatial distinction seems at least
-   conceivable without importing topology.
-3. **Identity — does something have to remain itself while being
-   distinguished?** Yes — the same individuation problem that broke
-   `REPEAT`.
-4. **Observer/action — does distinguishing require an act, not just a
-   static fact?** If distinction is an act rather than a standing
-   state, it imports process — the same unresolved sequence/time wound
-   already shared by `REPEAT` and `BRANCH`.
+1. **Relata — чи передбачає воно "що саме розрізняється"?** Так, і
+   це б'є найсильніше. Щоб розрізнення взагалі мало сенс, потрібно
+   передбачити щонайменше щось і якесь *інше* щось — а це вже форма
+   plurality, точно те, що зламало `BRANCH`. `DISTINCTION` не уникає
+   plurality; воно прямо вимагає її, щоб узагалі бути зв'язним.
+2. **Boundary — чи передбачає воно, де відбувається розщеплення?**
+   Слабший удар — чисто реляційне, непросторове розрізнення здається
+   принаймні уявним без імпорту топології.
+3. **Identity — чи щось мусить лишатись собою, поки розрізняється?**
+   Так — та сама проблема індивідуації, що зламала `REPEAT`.
+4. **Observer/action — чи розрізнення вимагає акту, не просто
+   статичного факту?** Якщо розрізнення — акт, а не стоячий стан, воно
+   імпортує процес — та сама невирішена рана sequence/time, вже
+   спільна для `REPEAT` і `BRANCH`.
 
-**Verdict: three of four attacks land.** `DISTINCTION` does not
-survive as a clean, atomic primitive in this formulation — vector 1
-(relata/plurality) is close to fatal on its own.
+**Вердикт: три з чотирьох атак влучають.** `DISTINCTION` не переживає
+як чистий, атомарний примітив у цьому формулюванні — вектор 1
+(relata/plurality) майже фатальний сам по собі.
 
-## A possible circularity, not just another death
+## Можлива циклічність, не просто ще одна смерть
 
-If `DISTINCTION` requires plurality (vector 1), and `BRANCH` also
-required plurality directly, the lattice drawn earlier
-(`() -> DISTINCTION -> {REPEAT, BRANCH}`) may not actually be a clean
-partial order at all. Plurality arguably needs *some* notion of
-distinguishability to mean "many" rather than one undifferentiated
-blob — and distinction arguably needs plurality to have anything to
-distinguish. If both readings hold, `DISTINCTION` and `PLURALITY` are
-not one derived from the other but **mutually presupposing** — a cycle,
-not a rung on a ladder. This is the actual finding of this round, more
-than "a fourth candidate died": the lattice model itself may need to
-admit cycles, not just a strict order.
+Якщо `DISTINCTION` вимагає plurality (вектор 1), а `BRANCH` теж прямо
+вимагав plurality, решітка, намальована раніше
+(`() -> DISTINCTION -> {REPEAT, BRANCH}`), можливо, взагалі не є
+чистим частковим порядком. Plurality, ймовірно, потребує *якесь*
+поняття розрізнюваності, щоб означати "багато", а не одну невиразну
+пляму — а distinction, ймовірно, потребує plurality, щоб мати що
+розрізняти. Якщо обидва прочитання правильні, `DISTINCTION` і
+`PLURALITY` не одне виведене з іншого, а **взаємно передбачають одне
+одного** — цикл, не щабель драбини. Це і є справжня знахідка цього
+раунду, більше ніж "четвертий кандидат помер": сама модель решітки,
+можливо, мусить допускати цикли, не лише строгий порядок.
 
-## Adopted vocabulary going forward
+## Словник, прийнятий надалі
 
-**Provenance triplet** for any claim in this line of research:
+**Провенансна трійка** для будь-якого твердження в цій лінії
+дослідження:
 
 ```text
-GIVEN       -- () itself
-INTRODUCED  -- an assumption brought in explicitly (e.g. a candidate A)
-DERIVED     -- constructed from GIVEN + INTRODUCED, with the derivation shown
+GIVEN       -- сам ()
+INTRODUCED  -- передумова, внесена явно (наприклад, кандидат A)
+DERIVED     -- побудоване з GIVEN + INTRODUCED, з показаним виведенням
 ```
 
-**Minimality status ladder**, none of which may be overstated as the
-next rung up without the work to back it:
+**Драбина статусів мінімальності**, жоден щабель якої не можна
+завищувати без роботи, що це підтверджує:
 
 ```text
-candidate
-  -> sufficient                    (A -> M is shown to work)
-  -> locally minimal               (no known strictly weaker A' suffices for M)
-  -> minimal among known candidates
-  -> proven minimal                (very strong claim: provably no weaker A exists at all)
+candidate (кандидат)
+  -> sufficient (достатній)              (A -> M показано робочим)
+  -> locally minimal (локально мінімальний)   (не відомий строго слабший A', достатній для M)
+  -> minimal among known candidates (мінімальний серед відомих кандидатів)
+  -> proven minimal (доведено мінімальний)    (дуже сильне твердження: доведено, що взагалі не існує слабшого A)
 ```
 
-"We don't know a weaker candidate" is not the same claim as "no weaker
-candidate exists," and the two must never be conflated — proving global
-non-existence of a weaker foundation may be extremely hard or
-impossible, and claiming it prematurely would itself be the same
-overclaiming discipline already enforced everywhere else in this
-project.
+"Ми не знаємо слабшого кандидата" — не те саме твердження, що "слабшого
+кандидата не існує", і ці два не можна змішувати — довести глобальну
+відсутність слабшого фундаменту може бути надзвичайно важко чи
+неможливо, і передчасне твердження цього було б тією самою дисципліною
+проти завищення, яка вже застосовується всюди в цьому проєкті.
 
-## External mathematics as a research tool, not as WSM's content
+## Зовнішня математика як дослідницький інструмент, не як зміст WSM
 
-A distinction worth keeping explicit, drawn directly from the
-`wsm`/`wsm-os` split already in place: the mathematics, logic, proof
-assistants, or dependency graphs *used to investigate* WSM's own
-foundation are not thereby smuggled *into* WSM's semantics — the same
-way QEMU helps investigate a machine without QEMU becoming part of that
-machine's own meaning. Actually proving `A ⪯ B` relations, or that a
-candidate `A` is a genuine milestone (sufficiency) versus that no known
-weaker candidate works (minimality), will likely require exactly this
-kind of external tooling, and that is legitimate — the same
-observation-versus-self-report and STATIC/LIVE/predicted discipline
-that governs hardware claims in `wsm-os` applies here too.
+Розрізнення, варте того, щоб лишатись явним, узяте прямо з наявного
+розділення `wsm`/`wsm-os`: математика, логіка, proof-асистенти чи графи
+залежностей, *використані для дослідження* власного фундаменту WSM, не
+контрабандою потрапляють *у* семантику WSM через це — так само, як
+QEMU допомагає досліджувати машину, не стаючи частиною власного змісту
+цієї машини. Реальне доведення відношень `A ⪯ B`, чи того, що кандидат
+`A` — справжня віха (sufficiency), проти того, що жоден відомий
+слабший кандидат не працює (minimality), ймовірно, вимагатиме саме
+такого зовнішнього інструментарію, і це легітимно — та сама дисципліна
+observation-versus-self-report і STATIC/LIVE/predicted, що керує
+апаратними твердженнями в `wsm-os`, застосовується й тут.
 
-## Next, narrow question
+## Наступне, вузьке питання
 
-Does `PLURALITY` decompose independently of `DISTINCTION`, or are they
-genuinely co-primitive (each requires the other, neither reducible to
-anything simpler alone)? If genuinely co-primitive, the honest next
-move may be to stop looking for a single atomic `A` and instead treat
-the *pair* `{DISTINCTION, PLURALITY}` as one candidate foundational
-unit, and attack *that* as a whole.
+Чи `PLURALITY` розкладається незалежно від `DISTINCTION`, чи вони
+справді co-primitive (кожне вимагає інше, жодне не зводиться до чогось
+простішого окремо)? Якщо справді co-primitive, чесний наступний хід —
+припинити шукати єдиний атомарний `A` і натомість розглядати *пару*
+`{DISTINCTION, PLURALITY}` як один кандидатний фундаментальний
+елемент, і атакувати *це* як ціле.
+
+---
+
+## DISTINCTION attacked (English, secondary)
+
+Corrected the negative-result phrasing (a claim about the construction
+system, not `()`'s nature). Upgraded to a partial-order methodology
+over scalar dependency-closure size. Attacked DISTINCTION with four
+vectors; three land, relata/plurality nearly fatal alone. Found a
+possible circularity: DISTINCTION and PLURALITY may mutually presuppose
+each other rather than one deriving from the other. Adopted the
+GIVEN/INTRODUCED/DERIVED provenance triplet and a minimality status
+ladder distinguishing "we don't know a weaker candidate" from "none
+exists." See the Ukrainian version above for full detail.
