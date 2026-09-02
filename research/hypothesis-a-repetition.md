@@ -1,109 +1,113 @@
-# Hypothesis A: Mathematics from repetition — proposed, then attacked
+# () → mathematics: two attacked hypotheses and a deeper open candidate
 
-**Status: HYPOTHESIS UNDER ATTACK, not accepted.** The owner's own
-counter-proposal to `research/first-step-candidate.md` (branch), given
-explicitly for critique, with his own sharpest question attached. This
-document records the proposal, Claude's attack on it, and the
-resulting synthesis — not a settled conclusion.
+**Status: OPEN. Nothing here is accepted.** A running record of a
+mutual-attack exchange between the owner and Claude on the standing
+question in `research/handoff-state.md`. The negative results below
+are the actual content — the owner's own framing: "негативний результат
+тут не провал — він відкрив залежності, яких ми раніше не бачили" (a
+negative result here is not failure — it revealed dependencies we
+hadn't seen before).
 
-## The proposal, in the owner's own structure
+## Round 1 — Hypothesis A: mathematics from repetition (attacked, broken)
+
+The owner's proposal: `() -> REPEAT -> finite repetition -> natural
+number -> composition -> arithmetic -> 2+2=4 -> t`. Numbers as later
+names (`≔`, not `=`) for prior constructions; `+` as literal
+concatenation; `=` as structural equivalence distinct from address
+identity.
+
+**Claude's attack**, confirmed correct by the owner:
+
+1. For `() ()` to have structure at all, discrete parts need
+   individuation — a weak form of identity entering through the back
+   door, even though the proposal carefully avoided comparing `()` to
+   `()` directly.
+2. "Потім знову" (then again) already imports sequence/time — an open
+   wound shared with the branch proposal, not a discriminator between
+   them.
+3. Iterated construction from `()` already has the combinatorial
+   structure of the naturals, just unnamed. **Correction accepted from
+   the owner**: this is not literally the von Neumann nested-set
+   construction (`0=∅, 1={∅}, 2={∅,{∅}}`) as Claude first claimed — it
+   is closer to a unary/tally construction (Zermelo-style
+   `1={0}, 2={1}, ...` or plain tally marks). The substance of the
+   attack stands regardless of which specific classical construction it
+   resembles: a discrete, repeatable, ordered unit-construction is
+   already isomorphic to a piece of arithmetic, whatever it's called.
+
+**The proposal's own fatal seam, found by the owner himself**: `REPEAT`
+alone never terminates. `() () ()` requires that a *next* repetition
+did *not* happen — i.e., a "continue / stop" decision already exists at
+the exact point the chain claims to produce "finite repetition." The
+chain breaks precisely at `REPEAT -> finite repetition`, because
+finiteness already presupposes a decision mechanism the chain hadn't
+introduced yet.
+
+## Round 2 — the same attack turned on BRANCH (also broken)
+
+Claude's own earlier proposal (`first-step-candidate.md`): branch as
+"do one thing if `()`, a different uninterpreted thing otherwise." The
+owner turned the identical rigor on it, and it does not survive intact
+either:
+
+1. **Plurality.** Saying "more than one possible continuation exists"
+   already uses "more than one" — the same quantity/number concept
+   that broke `REPEAT`. Branch does not avoid the number trap; it
+   relocates it from "how many repetitions" to "how many alternatives."
+2. **Distinction.** For path A and path B to be different
+   continuations (not the same one twice), some notion of distinctness
+   between them is required — the same weak-identity problem
+   individuation had for `REPEAT`. Symmetric failure.
+3. **Modality.** "Possible" continuation invokes potentiality — "could
+   be otherwise" — arguably a *deeper* import than arithmetic, not a
+   lighter one.
+
+An attempted rescue (branch as a unary "the world need not stay
+uniform," not an N-ary choice) does not escape either: even one single
+deviation from a default already produces a pair — "as usual" and "not
+as usual." Duality appears the moment anything besides pure, uniform
+`()` exists at all.
+
+## Round 3 — a deeper open candidate, not yet a hypothesis
+
+Both `REPEAT` and `BRANCH`, attacked far enough, seem to consume
+something even more primitive than either claims to introduce:
 
 ```text
 ()
 |
-REPEAT
+|  ?
 |
-finite repetition
++-- REPEAT   -- needs individuation + sequence + termination(-> branch)
++-- BRANCH   -- needs plurality + distinction + modality("possible")
 |
-natural number
-|
-composition of quantities
-|
-arithmetic
-|
-2 + 2 = 4
-|
-t
+v
+????
 ```
 
-Not: `() = 0` or `() = object` — no content is assigned to `()`
-itself. Only one operation is admitted: `R(())` yields another
-presence, `() -> () ()`. Numbers are proposed as *later names* for
-these prior constructions (`1 ≔ ()`, `2 ≔ () ()`, ..., deliberately
-using `≔` — "we later name this" — not `=`). `+` is proposed as literal
-concatenation of constructions. `=` is proposed as *structural*
-equivalence, distinct from physical/address identity — two
-independently-built results at different memory addresses, same shape.
+**Tentative, unnamed, third candidate**: not "two paths," not "another
+presence" — a single, one-time split: `()` and "something that is not
+`()`," admitted exactly once, with **no claim about repeatability**
+(that is precisely what broke `REPEAT`) and **no claim about how many
+alternatives exist** (that is precisely what broke `BRANCH`). Not a
+Boolean (a Boolean is already a type with two named values and
+arithmetic-adjacent structure over them) — narrower than that. This
+may be the same thing the project's own earlier philosophy already
+gestured at ("`()` is not a container — `unknown`/`possible`/`not` are
+separate expressions layered beside it," recorded pre-`wsm`) without
+recognizing it as possibly more primitive than either repetition or
+branching individually.
 
-The owner's own sharpest question, stated before any defense was
-offered: **"Чи можемо ми ввести 'повторення', не приховавши всередині
-нього вже готові поняття тотожності, часу, порядку та числа?"** (Can
-we introduce "repetition" without hiding inside it already-ready
-concepts of identity, time, order, and number?) — with his own
-explicit acceptance that "no" would be a good result, not a failure to
-avoid.
+**This is explicitly not committed.** It is a third thing to attack,
+not a winner. The open question for the next round: does *this*
+minimal, one-time, non-counted, non-repeatable split survive the same
+kind of attack that broke the first two — or does even "one-time" and
+"exactly" already smuggle in counting?
 
-## The attack
+## Standing rule this exchange established
 
-1. **Instance individuation smuggles in a weak form of identity.** The
-   proposal carefully avoids claiming `()` differs from `()` — only
-   that "the whole constructions differ." But for `() ()` to have any
-   structure at all (rather than being one indistinct blob), the
-   machine needs discreteness of parts — some way to say "this cell of
-   presence ends, another begins." That discreteness is identity
-   entering through a side door: not value-identity, but instance-
-   individuation, which is still a form of the thing the proposal set
-   out to avoid presupposing.
-2. **"Then again" already imports sequence.** The word "потім" (then)
-   in "потім знову присутнє" is not free. This is not a point in the
-   repetition hypothesis's favor or against it specifically — it is
-   the *same* open wound already flagged in `first-step-candidate.md`
-   for the branch proposal ("does branch already presuppose
-   sequence/time/process?"). Neither hypothesis has closed this; it is
-   a shared vulnerability of both, not a discriminator between them.
-3. **The number is already there, just unnamed.** Using `≔` instead of
-   `=` for `1 ≔ ()`, `2 ≔ () ()`, etc. is an elegant move, but it does
-   not escape the substance: iterated construction from the empty set
-   is *structurally identical* to the von Neumann construction of the
-   natural numbers (0=∅, 1={∅}, 2={∅,{∅}}, ...), just in unary rather
-   than nested notation. A unary tally system is not "not yet
-   mathematics, later given a name" — it is mathematics in a different
-   notation. Renaming the structure does not un-import it.
-
-## The synthesis: repeat may need branch, not replace it
-
-The proposal's own diagram requires *finite* repetition. Finiteness
-requires stopping somewhere — and the decision "repeat again, or stop"
-is exactly a branch:
-
-```text
-REPEAT-to-finiteness = REPEAT + a decision ("again, or stop")
-                                          |
-                                          v
-                                       BRANCH
-```
-
-Unbounded `REPEAT` alone does not produce finite numbers — it produces
-an unbounded process. Finiteness only arrives because a branch decision
-("enough") happens somewhere. If this holds, **repetition is not an
-alternative to branch — it consumes branch as a prerequisite.** The
-same applies to the proposal's own account of `=` (point 6): comparing
-two constructions structurally requires traversal (a form of
-repetition) and, at each step, a decision ("do they still match, have
-we reached the end of both") — branch again.
-
-**Working conclusion, itself not final:** the two hypotheses
-(`first-step-candidate.md`'s branch, and this repetition hypothesis)
-are not competitors at the same level. Branch looks more primitive;
-repetition, at least in the finite form this proposal actually needs,
-appears to be built from branch plus storage, not the reverse.
-
-One thing this hypothesis contributes independently of its own
-survival: **"physical identity != structural equivalence"** (two
-results at different addresses, same shape) is a real, sharp insight,
-and it is the exact same shape as the already-recorded
-`readable != physically representative` principle
-(`research/handoff-state.md`) applied one layer down — from "what a
-probe reads" to "what a constructed value means regardless of where it
-sits in memory." That observation survives even if the repetition
-scheme as a whole does not.
+A hypothesis that survives its own author's sharpest question is
+trustworthy; a hypothesis whose author never asks the sharpest
+question is not, regardless of how it turns out. Neither `REPEAT` nor
+`BRANCH` survived — that outcome is itself the first real result of
+this line of `wsm` research, not a setback to route around.

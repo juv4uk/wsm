@@ -1,10 +1,17 @@
 # First step candidate: () → branch
 
-**Status: PROPOSAL, not accepted.** Answers the standing open question
-in `research/handoff-state.md` ("Який найменший додатковий крок після
-`()`..."). Written by Claude (Sonnet 5) on request, explicitly offered
-for critique, not as a settled conclusion. `asm/` stays empty — this
-proposal does not get materialized until it survives review.
+**Status: ATTACKED, broken as stated.** Answers the standing open
+question in `research/handoff-state.md` ("Який найменший додатковий
+крок після `()`..."). Written by Claude (Sonnet 5) on request. The
+owner turned the same rigor used against his own counter-proposal
+(`hypothesis-a-repetition.md`) back onto this one: branch does not
+avoid the number trap either (it relocates "how many repetitions" into
+"how many alternatives" — "more than one possible continuation" already
+uses "more than one"), and "possible" continuation additionally imports
+modality, arguably a heavier import than arithmetic. See
+`hypothesis-a-repetition.md` for the full exchange and the deeper,
+still-unnamed third candidate it produced. `asm/` stays empty — nothing
+here is materialized.
 
 ## Candidates considered and rejected first
 
