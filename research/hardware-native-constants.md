@@ -1,114 +1,131 @@
-# Can the machine discover its own constants without an external observer?
+# Чи може машина відкрити власні константи без зовнішнього спостерігача?
 
-**Status: OPEN — real physics, real structural trap, not resolved.**
+**Статус: ВІДКРИТО — реальна фізика, реальна структурна пастка, не
+вирішено.**
 
-## Contributors
-
-```text
-Author:   Volodymyr
-Role:     WSM project owner
-Content:  the proposal -- an experiment without an external observer,
-          the machine discovering real-world constants through its own
-          hardware, citing semiconductor shot-noise research
-
-Author:   Claude Sonnet 5 (Anthropic)
-Role:     WSM Foundations Research collaborator
-Content:  verifying the physics claim, the elementary-charge/Euler's-e
-          notation trap, the structural attack on "no observer needed"
-```
-
-## The proposal
-
-Rather than relying on trust in a designated external observer (Round
-7's unresolved honesty problem), have the system itself discover real
-physical constants through its own hardware's capabilities — an
-experiment requiring no external observer at all. Cited candidate: a
-scientific claim that weak current in semiconductors reflects Euler's
-number `e`.
-
-## The physics, checked, not assumed
-
-Real and well-established: semiconductor **shot noise** (Schottky,
-1918) — current fluctuations from the discreteness of electron charge —
-genuinely follows **Poisson statistics**.
-
-**A real notation trap found while checking**: the classic shot-noise
-power spectral density formula, `S = 2eI`, uses `e` for the
-**elementary electric charge** (≈1.6×10⁻¹⁹ C) — **not Euler's number**
-(≈2.71828). These are different objects sharing one symbol in physics
-notation, and conflating them here would be the exact category error
-this project already caught once (`Tag::True` — mistaking a
-representation for the semantic content it happens to share a name
-with).
-
-**The genuine connection, more indirect than "current reflects e"**:
-the Poisson distribution's own formula, `P(k) = λᵏe^(−λ)/k!`, does
-contain Euler's number, as the base of its exponential term. Shot
-noise's event statistics take this form. So there is a real link — but
-seeing it requires collecting many measurements, building a
-distribution, and recognizing that distribution as Poissonian, not
-reading `e` directly off a current trace.
-
-## The structural attack: does this escape the observer requirement, or hide it?
-
-If WSM's own hardware both *generates* the noise data and *concludes*
-"this is Poissonian, therefore `e` is present here," that is
-self-verification wearing a physics costume — the same Round 1 illusion
-trap (`the-observer-gap.md`), not an escape from it. Being about real
-physical noise rather than pure logical self-reference does not change
-the structural fact: the checker and the checked are the same system.
-
-## Where this actually fits in the architecture already built
-
-Not a bypass of `SINGULAR EXTERNAL` — a input to `PLURAL INTERNAL`:
+## Учасники
 
 ```text
-hardware noise / real measurement  -> PLURAL INTERNAL (raw candidate data)
-"this is Poissonian, e is present" -> still requires SINGULAR EXTERNAL
-                                        confirmation, same as any other claim
+Автор:    Volodymyr
+Роль:     власник проєкту WSM
+Внесок:   пропозиція -- експеримент без зовнішнього спостерігача,
+          машина відкриває константи реального світу через власне
+          залізо, з цитуванням дослідження шумів у напівпровідниках
+
+Автор:    Claude Sonnet 5 (Anthropic)
+Роль:     дослідницький партнер WSM Foundations Research
+Внесок:   перевірка фізичного твердження, пастка позначень
+          елементарний-заряд/число-Ейлера, структурна атака на
+          "спостерігач не потрібен"
 ```
 
-Measuring real hardware phenomena is a genuinely valuable source of
-*candidates* — arguably a richer one than pure internal disagreement
-(Round 4), since it is grounded in real physics rather than only
-argument. It does not remove the need for external confirmation that
-the interpretation of the measurement is correct. `wsm-os`'s own probe
-work (`handoff-probe.c`, `exit-boundary-probe.c`) already follows this
-exact discipline for hardware state generally — real measurements,
-always labeled by what confirmed them, never self-trusted.
+## Пропозиція
 
-## Update: a real probe was built and run, not left as talk
+Замість покладання на довіру до призначеного зовнішнього спостерігача
+(нерозв'язана проблема чесності з Раунду 7), нехай сама система
+відкриває реальні фізичні константи через можливості власного заліза
+— експеримент, що взагалі не потребує зовнішнього спостерігача.
+Наведений кандидат: наукове твердження, що слабкий струм у
+напівпровідниках відображає число Ейлера `e`.
 
-Per the owner's direct instruction to stop discussing and start
-researching, `wsm-os/probe/entropy-source-probe.c` was built and run
-for real — `RDSEED`/`RDRAND`, the concrete, testable version of this
-idea (real Intel hardware entropy instructions, confirmed present on
-the owner's own CPU). Full results in `wsm-os/probe/ENTROPY-RESULTS.md`.
+## Фізика, перевірена, не прийнята на віру
 
-Real finding, not a null result: under this lab's QEMU/TCG setup, 256
-RDSEED calls succeeded with **zero** retries — real Intel silicon
-documents occasional RDSEED failure as expected entropy-exhaustion
-behavior, so zero failures strongly suggests TCG emulates RDSEED via
-the host OS's random source rather than modeling real hardware entropy
-behavior under load. **The specific retries-look-Poisson test this
-document originally proposed is not currently testable in this QEMU/TCG
-lab** — it needs real physical hardware, or a QEMU configuration that
-actually models entropy exhaustion, neither attempted yet. This is a
-structural limit of the current lab setup, found empirically rather
-than assumed, not a dead end for the underlying idea.
+Реальне й добре встановлене: **shot noise** напівпровідників
+(Schottky, 1918) — флуктуації струму від дискретності заряду
+електрона — справді підкоряється **статистиці Пуассона**.
 
-## Not resolved
+**Реальна пастка позначень, знайдена під час перевірки**: класична
+формула спектральної потужності shot noise, `S = 2eI`, використовує
+`e` для **елементарного електричного заряду** (≈1.6×10⁻¹⁹ Кл) — **не
+числа Ейлера** (≈2.71828). Це різні об'єкти, що діляться одним
+символом у фізичних позначеннях, і сплутати їх тут було б точно тією
+самою помилкою категорії, яку цей проєкт уже впіймав раз (`Tag::True`
+— сплутати представлення зі семантичним змістом, з яким воно випадково
+ділить ім'я).
 
-Whether physical hardware execution (separate, owner-authorized future
-work) would show real RDSEED retry behavior worth statistically
-analyzing for a Poisson/geometric shape, and whether shot-noise or
-another hardware-native phenomenon is worth pursuing as a
-physically-grounded `PLURAL INTERNAL` source more generally — separate,
-in either case, from whether it could ever replace `SINGULAR EXTERNAL`
-(it cannot, per the attack above).
+**Справжній зв'язок, тонший за "струм відображає e"**: власна формула
+розподілу Пуассона, `P(k) = λᵏe^(−λ)/k!`, справді містить число
+Ейлера, як основу свого експоненційного члена. Статистика подій shot
+noise має саме цю форму. Тож реальний зв'язок є — але побачити його
+вимагає зібрати багато вимірювань, побудувати розподіл і розпізнати
+його як пуассонівський, не прочитати `e` напряму з трасування струму.
 
-## Sources
+## Структурна атака: чи це уникає вимоги спостерігача, чи ховає її?
+
+Якщо власне залізо WSM і *генерує* дані про шум, і *робить висновок*
+"це пуассонівське, отже тут присутнє `e`" — це самоперевірка у
+фізичному костюмі, та сама пастка ілюзії з Раунду 1
+(`the-observer-gap.md`), не втеча від неї. Те, що це про реальний
+фізичний шум, а не чисту логічну саморефлексію, не змінює структурного
+факту: перевіряючий і перевірюваний — та сама система.
+
+## Де це реально вписується у вже побудовану архітектуру
+
+Не обхід `SINGULAR EXTERNAL` — вхідні дані для `PLURAL INTERNAL`:
+
+```text
+апаратний шум / реальний вимір      -> PLURAL INTERNAL (сирі дані-кандидати)
+"це пуассонівське, e присутнє"      -> досі потребує SINGULAR EXTERNAL
+                                        підтвердження, як і будь-яке інше твердження
+```
+
+Вимір реальних апаратних явищ — справді цінне джерело *кандидатів* —
+можливо, багатше за чисто внутрішню незгоду (Раунд 4), оскільки
+вкорінене в реальній фізиці, не лише в аргументі. Це не усуває потребу
+в зовнішньому підтвердженні, що інтерпретація виміру правильна. Власна
+робота проб `wsm-os` (`handoff-probe.c`, `exit-boundary-probe.c`) уже
+слідує саме цій дисципліні для стану заліза загалом — реальні виміри,
+завжди підписані тим, що їх підтвердило, ніколи не довірені самі собі.
+
+## Оновлення: реальну пробу побудовано й запущено, не лишено як розмову
+
+За прямою інструкцією власника припинити обговорення й почати
+дослідження, `wsm-os/probe/entropy-source-probe.c` реально побудовано
+й запущено — `RDSEED`/`RDRAND`, конкретна, перевірювана версія цієї
+ідеї (реальні апаратні інструкції ентропії Intel, підтверджено
+присутні на власному CPU власника). Повні результати в
+`wsm-os/probe/ENTROPY-RESULTS.md`.
+
+Реальна знахідка, не нульовий результат: під цим лабораторним
+налаштуванням QEMU/TCG 256 викликів RDSEED вдались із **нулем**
+повторних спроб — реальний кремній Intel документує випадковий провал
+RDSEED як очікувану поведінку виснаження ентропії, тож нуль провалів
+сильно натякає, що TCG емулює RDSEED через випадкове джерело ОС хоста,
+а не моделює реальну апаратну поведінку ентропії під навантаженням.
+**Конкретний тест "повторні-спроби-виглядають-як-Пуассон", який цей
+документ спочатку запропонував, зараз неможливо перевірити в цій
+лабораторії QEMU/TCG** — потрібне реальне фізичне залізо, або
+конфігурація QEMU, що реально моделює виснаження ентропії, жодного з
+яких ще не пробувано. Це структурна межа поточного лабораторного
+налаштування, знайдена емпірично, а не прийнята на віру, не глухий кут
+для самої ідеї.
+
+## Не вирішено
+
+Чи виконання на фізичному залізі (окрема, авторизована власником
+майбутня робота) показало б реальну поведінку повторних спроб RDSEED,
+варту статистичного аналізу на пуассонівську/геометричну форму, і чи
+варто шукати shot noise чи інше апаратно-native явище як фізично
+вкорінене джерело `PLURAL INTERNAL` загальніше — в обох випадках
+окремо від питання, чи це коли-небудь могло б замінити `SINGULAR
+EXTERNAL` (не могло б, за атакою вище).
+
+## Джерела
 
 - [Wikipedia: Shot noise](https://en.wikipedia.org/wiki/Shot_noise)
-- [UC Davis: Shot Noise -- History and Background](https://123.physics.ucdavis.edu/shot_files/ShotNoise.pdf)
+- [UC Davis: Shot Noise — History and Background](https://123.physics.ucdavis.edu/shot_files/ShotNoise.pdf)
 - [arXiv: Shot Noise in Mesoscopic Conductors](https://arxiv.org/pdf/cond-mat/9910158)
+
+---
+
+## Can the machine discover its own constants without an external observer? (English, secondary)
+
+Real physics (shot noise, genuinely Poissonian), a real notation trap
+found (elementary charge `e` vs Euler's `e` in the classic formula),
+and a structural attack: the machine generating and interpreting its
+own noise data is self-verification in a physics costume, the same
+Round 1 illusion trap. Fits as `PLURAL INTERNAL` input, not a
+`SINGULAR EXTERNAL` bypass. A real probe (RDSEED/RDRAND) was built and
+run per the owner's instruction to stop discussing and start
+researching — see the Ukrainian version above and
+`wsm-os/probe/ENTROPY-RESULTS.md` for the real empirical finding.
