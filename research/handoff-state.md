@@ -124,6 +124,27 @@ framebuffer    = ?
 ACPI tables    = ?
 ```
 
+**Update — real, not sketched: a minimal UEFI probe now exists and
+runs**, at `wsm-os/probe/handoff-probe.c` (built with clang/lld-link,
+not gnu-efi's own toolchain — a real, documented compatibility bug was
+found and worked around; see `wsm-os/probe/README.md` for the full
+bisection). It reads most of the list above directly
+(CR0/CR3/CR4/EFER/RSP+alignment/RFLAGS/GDTR/IDTR/CPUID/live-microcode-
+revision/memory-map/ACPI-RSDP/SMBIOS/framebuffer) before
+`ExitBootServices()`, and a real run is captured in that README.
+**Scope, stated plainly: that run is `LIVE-CONFIRMED` for the QEMU/OVMF
+virtual environment, not the owner's physical machine** — two concrete
+divergences are already visible from the emulation boundary alone
+(TCG's microcode-revision read is a stub value `0x1`, not a real
+silicon reading; the reported CPUID signature is QEMU faithfully
+echoing back the `-cpu Skylake-Client-v1` model it was told to
+emulate, not independent confirmation). Running this probe on the real
+i5-6400 is separate, owner-authorized future work — the tooling to do
+it now exists; running it does not follow automatically. `cores
+online` and `APIC` (beyond the single boot-strap-processor's initial
+APIC ID) are not yet read — a real ACPI MADT walk would be needed for
+those, not yet implemented.
+
 ## A sketch, not yet started
 
 ```text
