@@ -1,37 +1,37 @@
-# The research question, reframed: provenance, not derivation
+# Дослідницьке питання, переформульоване: provenance, не виведення
 
-**Status: OPEN, a reframing not a conclusion.** Follows
-`hypothesis-a-repetition.md` (both `REPEAT` and `BRANCH` attacked and
-broken). This document records a structural result reached by pushing
-the attack one level further — not a fourth hypothesis to attack, but a
-change in what kind of question is even being asked.
+**Статус: ВІДКРИТО, переформулювання, не висновок.** Продовжує
+`hypothesis-a-repetition.md` (і `REPEAT`, і `BRANCH` атаковані й
+зламані). Цей документ фіксує структурний результат, досягнутий
+проштовхуванням атаки на рівень глибше — не четверта гіпотеза для
+атаки, а зміна того, яке питання взагалі ставиться.
 
-## Contributors
+## Учасники
 
 ```text
-Author:   GPT-5.6 Sol (OpenAI), relayed by Volodymyr
-Role:     WSM Foundations Research collaborator
-Content:  the structural result, the () + A -> X reframing, t[A],
-          the distinction candidate, the measurement question
+Автор:    GPT-5.6 Sol (OpenAI), передано через Volodymyr
+Роль:     дослідницький партнер WSM Foundations Research
+Внесок:   структурний результат, переформулювання () + A -> X, t[A],
+          кандидат distinction, питання про вимір
 
-Author:   Claude Sonnet 5 (Anthropic)
-Role:     WSM Foundations Research collaborator
-Content:  connecting t[A] to this project's existing evidence-labeling
-          discipline (see "the same epistemology" section below)
+Автор:    Claude Sonnet 5 (Anthropic)
+Роль:     дослідницький партнер WSM Foundations Research
+Внесок:   зв'язок t[A] із наявною в проєкті дисципліною маркування
+          доказів (див. розділ "та сама епістемологія" нижче)
 ```
 
-## The structural result
+## Структурний результат
 
-Any step `() -> X` where `X` carries content beyond bare presence must
-import something `()` does not contain: an operation, a relation, a
-distinction, a rule, an observer, a transition. `()` has no
-description by the project's own founding axiom ("`()` не визначаємо.
-Ми лише не дозволяємо машині його втратити.") — so nothing can be
-validly derived from it alone. This is not a failure of ingenuity. It
-is structural, close to *ex nihilo nihil fit*: a thing defined as
-having no content cannot, by derivation alone, produce content.
+Будь-який крок `() -> X`, де `X` несе зміст понад голу присутність,
+мусить імпортувати щось, чого `()` не містить: операцію, відношення,
+розрізнення, правило, спостерігача, перехід. `()` не має опису за
+власною засновничою аксіомою проєкту ("`()` не визначаємо. Ми лише не
+дозволяємо машині його втратити.") — тож нічого не може бути законно
+виведене з нього самого. Це не невдача винахідливості. Це структурно,
+близько до *ex nihilo nihil fit*: річ, означена як така, що не має
+змісту, не може, лише через виведення, породити зміст.
 
-GPT-5.6 Sol's reframing of the honest form of any real step:
+Переформулювання GPT-5.6 Sol чесної форми будь-якого реального кроку:
 
 ```text
 ()
@@ -42,17 +42,15 @@ v
 X
 ```
 
-where `A` is the **first explicitly introduced assumption** — never
-hidden, never smuggled. The research question changes from "how do we
-get mathematics out of `()` with nothing extra" (now known to be
-impossible) to:
+де `A` — **перша явно введена передумова** — ніколи не прихована,
+ніколи не контрабандна. Дослідницьке питання змінюється з "як отримати
+математику з `()` без нічого додаткового" (тепер відомо, що
+неможливо) на:
 
 > **Яка найменша передумова, яку ми готові внести відкрито, після якої
-> математика стає можливою?** (What is the smallest assumption we are
-> willing to introduce openly, after which mathematics becomes
-> possible?)
+> математика стає можливою?**
 
-## `t` reframed: provenance, not absolute truth
+## `t` переформульоване: provenance, не абсолютна істина
 
 ```text
 2 + 2 = 4
@@ -61,7 +59,7 @@ impossible) to:
     t
 ```
 
-becomes, conceptually (not literal syntax):
+стає, концептуально (не буквальний синтаксис):
 
 ```text
 A
@@ -73,36 +71,35 @@ A
 t[A]
 ```
 
-`t` is not claimed as absolute metaphysical truth, and not weakened
-into probability or "possibly so." It is **formal truth with known
-provenance** — true *within the explicitly built system of
-assumptions*, with the dependency chain back to `A` never discarded.
-`2 + 2 = 4` would carry its own lineage (`depends on addition, which
-depends on ..., which ultimately depends on A`), inspectable, not
-asserted as free-floating fact.
+`t` не стверджується як абсолютна метафізична істина, і не
+послаблюється до ймовірності чи "можливо так". Це **формальна істина
+з відомим provenance** — істинна *в межах явно побудованої системи
+передумов*, з ланцюгом залежності назад до `A`, що ніколи не
+відкидається. `2 + 2 = 4` несло б власну родовідну лінію (`залежить
+від addition, яка залежить від ..., що зрештою залежить від A`),
+перевірну, не стверджену як вільно-плаваючий факт.
 
-**Claude's addition: this is the same epistemology this whole project
-already runs on, applied one level deeper.** `STATIC-CONFIRMED` / `LIVE-CONFIRMED` /
-`predicted` labeling, and the standing rule that a claim's evidence
-must never be discarded once it's been used, already govern how this
-project investigates the machine (`hardware/`, `probe/` in the sibling
-`wsm-os` repo). The provenance-boundary proposal is not a new invention
-— it is the same discipline promoted from "how we know things about
-WSM" to "how WSM will know things about itself."
+**Додаток Claude: це та сама епістемологія, на якій уже працює весь
+цей проєкт, застосована на рівень глибше.** Маркування
+`STATIC-CONFIRMED` / `LIVE-CONFIRMED` / `predicted`, і стояче правило,
+що доказ твердження ніколи не відкидається, щойно використаний, уже
+керують тим, як цей проєкт досліджує машину (`hardware/`, `probe/` у
+сусідньому репозиторії `wsm-os`). Пропозиція provenance-межі — не нове
+винайдення — це та сама дисципліна, підвищена з "як ми знаємо речі про
+WSM" до "як WSM знатиме речі про себе".
 
-## What this changes about the standing four criteria
+## Що це змінює у стоячих чотирьох критеріях
 
-Criterion 2 ("not stolen from ready-made mathematics") cannot mean "no
-external content at all" anymore — that is now known to be impossible
-for any nontrivial step. It must mean something sharper: **`A` is
-allowed mathematical content, but that content must be shown to be the
-smallest sufficient amount, not merely convenient, and its origin must
-never be hidden.**
+Критерій 2 ("не вкрадено з готової математики") більше не може означати
+"взагалі жодного зовнішнього змісту" — тепер відомо, що це неможливо
+для будь-якого нетривіального кроку. Він мусить означати щось гостріше:
+**`A` дозволено мати математичний зміст, але цей зміст має бути
+показаний як найменша достатня кількість, не просто зручна, і його
+походження ніколи не має бути прихованим.**
 
-## A candidate for the smallest explicit `A`: distinction
+## Кандидат на найменше явне `A`: distinction
 
-Looking at the dependency closures of the two broken hypotheses side by
-side:
+Дивлячись на dependency closures двох зламаних гіпотез поруч:
 
 ```text
 REPEAT:        individuation, sequence, termination
@@ -110,25 +107,39 @@ BRANCH:         distinction, plurality, modality
 this/not-this: distinction, identity, negation
 ```
 
-**`distinction` is the one thing common to all three.** Not sequence,
-not plurality, not negation alone — every broken candidate quietly
-needed *some* notion that things can be told apart before it needed
-anything else. This suggests a candidate for `A` narrower than any of
-the three original hypotheses: not "this/not-this" (which already
-bundles identity and negation on top), just the bare, not-yet-decomposed
-**possibility of distinction itself** — no claim about how many things
-are distinguished, no negation, no identity relation asserted, only
-that telling-apart is possible at all.
+**`distinction` — єдине, спільне для всіх трьох.** Не sequence, не
+plurality, не negation окремо — кожен зламаний кандидат тихо потребував
+*якесь* поняття, що речі можна відрізнити, перш ніж потребував
+чогось іншого. Це наводить на кандидата для `A`, вужчого за будь-яку з
+трьох оригінальних гіпотез: не "this/not-this" (яке вже пов'язує
+identity й negation зверху), лише голу, ще не розкладену **можливість
+самого розрізнення** — жодного твердження про те, скільки речей
+розрізняється, жодного заперечення, жодного відношення тотожності не
+стверджено, лише те, що розрізнення взагалі можливе.
 
-**Not committed.** Whether "distinction" is itself atomic or further
-decomposable is exactly what the next round of attack should test.
+**Не прийнято.** Чи `distinction` саме атомарне, чи далі розкладається
+— це саме те, що має перевірити наступний раунд атаки.
 
-## The open measurement question
+## Відкрите питання про вимір
 
-"Smallest assumption" is not yet a criterion with teeth. Without a way
-to actually measure the size of `A` — by its dependency-closure size,
-by some other principled metric — "smallest" collapses into aesthetic
-judgment. This is the sharpest open question left standing: **how is
-the size of a foundational assumption actually measured**, so that
-comparing candidate `A`s is a real research procedure and not a taste
-contest.
+"Найменша передумова" — ще не критерій із зубами. Без способу реально
+виміряти розмір `A` — розміром dependency closure, якоюсь іншою
+принциповою метрикою — "найменше" колапсує в естетичне судження. Це
+найгостріше відкрите питання, що лишається: **як реально виміряти
+розмір фундаментальної передумови**, щоб порівняння кандидатів `A` було
+реальною дослідницькою процедурою, а не конкурсом смаку.
+
+---
+
+## The research question, reframed: provenance, not derivation (English, secondary)
+
+Structural result: any nontrivial step from `()` must import something
+external — `A`, the first explicitly introduced assumption. `t`
+reframed as `t[A]`, formal truth with known provenance, not absolute
+truth. Connects to this project's existing STATIC/LIVE-CONFIRMED/
+predicted discipline. Criterion 2 sharpened: `A` may have content, but
+it must be shown minimal and never hidden. `distinction` proposed as a
+narrower candidate (common to all broken hypotheses' dependency
+closures), not committed. Leaves the open measurement question: how is
+"smallest" actually measured. See the Ukrainian version above for full
+detail.
