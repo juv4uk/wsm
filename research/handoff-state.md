@@ -1,0 +1,159 @@
+# The handoff state
+
+BIOS/firmware research does not matter to WSM for its own sake. It
+matters only to the extent it answers one question:
+
+> In what state is the hardware in the last moment before my code
+> begins?
+
+Three different levels of firmware research answer three different
+questions, and they should not be conflated:
+
+```text
+1. STATIC IMAGE
+   What physically sits in SPI flash?
+
+2. BOOT BEHAVIOUR
+   What does firmware actually do to the CPU?
+   Modes, MSRs, memory map, APIC, microcode.
+
+3. HANDOFF STATE
+   What exact machine state exists at the moment
+   control passes to WSM?
+```
+
+Level 1 was done first, on the owner's real F22e BIOS (Gigabyte
+GA-H170-Gaming 3), and lives in the sibling `wsm-os` repository:
+`wsm-os/hardware/bios-f22e/BINARY-ANALYSIS.md`. It is real, useful
+provenance — a genuine Intel Flash Descriptor image, LZMA-compressed
+UEFI firmware volumes, a directly embedded build string
+(`BIOS Date: 03/09/2018 20:42:30`), board and NIC identity confirmed
+from the binary itself, not a vendor page. It should not be discarded.
+But it answers level 1, not level 3 — and level 3 is what WSM actually
+needs. A month spent disassembling DXE drivers is still only level 1/2
+work; a single small bare-metal probe reading real CPU/platform state
+is level 3, and level 3 is worth more to WSM than exhaustive coverage
+of level 1.
+
+## A concrete demonstration that levels 1 and 3 really do diverge
+
+The static image search for an embedded Intel microcode update matching
+the owner's CPU (signature `0x000506E3`) found nothing — reported
+honestly as `not-yet-verified`, not `absent` (see `BINARY-ANALYSIS.md`).
+Rather than keep hunting the image for it, the live, currently-active
+microcode revision was read directly from the real machine instead:
+Windows' own registry (`HKLM\HARDWARE\DESCRIPTION\System\CentralProcessor\0`,
+`Update Revision`), populated by Windows itself from the real CPU at
+boot, not a WSL2/Hyper-V virtualized view (WSL2's own `/proc/cpuinfo`
+reports `microcode: 0xffffffff` — a sentinel meaning "not observable
+through this virtualization boundary," confirmed empirically, not a
+gap to work around with more tooling).
+
+**Live-observed:** revision `0xD6` (214), CPU identifier
+`Intel64 Family 6 Model 94 Stepping 3` — matching the CPUID signature
+exactly.
+
+**Cross-referenced against a real, dated, third-party record**
+(Debian's own `intel-microcode` package changelog):
+
+```text
+sig 0x000506e3, pf_mask 0x36, 2019-10-03, rev 0x00d6, size 101376
+```
+
+Same signature, same revision, and a **date — 2019-10-03** — roughly
+nineteen months after F22e's own build date (2018-03-09,
+independently triple-confirmed in `BINARY-ANALYSIS.md`). A revision
+dated over a year and a half after the BIOS was built cannot be the
+one F22e itself embeds and loads at power-on. It is almost certainly a
+later, OS-supplied override — most likely delivered through Windows
+Update's own microcode-loading mechanism — layered on top of whatever
+F22e's own image actually contains.
+
+This is exactly the level-1-vs-level-3 gap made concrete: the static
+image says "some microcode, built 2018-03-09, blob not yet located";
+the live machine says "revision 0xD6, independently dated 2019-10-03
+by a real changelog." Neither statement is wrong. They are answers to
+different questions, and only the second one describes what the CPU
+is actually running right now.
+
+One further honest limit, not yet closed: what was read is Windows'
+*own* final view, after Windows' *own* microcode loader has already
+run — one layer removed again from the true firmware-to-first-code
+handoff state (before any OS has touched the CPU at all). Getting
+*that* state requires something running before an OS's own microcode
+override lands, closer to what a small bare-metal probe would see.
+
+## What a WSM-bearing handoff state actually needs to record
+
+Not BIOS archaeology. This list, read once, directly, at the true
+handoff point:
+
+```text
+CPU mode       = ?
+CR0            = ?
+CR3            = ?
+CR4            = ?
+EFER           = ?
+page tables    = ?
+GDT            = ?
+IDT            = ?
+stack          = ?
+RSP alignment  = ?
+memory map     = ?
+APIC           = ?
+microcode rev  = ?
+cores online   = ?
+interrupts     = ?
+framebuffer    = ?
+ACPI tables    = ?
+```
+
+## A sketch, not yet started
+
+```text
+AMI/UEFI
+   |
+   | bootstrap only
+   v
+tiny loader
+   |
+   +-- records machine state
+   +-- disables what WSM does not need
+   +-- transfers control
+           |
+           v
+         WSM-0
+           |
+           v
+          ()
+```
+
+No Rust runtime. No libc. No heap. No Lisp. No Bool. No `Tag::True`.
+Perhaps as little as:
+
+```text
+_start:
+    ...
+    mov <representation-of-()>, %rax
+    ...
+```
+
+with an external probe (serial, debug port) confirming the machine
+actually reached that state — an external witness, not a self-report,
+per the same observation-vs-self-report discipline this whole
+ecosystem already holds itself to elsewhere.
+
+This sketch is not started. It is recorded here because it reframes
+what BIOS research is *for*: not curiosity about AMI Aptio, but finding
+the minimal boundary between the machine firmware hands us and the
+machine WSM actually owns.
+
+```text
+BIOS analysis
+      |
+machine boundary
+      |
+WSM entry state
+      |
+      ()
+```
