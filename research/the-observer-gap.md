@@ -1,7 +1,9 @@
 # The observer gap: every prior round assumed one without naming it
 
-**Status: OPEN — a meta-level finding, not another attacked hypothesis.**
-Applies retroactively to every document in `research/`.
+**Status: external-vs-internal question DECIDED (external, always);
+what "external observation" concretely requires for WSM remains OPEN.**
+A meta-level finding, not another attacked hypothesis — applies
+retroactively to every document in `research/`.
 
 ## Contributors
 
@@ -57,25 +59,44 @@ it should simply be named honestly as what has been doing the checking
 all along.
 
 **Internal observer** (WSM verifying its own foundational claims,
-without an external check): a genuinely harder problem, not yet
-touched by anything in this thread. A system attempting to verify its
-own consistency or the truth of its own claims from entirely within
-itself runs into real, well-established limits — Gödel's incompleteness
-theorems, named here as a real body of existing work this direction
-would run into, not as content to import into WSM. If WSM is ever meant
-to know `2 + 2 = 4` as *its own* verified fact, rather than as
-something reported to it from outside, this is the actual territory
-that question enters, and it has known hard limits already studied for
-a century.
+without an external check): a genuinely harder problem. A system
+attempting to verify its own consistency or the truth of its own
+claims from entirely within itself runs into real, well-established
+limits — Gödel's incompleteness theorems, named here as a real body of
+existing work this direction would run into, not as content to import
+into WSM.
+
+## DECIDED: external, always
+
+**Volodymyr's ruling, given directly**: external. His own reasoning,
+verbatim: "бо інакше це буде пастка ілюзії" (because otherwise it would
+be a trap of illusion). This is not a temporary simplification pending
+a solution to the internal-verification problem — it is a deliberate
+refusal to ever enter that territory. `t[A]` will never be true "for
+itself, by itself" — it is witnessed from outside, always, by
+construction.
+
+This is not a new principle invented for this occasion. It is the same
+standing discipline this whole ecosystem already applies to *code*
+(the `testing-epistemic-status-builder-verifier-adversary` memory: an
+agent may write tests, but must never be the sole authority on what
+counts as correct — Builder and Verifier cannot be the same party
+without collapsing the check) and to *hardware claims* (`wsm-os/probe`'s
+external raw-serial witness for `RAW_CONTROL_REACHED`, never a
+self-report from inside the crossing code). It is now adopted as WSM's
+own foundational epistemology, not merely this project's research
+methodology: a self-verifying system is definitionally unable to
+distinguish being correct from merely being self-consistent, which is
+exactly the illusion this rules out by never permitting it to arise.
 
 ## What this changes
 
 Not a verdict on any prior candidate — `REPEAT`, `BRANCH`,
 `DISTINCTION`, and the top-down logic floor all stand as previously
-found. What changes is the bookkeeping: the `GIVEN` / `DERIVED` /
-`INTRODUCED` provenance triplet (`provenance-foundation.md`) needs a
-fourth, previously silent role made explicit — **`OBSERVED-BY`** — who
-or what checked that a `DERIVED` step actually holds, and whether that
-checker is external (a research tool, legitimate) or is being asked to
-be WSM itself (which raises the internal-observer problem above and
-has not been attempted anywhere in this thread yet).
+found. The `GIVEN` / `DERIVED` / `INTRODUCED` provenance triplet
+(`provenance-foundation.md`) gains a fourth role, now a **standing
+requirement, not merely a bookkeeping suggestion**: every `DERIVED`
+step must carry an `OBSERVED-BY` that is external to WSM. A claim whose
+only possible checker is WSM itself is not merely incomplete — it is
+disqualified, by the ruling above, as the specific trap this decision
+exists to close off.
