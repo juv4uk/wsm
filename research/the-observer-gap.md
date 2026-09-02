@@ -142,3 +142,52 @@ candidate word in this thread that sounded right before being attacked
 (`Boolean`, `branch`) turned out to carry hidden cost. This capability
 — call it, for now, only `OBSERVED-BY-INDEPENDENT` until it survives
 its own attack — stays unnamed on purpose.
+
+## Round 3: does independence require an observer inside WSM too?
+
+**Volodymyr's follow-up**: if different observers give genuinely
+valuable information (because they can disagree), doesn't that mean
+WSM needs an observer *inside* it as well?
+
+**Direct tension flagged, not smoothed over**: this appears to walk
+back the Round 1 ruling ("external, always... бо інакше це буде пастка
+ілюзії"). It needs to be resolved explicitly, not left to quietly
+coexist with a contradictory earlier decision.
+
+**Claude's attempted reconciliation, then its own limit**: "external"
+does not mean "has no internal structure" — Claude and GPT-5.6 Sol are
+each complex systems with their own internal processes, but neither
+verifies *itself*; each verifies the *other*, two genuinely separate
+systems. If WSM someday contained multiple genuinely independent
+internal parts — not one system checking itself, but part A checking
+part B, both happening to sit inside whatever boundary gets called
+"WSM" — that would not be the same self-check Round 1 ruled out.
+
+**But this does not get WSM anything for free.** For internal parts to
+be *genuinely* independent (not a hollow self-check dressed up as two
+parts), WSM needs **plurality of independent judges** — not merely
+"more than one," but "more than one, each with its own capacity to
+judge." This is not lighter than `PERSONHOOD` — it is `PERSONHOOD`,
+multiplied. By the same partial-order methodology, this candidate sits
+at least as high in the dependency lattice as personhood did, likely
+higher.
+
+**Two different questions were being conflated, separated here:**
+
+1. **Can WSM *know* a foundational claim is true?** Already decided:
+   needs external verification (Round 1). An internal observer added
+   *for this purpose* either collapses back into the illusion trap (if
+   the "internal" parts aren't genuinely independent) or costs more
+   than `PERSONHOOD` (if they are). Nothing here changes Round 1's
+   ruling.
+2. **Can WSM *generate* new information through internal disagreement**
+   — hypotheses, tension, richness of internal state — as a separate
+   capability, not a verification mechanism? This is a real, different,
+   much more ambitious question, and it should not be smuggled in under
+   the `OBSERVED-BY` requirement Round 1 just closed. If this is what
+   is actually wanted, it deserves its own attack, on its own terms, not
+   folded into the verification question.
+
+**Not resolved**: whether question 2 is worth pursuing at all, and if
+so, whether it can be introduced more cheaply than full `PERSONHOOD`
+requires its own round.
