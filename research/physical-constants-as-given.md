@@ -75,3 +75,61 @@ by the act of observing," which is not obviously an improvement.
 Not committed either way. Recorded because the tension with the
 two-way discipline is real and needs to be resolved explicitly, not
 quietly ignored in either direction.
+
+## Round 2: Path A vs Path B, and why B is not cheaper than A
+
+The owner refined the direction into a named alternative path:
+
+```text
+PATH A: () -> explicit assumptions -> mathematics
+PATH B: () -> contact with reality -> invariant -> mathematics
+```
+
+Path B, spelled out: `() -> OBSERVATION -> INVARIANT -> RELATION ->
+QUANTITY -> MATHEMATICS`. He drew a real, useful distinction inside it:
+dimensional constants (`c = 299792458 m/s`) are bad as a foundation
+because they already depend on a chosen unit system — a hidden import.
+Dimensionless constants or bare *ratios* are more interesting.
+Cleanest of all: don't start from a numeric constant at all — start
+from a repeated real experiment (a real circle, a real pendulum)
+yielding the *same structural result* across repetitions, and only
+later build the concept of ratio, then number, from that. He posed his
+own sharp question against it before any defense: "що мінімально
+потрібно WSM, щоб узагалі здійснити observation, не вкравши вже
+distinction, identity, time і comparison?"
+
+**Claude's attack, using his own wording against his own proposal**:
+"той самий структурний результат" already uses identity (`the same`)
+— the exact problem that broke `REPEAT`. "Повторено" already imports
+sequence/time — the unhealed wound shared by `REPEAT` and `BRANCH`.
+"Стабільне відношення" requires *comparing* measurement A against
+measurement B and judging them equal — this is `eq`/comparison, the
+very first thing rejected back in the original `first-step-candidate.md`
+round for being a direct import from Lisp/logic, before `REPEAT` or
+`BRANCH` were even proposed.
+
+**Path B is not a cheaper alternative to Path A — it is a strict
+superset of Path A's already-broken requirements (distinction,
+identity, time), plus comparison on top, which nothing before Path B
+needed to add.**
+
+**The obvious rescue, and why it fails**: let some external apparatus
+(the observing machine, `wsm-os`) do the observing, and have WSM merely
+*receive* the finished invariant. The owner's own proposal already
+forbade exactly this ("не можна взяти готове число як старт — це буде
+контрабанда") — if an external process already performed
+distinction+identity+time+comparison and hands WSM only the result,
+that is the identical contraband, wearing "observation" instead of
+"axiom" as its label.
+
+**Answered with the owner's own partial-order methodology**
+(`three-relations-formalized.md`): since Path B's requirements are a
+superset of Path A's, `Path A ⪯ Path B` and not the reverse — Path A is
+no worse, and appears strictly better, under the minimality criterion
+already established.
+
+**One lead deliberately left open, not resolved**: could "comparison"
+be reduced to a raw *physical* match (e.g. two voltage levels agreeing
+within tolerance) rather than full logical `eq` — pre-semantic, prior
+to any logic? This does not rescue Path B as stated, but it is the one
+place worth attacking next, not yet attempted here.
