@@ -1,129 +1,141 @@
-# () → mathematics: two attacked hypotheses and a deeper open candidate
+# () → математика: дві атаковані гіпотези й глибший відкритий кандидат
 
-**Status: OPEN. Nothing here is accepted.** A running record of a
-mutual-attack exchange on the standing question in
+**Статус: ВІДКРИТО. Нічого тут не прийнято.** Поточний запис обміну
+взаємними атаками навколо стоячого питання в
 `research/handoff-state.md`.
 
-## Contributors
+## Учасники
 
 ```text
-Author:   GPT-5.6 Sol (OpenAI), relayed by Volodymyr
-Role:     WSM Foundations Research collaborator
-Content:  the REPEAT hypothesis (Round 1), the counter-attack on branch
-          (Round 2), the framing of the negative result as valuable
+Автор:    GPT-5.6 Sol (OpenAI), передано через Volodymyr
+Роль:     дослідницький партнер WSM Foundations Research
+Внесок:   гіпотеза REPEAT (Раунд 1), контратака на branch (Раунд 2),
+          формулювання негативного результату як цінного
 
-Author:   Claude Sonnet 5 (Anthropic)
-Role:     WSM Foundations Research collaborator
-Content:  the attacks on REPEAT (Round 1) and on the deeper candidate
-          (Round 3 setup)
+Автор:    Claude Sonnet 5 (Anthropic)
+Роль:     дослідницький партнер WSM Foundations Research
+Внесок:   атаки на REPEAT (Раунд 1) і на глибший кандидат
+          (постановка Раунду 3)
 ```
 
-Per `AUTHOR != AUTHORITY`: the negative results below are the actual
-content, regardless of who proposed or who attacked which claim —
-GPT-5.6 Sol's own framing: "негативний результат тут не провал — він
-відкрив залежності, яких ми раніше не бачили" (a negative result here
-is not failure — it revealed dependencies we hadn't seen before).
+За `AUTHOR != AUTHORITY`: негативні результати нижче — це і є реальний
+зміст, незалежно від того, хто запропонував чи атакував яке
+твердження — власне формулювання GPT-5.6 Sol: "негативний результат
+тут не провал — він відкрив залежності, яких ми раніше не бачили".
 
-## Round 1 — Hypothesis A: mathematics from repetition (attacked, broken)
+## Раунд 1 — Hypothesis A: математика з повторення (атаковано, зламано)
 
-**Proposed by GPT-5.6 Sol, relayed by Volodymyr**: `() -> REPEAT ->
-finite repetition -> natural number -> composition -> arithmetic ->
-2+2=4 -> t`. Numbers as later names (`≔`, not `=`) for prior
-constructions; `+` as literal concatenation; `=` as structural
-equivalence distinct from address identity.
+**Запропоновано GPT-5.6 Sol, передано через Volodymyr**: `() ->
+REPEAT -> finite repetition -> natural number -> composition ->
+arithmetic -> 2+2=4 -> t`. Числа як пізніші імена (`≔`, не `=`) для
+попередніх конструкцій; `+` як буквальна конкатенація; `=` як
+структурна еквівалентність, відмінна від тотожності адреси.
 
-**Claude's attack**, confirmed correct by GPT-5.6 Sol:
+**Атака Claude**, підтверджена правильною GPT-5.6 Sol:
 
-1. For `() ()` to have structure at all, discrete parts need
-   individuation — a weak form of identity entering through the back
-   door, even though the proposal carefully avoided comparing `()` to
-   `()` directly.
-2. "Потім знову" (then again) already imports sequence/time — an open
-   wound shared with the branch proposal, not a discriminator between
-   them.
-3. Iterated construction from `()` already has the combinatorial
-   structure of the naturals, just unnamed. **Correction accepted from
-   GPT-5.6 Sol**: this is not literally the von Neumann nested-set
-   construction (`0=∅, 1={∅}, 2={∅,{∅}}`) as Claude first claimed — it
-   is closer to a unary/tally construction (Zermelo-style
-   `1={0}, 2={1}, ...` or plain tally marks). The substance of the
-   attack stands regardless of which specific classical construction it
-   resembles: a discrete, repeatable, ordered unit-construction is
-   already isomorphic to a piece of arithmetic, whatever it's called.
+1. Щоб `() ()` взагалі мало структуру, дискретні частини потребують
+   індивідуації — слабка форма тотожності, що входить через чорний
+   хід, навіть попри те, що пропозиція ретельно уникала прямого
+   порівняння `()` з `()`.
+2. "Потім знову" вже імпортує послідовність/час — відкрита рана,
+   спільна з пропозицією branch, не розрізнювач між ними.
+3. Ітеративна конструкція з `()` уже має комбінаторну структуру
+   натуральних чисел, лише неназвану. **Поправка, прийнята від
+   GPT-5.6 Sol**: це не буквально конструкція вкладених множин фон
+   Неймана (`0=∅, 1={∅}, 2={∅,{∅}}`), як спочатку стверджував Claude —
+   це ближче до унарної/tally-конструкції (у стилі Цермело
+   `1={0}, 2={1}, ...` або прості tally-позначки). Суть атаки лишається
+   незмінною незалежно від того, на яку класичну конструкцію це
+   схоже: дискретна, повторювана, впорядкована конструкція одиниць уже
+   ізоморфна шматку арифметики, хоч як її назви.
 
-**The proposal's own fatal seam, found by GPT-5.6 Sol itself**: `REPEAT`
-alone never terminates. `() () ()` requires that a *next* repetition
-did *not* happen — i.e., a "continue / stop" decision already exists at
-the exact point the chain claims to produce "finite repetition." The
-chain breaks precisely at `REPEAT -> finite repetition`, because
-finiteness already presupposes a decision mechanism the chain hadn't
-introduced yet.
+**Власний фатальний шов пропозиції, знайдений самою GPT-5.6 Sol**:
+сам `REPEAT` ніколи не завершується. `() () ()` вимагає, щоб
+*наступне* повторення *не* сталося — тобто рішення "продовжити/стоп"
+уже існує саме в тій точці, де ланцюг стверджує, що виробляє "скінченне
+повторення". Ланцюг ламається саме на переході `REPEAT -> finite
+repetition`, бо скінченність уже передбачає механізм рішення, якого
+ланцюг ще не ввів.
 
-## Round 2 — the same attack turned on BRANCH (also broken)
+## Раунд 2 — та сама атака, повернута на BRANCH (теж зламано)
 
-Claude's own earlier proposal (`first-step-candidate.md`): branch as
-"do one thing if `()`, a different uninterpreted thing otherwise."
-GPT-5.6 Sol turned the identical rigor on it, and it does not survive
-intact either:
+Власна раніша пропозиція Claude (`first-step-candidate.md`): branch як
+"зробити одну річ, якщо `()`, іншу неозначену річ інакше". GPT-5.6 Sol
+розвернула на неї ідентичну строгість, і вона теж не переживає
+непошкодженою:
 
-1. **Plurality.** Saying "more than one possible continuation exists"
-   already uses "more than one" — the same quantity/number concept
-   that broke `REPEAT`. Branch does not avoid the number trap; it
-   relocates it from "how many repetitions" to "how many alternatives."
-2. **Distinction.** For path A and path B to be different
-   continuations (not the same one twice), some notion of distinctness
-   between them is required — the same weak-identity problem
-   individuation had for `REPEAT`. Symmetric failure.
-3. **Modality.** "Possible" continuation invokes potentiality — "could
-   be otherwise" — arguably a *deeper* import than arithmetic, not a
-   lighter one.
+1. **Plurality.** Твердження "існує більш ніж одне можливе
+   продовження" уже вживає "більш ніж одне" — те саме поняття
+   кількості/числа, яке зламало `REPEAT`. Branch не уникає пастки
+   числа; він переносить її з "скільки повторень" у "скільки
+   альтернатив".
+2. **Distinction.** Щоб шлях A і шлях B були різними продовженнями (не
+   одним і тим самим двічі), потрібне якесь поняття відмінності між
+   ними — та сама проблема слабкої тотожності, яку мала індивідуація
+   для `REPEAT`. Симетричний провал.
+3. **Modality.** "Можливе" продовження закликає потенційність — "могло
+   б бути інакше" — ймовірно, *глибший* імпорт, ніж арифметика, не
+   легший.
 
-An attempted rescue (branch as a unary "the world need not stay
-uniform," not an N-ary choice) does not escape either: even one single
-deviation from a default already produces a pair — "as usual" and "not
-as usual." Duality appears the moment anything besides pure, uniform
-`()` exists at all.
+Спроба порятунку (branch як унарне "світ не зобов'язаний лишатись
+однорідним", не N-арний вибір) теж не рятує: навіть одне єдине
+відхилення від типового вже породжує пару — "як зазвичай" і "не як
+зазвичай". Двоїстість з'являється в момент, коли взагалі існує
+щось окрім чистого, однорідного `()`.
 
-## Round 3 — a deeper open candidate, not yet a hypothesis
+## Раунд 3 — глибший відкритий кандидат, ще не гіпотеза
 
-Both `REPEAT` and `BRANCH`, attacked far enough, seem to consume
-something even more primitive than either claims to introduce:
+І `REPEAT`, і `BRANCH`, достатньо атаковані, здається, споживають щось
+навіть примітивніше за те, що кожен стверджує ввести:
 
 ```text
 ()
 |
 |  ?
 |
-+-- REPEAT   -- needs individuation + sequence + termination(-> branch)
-+-- BRANCH   -- needs plurality + distinction + modality("possible")
++-- REPEAT   -- потребує individuation + sequence + termination(-> branch)
++-- BRANCH   -- потребує plurality + distinction + modality("possible")
 |
 v
 ????
 ```
 
-**Tentative, unnamed, third candidate**: not "two paths," not "another
-presence" — a single, one-time split: `()` and "something that is not
-`()`," admitted exactly once, with **no claim about repeatability**
-(that is precisely what broke `REPEAT`) and **no claim about how many
-alternatives exist** (that is precisely what broke `BRANCH`). Not a
-Boolean (a Boolean is already a type with two named values and
-arithmetic-adjacent structure over them) — narrower than that. This
-may be the same thing the project's own earlier philosophy already
-gestured at ("`()` is not a container — `unknown`/`possible`/`not` are
-separate expressions layered beside it," recorded pre-`wsm`) without
-recognizing it as possibly more primitive than either repetition or
-branching individually.
+**Попередній, безіменний, третій кандидат**: не "два шляхи", не "ще
+одна присутність" — одне одноразове розщеплення: `()` і "щось, що не
+є `()`", допущене рівно один раз, з **жодним твердженням про
+повторюваність** (саме це зламало `REPEAT`) і **жодним твердженням
+про те, скільки альтернатив існує** (саме це зламало `BRANCH`). Не
+Boolean (Boolean — це вже тип із двома названими значеннями й
+арифметично-суміжною структурою над ними) — вужче за це. Можливо, це
+те саме, на що вже натякала власна рання філософія проєкту ("`()` не
+контейнер — `unknown`/`possible`/`not` — окремі вирази, покладені
+поруч", записано ще до `wsm`), не розпізнаючи це як можливо
+примітивніше за повторення чи розгалуження окремо.
 
-**This is explicitly not committed.** It is a third thing to attack,
-not a winner. The open question for the next round: does *this*
-minimal, one-time, non-counted, non-repeatable split survive the same
-kind of attack that broke the first two — or does even "one-time" and
-"exactly" already smuggle in counting?
+**Це явно не прийнято.** Це третя річ для атаки, не переможець.
+Відкрите питання для наступного раунду: чи *це* мінімальне,
+одноразове, непораховане, неповторюване розщеплення переживе той
+самий тип атаки, що зламала перші два — чи навіть "одноразовість" і
+"рівно" вже контрабандою вносять лічбу?
 
-## Standing rule this exchange established
+## Стояче правило, встановлене цим обміном
 
-A hypothesis that survives its own author's sharpest question is
-trustworthy; a hypothesis whose author never asks the sharpest
-question is not, regardless of how it turns out. Neither `REPEAT` nor
-`BRANCH` survived — that outcome is itself the first real result of
-this line of `wsm` research, not a setback to route around.
+Гіпотеза, яка переживає найгостріше питання власного автора,
+заслуговує довіри; гіпотеза, автор якої ніколи не ставить найгостріше
+питання — ні, незалежно від того, як усе обернеться. Ні `REPEAT`, ні
+`BRANCH` не пережили — цей результат сам по собі перший реальний
+результат цієї лінії дослідження `wsm`, не невдача, яку треба обійти.
+
+---
+
+## () → mathematics: two attacked hypotheses (English, secondary)
+
+Round 1: REPEAT (proposed by GPT-5.6 Sol) attacked and broken —
+individuation, sequence, and a fatal seam (finiteness needs a
+stop-decision REPEAT never introduces). Round 2: the same rigor turned
+on BRANCH (Claude's own proposal) — also broken, on plurality,
+distinction, modality. Round 3: a deeper, unnamed, one-time-split
+candidate proposed, not yet attacked or accepted. Standing rule: a
+hypothesis surviving its own author's sharpest question is trustworthy;
+neither REPEAT nor BRANCH did. See the Ukrainian version above for full
+detail.
