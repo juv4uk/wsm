@@ -1,92 +1,109 @@
-# Top-down: strip existing mathematics toward (), see where it stops
+# Зверху вниз: обчистити наявну математику в бік (), подивитись, де вона зупиниться
 
-**Status: OPEN.** A third methodological direction, alongside the
-bottom-up attempts (`hypothesis-a-repetition.md`,
-`distinction-attacked.md`) and the observation-grounded attempt
+**Статус: ВІДКРИТО.** Третій методологічний напрямок, поряд зі
+спробами знизу вгору (`hypothesis-a-repetition.md`,
+`distinction-attacked.md`) і спробою, вкоріненою в спостереженні
 (`physical-constants-as-given.md`).
 
-## Contributors
+## Учасники
 
 ```text
-Author:   Volodymyr
-Role:     WSM project owner
-Content:  the originating question -- "if we can't reach mathematics
-          from (), can we descend from mathematics toward ()?"
+Автор:    Volodymyr
+Роль:     власник проєкту WSM
+Внесок:   вихідне питання -- "якщо ми не можемо дійти до математики
+          від (), чи можемо ми спуститись від математики до ()?"
 
-Author:   Claude Sonnet 5 (Anthropic)
-Role:     WSM Foundations Research collaborator
-Content:  identifying first-order logic's own primitives as the floor
-          this direction reaches, and the propositional-logic /
-          single-truth-value observation
+Автор:    Claude Sonnet 5 (Anthropic)
+Роль:     дослідницький партнер WSM Foundations Research
+Внесок:   визначення власних примітивів логіки першого порядку як
+          дна, якого досягає цей напрямок, і спостереження про
+          пропозиційну логіку/єдине значення істинності
 ```
 
-## The move
+## Хід
 
-Every bottom-up attempt (`REPEAT`, `BRANCH`, `DISTINCTION`,
-`this/not-this`) tried to *construct* something beyond `()` and kept
-breaking on hidden imports. The reverse direction: start from
-already-established mathematics (Peano arithmetic, ZFC, any known
-formal system) and strip it down — remove everything that isn't
-strictly necessary — and see what floor it bottoms out on. This is not
-a new invention; it has real precedent (not claimed as identical, only
-as a relevant precedent to be aware of, not smuggled in as WSM
-content): Frege/Russell's logicist reduction of arithmetic to logic,
-and the actual field of *reverse mathematics* (Friedman, Simpson),
-which classifies theorems by the weakest subsystem sufficient to prove
-them — the same "descend to the minimum" instinct, already studied.
+Кожна спроба знизу вгору (`REPEAT`, `BRANCH`, `DISTINCTION`,
+`this/not-this`) намагалась *побудувати* щось за межами `()` і весь
+час ламалась на прихованих імпортах. Зворотний напрямок: почати з уже
+встановленої математики (арифметика Пеано, ZFC, будь-яка відома
+формальна система) і обчистити її — прибрати все, що не є строго
+необхідним — і подивитись, на якому дні вона зупиниться. Це не нове
+винайдення; має реальний прецедент (не стверджується як ідентичне,
+лише як релевантний прецедент, про який варто знати, не контрабандно
+внесений як зміст WSM): логіцистська редукція арифметики до логіки
+Фреге/Рассела, і реальна галузь *reverse mathematics* (Фрідман,
+Сімпсон), яка класифікує теореми за найслабшою підсистемою, достатньою
+для їх доведення — той самий інстинкт "спуститись до мінімуму", уже
+вивчений.
 
-## What the descent actually hits
+## На що реально натикається спуск
 
-Virtually all classical mathematics (PA, ZFC, type theory) is built on
-top of **first-order logic**, and first-order logic does not derive its
-own primitives from anything more basic — it takes them as given,
-undefined within the system:
+Практично вся класична математика (PA, ZFC, теорія типів) побудована
+на **логіці першого порядку**, а логіка першого порядку не виводить
+власні примітиви з чогось більш базового — вона бере їх як дані,
+невизначені всередині системи:
 
 ```text
-domain of discourse   -- a set of "things" to talk about -- PLURALITY
-equality (=)           -- IDENTITY / comparison
-negation (¬)            -- the same negation that broke this/not-this
-quantifiers (∀, ∃)      -- "there exists" presupposes a domain with
-                           more than one possible element -- plurality again
+домен дискурсу        -- множина "речей", про які йдеться -- PLURALITY
+рівність (=)            -- IDENTITY / порівняння
+заперечення (¬)          -- те саме заперечення, що зламало this/not-this
+квантори (∀, ∃)         -- "існує" вже передбачає домен із більш ніж
+                           одним можливим елементом -- знову plurality
 ```
 
-**This is not an approximate analogy — it is the identical cluster**
-that independently broke `REPEAT`, `BRANCH`, `DISTINCTION`, and
-`this/not-this` from the bottom-up direction: plurality, identity,
-negation. Formal logic does not derive these from something smaller —
-it takes them as primitive, exactly the way our attempts kept needing
-to.
+**Це не приблизна аналогія — це ідентичний кластер**, що незалежно
+зламав `REPEAT`, `BRANCH`, `DISTINCTION` і `this/not-this` з напрямку
+знизу вгору: plurality, identity, negation. Формальна логіка не
+виводить їх із чогось меншого — вона бере їх як примітивні, точно так,
+як наші спроби весь час потребували.
 
-## Why this matters even though it doesn't cross the wall
+## Чому це важливо, навіть якщо не перетинає стіну
 
-Bottom-up and top-down are independent methods. Both landing on the
-same floor — plurality/distinction, identity, negation — is a form of
-convergent confirmation stronger than anything produced by either
-direction alone: it suggests this is genuinely where mathematics'
-actual floor is, not an artifact of which specific hypotheses got
-attacked from below. It does not give a way past the wall. It gives
-much higher confidence the wall is real and precisely located.
+Знизу-вгору й зверху-вниз — незалежні методи. Те, що обидва
+приземляються на те саме дно — plurality/distinction, identity,
+negation — це форма конвергентного підтвердження, сильнішого за все,
+що дав будь-який напрямок сам по собі: це натякає, що це справді те
+місце, де реальне дно математики, а не артефакт того, які саме
+гіпотези атакувались знизу. Це не дає шляху повз стіну. Це дає значно
+вищу впевненість, що стіна реальна й точно розташована.
 
-## A sharper boundary: propositional logic and the single-truth-value case
+## Гостріша межа: пропозиційна логіка і випадок єдиного значення істинності
 
-Propositional logic (no domain, no quantifiers — just atoms and
-connectives) still requires *at minimum two* truth values (true/false)
-to be non-trivial — this is already plurality in its most minimal form.
-A system with **exactly one** truth value, where everything is
-automatically "so" and nothing can be otherwise, has no negation worth
-having (¬true would have nowhere to go) and no distinction possible at
-all. That single-value system looks like a plausible formal
-description of `()` alone, with nothing added. **The moment a second
-truth value becomes necessary is the same transition every other
-direction of this research has been circling** — now visible from
-mathematics' own side, not only from `()`'s side.
+Пропозиційна логіка (без домену, без кванторів — лише атоми й
+зв'язки) все одно вимагає *щонайменше два* значення істинності
+(true/false), щоб бути нетривіальною — це вже plurality в
+наймінімальнішій формі. Система з **рівно одним** значенням
+істинності, де все автоматично "так" і ніщо не може бути інакше, не
+має заперечення, вартого мати (¬true не мало б куди йти), і жодного
+розрізнення взагалі неможливо. Ця система з єдиним значенням виглядає
+як правдоподібний формальний опис самого `()`, без нічого доданого.
+**Момент, коли друге значення істинності стає необхідним — та сама
+переходова точка, навколо якої кружляв кожен інший напрямок цього
+дослідження** — тепер видима з боку самої математики, не лише з боку
+`()`.
 
-## What remains open
+## Що лишається відкритим
 
-This direction confirms the location of the wall; it does not remove
-it. The open question is unchanged in kind from the bottom-up work:
-is there any way to introduce a second distinguishable state without
-already presupposing plurality/distinction to state that a second
-state exists at all? Nothing here answers that — it only shows the
-question is the same question, reached from the opposite direction,
-independently.
+Цей напрямок підтверджує розташування стіни; він її не усуває. Відкрите
+питання незмінне за родом від роботи знизу вгору: чи є якийсь спосіб
+ввести другий розрізнюваний стан, не передбачивши вже
+plurality/distinction, щоб узагалі стверджувати, що другий стан існує?
+Ніщо тут на це не відповідає — це лише показує, що питання те саме
+питання, досягнуте з протилежного напрямку, незалежно.
+
+---
+
+## Top-down: strip existing mathematics toward () (English, secondary)
+
+Instead of constructing upward from `()`, strip existing formal
+mathematics down and see where it stops. Finding: first-order logic's
+own primitives (domain/plurality, equality/identity, negation,
+quantifiers) are the identical cluster that broke every bottom-up
+candidate — not an analogy, the same cluster. Two independent methods
+converging on the same floor is stronger evidence than either alone,
+though it does not cross the wall. Propositional logic's own
+minimum-two-truth-values requirement sharpens the boundary further: a
+single-truth-value system looks like `()` itself; the moment a second
+value becomes necessary is the same transition point every direction
+of this research keeps circling. See the Ukrainian version for full
+detail.
