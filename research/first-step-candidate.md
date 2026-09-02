@@ -1,96 +1,107 @@
-# First step candidate: () → branch
+# Кандидат на перший крок: () → branch
 
-**Status: ATTACKED, broken as stated.** Answers the standing open
-question in `research/handoff-state.md` ("Який найменший додатковий
-крок після `()`..."). `asm/` stays empty — nothing here is materialized.
+**Статус: АТАКОВАНО, зламано в наведеній формі.** Відповідає на
+стояче відкрите питання в `research/handoff-state.md` ("Який
+найменший додатковий крок після `()`..."). `asm/` лишається порожнім
+— нічого тут не матеріалізовано.
 
-## Contributors
+## Учасники
 
 ```text
-Author:   Claude Sonnet 5 (Anthropic)
-Role:     WSM Foundations Research collaborator
-Content:  the branch proposal, the rejected-candidates survey, the
-          four-criteria validation
+Автор:    Claude Sonnet 5 (Anthropic)
+Роль:     дослідницький партнер WSM Foundations Research
+Внесок:   пропозиція branch, огляд відхилених кандидатів, перевірка
+          проти чотирьох критеріїв
 
-Author:   GPT-5.6 Sol (OpenAI), relayed by Volodymyr
-Role:     WSM Foundations Research collaborator
-Content:  the counter-attack on branch (plurality/distinction/modality)
-          -- see hypothesis-a-repetition.md for the full exchange
+Автор:    GPT-5.6 Sol (OpenAI), передано через Volodymyr
+Роль:     дослідницький партнер WSM Foundations Research
+Внесок:   контратака на branch (plurality/distinction/modality) --
+          див. hypothesis-a-repetition.md для повного обміну
 ```
 
-Per `AUTHOR != AUTHORITY` / `ATTRIBUTION != EVIDENCE` (GPT-5.6 Sol's
-own framing, adopted going forward): who proposed a claim says nothing
-about whether it's correct. GPT-5.6 Sol turned the same rigor used
-against its own `REPEAT` proposal back onto this one: branch does not
-avoid the number trap either (it relocates "how many repetitions" into
-"how many alternatives" — "more than one possible continuation" already
-uses "more than one"), and "possible" continuation additionally imports
-modality, arguably a heavier import than arithmetic. See
-`hypothesis-a-repetition.md` for the full exchange and the deeper,
-still-unnamed third candidate it produced.
+За `AUTHOR != AUTHORITY` / `ATTRIBUTION != EVIDENCE` (власне
+формулювання GPT-5.6 Sol, прийняте надалі): хто запропонував
+твердження, нічого не каже про те, чи воно правильне. GPT-5.6 Sol
+розвернув ту саму строгість, застосовану проти власної пропозиції
+`REPEAT`, і на цю: branch теж не уникає пастки числа (він переносить
+"скільки повторень" у "скільки альтернатив" — "більш ніж одне можливе
+продовження" уже вживає "більш ніж одне"), а "можливе" продовження
+додатково імпортує модальність, ймовірно важчий імпорт, ніж
+арифметика. Див. `hypothesis-a-repetition.md` для повного обміну й
+глибшого, ще безіменного третього кандидата, якого це породило.
 
-## Candidates considered and rejected first
+## Кандидати, спочатку розглянуті й відхилені
 
-- **Comparison/equality (`eq`)** — a direct import from logic/Lisp;
-  equality is foundational to nearly all existing mathematics. Fails
-  criterion 2 (not smuggled from ready-made math/logic).
-- **Successor / counting (Peano-style "one more")** — literally the
-  Peano axioms, taken ready-made. Fails criterion 2 more directly than
-  `eq` does.
-- **Pair / cons** — a concrete Lisp data structure, not something that
-  *follows* from `()` itself; the same "manufactured primitive" trap
-  already caught once this session (`Tag::True`).
-- **Importing `lib/epistemic.my`'s vocabulary** (proposed/rejected,
-  supports/contradicts) from the old `my-lisp` system — tempting
-  because it already avoids Bool, but it is porting a finished answer
-  from the old system, not a step that arises freshly from `()`.
-- **A second, independent copy of `()` in another memory cell** —
-  physically trivial, but empty as a *capability*: if WSM cannot ask
-  "is `()` here or not," multiple copies are a hardware fact invisible
-  to WSM's own semantics. Fails criterion 3 in substance, even though
-  it looks like it satisfies criterion 4.
+- **Порівняння/рівність (`eq`)** — прямий імпорт із логіки/Lisp;
+  рівність фундаментальна майже для всієї наявної математики.
+  Провалює критерій 2 (не контрабанда з готової математики/логіки).
+- **Наступник/лічба (Peano-стиль "ще один")** — буквально аксіоми
+  Пеано, взяті готовими. Провалює критерій 2 ще прямолінійніше, ніж
+  `eq`.
+- **Пара/cons** — конкретна структура даних Lisp, не щось, що
+  *випливає* з самого `()`; та сама пастка "manufactured primitive",
+  уже впіймана раз цієї сесії (`Tag::True`).
+- **Імпорт словника `lib/epistemic.my`** (proposed/rejected,
+  supports/contradicts) зі старої системи `my-lisp` — спокусливо, бо
+  вже уникає Bool, але це портування готової відповіді зі старої
+  системи, не крок, що виникає заново з `()`.
+- **Друга, незалежна копія `()` в іншій комірці пам'яті** — фізично
+  тривіально, але порожньо як *можливість*: якщо WSM не може запитати
+  "чи тут `()`, чи ні", множинні копії — це апаратний факт, невидимий
+  власній семантиці WSM. Провалює критерій 3 по суті, хоча виглядає,
+  ніби задовольняє критерій 4.
 
-## The proposal
+## Пропозиція
 
-The first step is not a new value. It is **branch** — the capacity to
-do one thing if something is `()`, and a *different, still completely
-uninterpreted* thing if it is not.
+Перший крок — не нове значення. Це **branch** — здатність зробити
+одну річ, якщо щось є `()`, і *іншу, поки що зовсім неозначену* річ,
+якщо ні.
 
 ```text
 ()
  |
- +-- if this is ()      -> path A
- +-- if this is not ()  -> path B  (NOT false, NOT 1, NOT error, NOT
-                                     unknown-as-a-value -- no content
-                                     assigned yet, only existence and
-                                     difference from path A)
+ +-- якщо це ()     -> шлях A
+ +-- якщо це не ()  -> шлях B  (НЕ false, НЕ 1, НЕ помилка, НЕ
+                                 unknown-як-значення -- жодного змісту
+                                 ще не приписано, лише існування й
+                                 відмінність від шляху A)
 ```
 
-## Validation against the four criteria
+## Перевірка проти чотирьох критеріїв
 
-1. **Does not define `()`.** `()` stays exactly `() = ()`; nothing new
-   is said *about* `()` itself. What gets a name is the divergence, not
+1. **Не визначає `()`.** `()` лишається рівно `() = ()`; нічого
+   нового не сказано *про* сам `()`. Ім'я отримує розходження, не
    `()`.
-2. **Not stolen from ready-made mathematics.** Narrower than Lisp's
-   `eq`: no general comparison of two arbitrary values, no Boolean
-   result. It is exactly the one duty already assigned to the machine
-   regarding `()` — "recognize it, distinguish it from non-`()`" —
-   raised from a hardware-internal mechanism to something WSM's own
-   semantics can refer to.
-3. **Creates a real new capability.** Right now nothing can behave
-   differently depending on anything. This is the first moment
-   differing behavior becomes possible at all — branching itself, born
-   before "true" or "false" exist as named values.
-4. **Physically realizable on the boundary already opened.** This is
-   literally a conditional jump (compare a tag, branch on
-   equal/not-equal) — the single most primitive real operation in the
-   ISA `wsm`/`wsm-os` already target. No new hardware capability is
-   required.
+2. **Не вкрадено з готової математики.** Вужче за Lisp-івський `eq`:
+   жодного загального порівняння двох довільних значень, жодного
+   булевого результату. Це рівно той самий обов'язок, уже покладений
+   на машину щодо `()` — "розпізнати його, відрізнити від не-`()`" —
+   піднятий з апаратно-внутрішнього механізму до чогось, на що власна
+   семантика WSM може посилатись.
+3. **Створює реальну нову можливість.** Зараз ніщо не може повестися
+   по-різному залежно від будь-чого. Це перший момент, коли взагалі
+   стає можлива різна поведінка — саме розгалуження, народжене до
+   того, як "true" чи "false" існують як названі значення.
+4. **Фізично реалізовується на вже відкритій межі.** Це буквально
+   умовний перехід (порівняти тег, розгалузитись за
+   рівний/не-рівний) — найпримітивніша реальна операція в ISA, на яку
+   вже цілять `wsm`/`wsm-os`. Нового апаратного функціоналу не
+   потрібно.
 
-## Honest open weakness, not hidden
+## Чесна відкрита слабкість, не прихована
 
-Does "branch" itself already presuppose *sequence* — "what happens
-next," time, process — pulling in something close to computability
-theory before WSM has decided it wants that? This is not resolved here.
-It is the actual weak point of this proposal, not a rhetorical
-disclaimer.
+Чи саме "branch" уже передбачає *послідовність* — "що відбувається
+далі", час, процес — притягуючи щось близьке до теорії обчислюваності
+до того, як WSM вирішила, що хоче цього? Це тут не вирішено. Це
+реальна слабка точка цієї пропозиції, не риторичне застереження.
+
+---
+
+## First step candidate: () → branch (English, secondary)
+
+Attacked and broken as stated: `BRANCH` relocates the same number trap
+`REPEAT` had (how many alternatives vs how many repetitions) and adds
+modality on top. Validated against the four criteria before the attack
+landed; the honest open weakness (does branch presuppose sequence?) is
+recorded, not hidden. See the Ukrainian version above and
+`hypothesis-a-repetition.md` for the full exchange.
