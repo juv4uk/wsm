@@ -37,11 +37,24 @@ of level 1.
 
 ## A concrete demonstration that levels 1 and 3 really do diverge
 
-The static image search for an embedded Intel microcode update matching
-the owner's CPU (signature `0x000506E3`) found nothing — reported
-honestly as `not-yet-verified`, not `absent` (see `BINARY-ANALYSIS.md`).
-Rather than keep hunting the image for it, the live, currently-active
-microcode revision was read directly from the real machine instead:
+**Update — now confirmed on both sides, not just the live side.** A
+raw byte-pattern search for the embedded microcode blob (signature
+`0x000506E3`) first found nothing, reported honestly as
+`not-yet-verified`. The owner's own correction — prefer structural
+lookup (the Firmware Interface Table) over raw scanning, and label
+every claim `STATIC-CONFIRMED` / `LIVE-CONFIRMED` / `INFERRED` — led
+directly to finding it: `wsm-os/hardware/bios-f22e/FIT-AND-STRUCTURE-ANALYSIS.md`
+parses the real FIT table (found via the fixed pointer at flash-mapped
+address `0xFFFFFFC0`) and locates three real Microcode Update entries,
+one matching the owner's exact CPU: **revision `0xC2`, dated
+2017-11-16** — independently cross-confirmed by a second tool finding
+the same blob set inside a named `CPU_MICROCODE_FILE_GUID` FFS
+container. The raw scan had failed only because the blob lives in a
+different Firmware Volume than the one that pass had decompressed —
+exactly the failure mode structural lookup avoids.
+
+The live, currently-active microcode revision was read directly from
+the real machine, separately:
 Windows' own registry (`HKLM\HARDWARE\DESCRIPTION\System\CentralProcessor\0`,
 `Update Revision`), populated by Windows itself from the real CPU at
 boot, not a WSL2/Hyper-V virtualized view (WSL2's own `/proc/cpuinfo`
@@ -60,21 +73,24 @@ exactly.
 sig 0x000506e3, pf_mask 0x36, 2019-10-03, rev 0x00d6, size 101376
 ```
 
-Same signature, same revision, and a **date — 2019-10-03** — roughly
-nineteen months after F22e's own build date (2018-03-09,
-independently triple-confirmed in `BINARY-ANALYSIS.md`). A revision
-dated over a year and a half after the BIOS was built cannot be the
-one F22e itself embeds and loads at power-on. It is almost certainly a
-later, OS-supplied override — most likely delivered through Windows
-Update's own microcode-loading mechanism — layered on top of whatever
-F22e's own image actually contains.
+Same signature, and a revision (`0xD6`) that is a real, different
+number from the now-`STATIC-CONFIRMED` embedded revision (`0xC2`), on
+top of a real date gap: `0xC2` dated 2017-11-16, `0xD6` independently
+dated 2019-10-03 — almost two years later. `0xC2 != 0xD6` and
+`2017-11-16 < 2019-10-03` together settle it: the live revision cannot
+be what F22e itself loads at power-on. It is almost certainly a later,
+OS-supplied override — most likely delivered through Windows Update's
+own microcode-loading mechanism — layered on top of whatever F22e's
+own image actually contains.
 
-This is exactly the level-1-vs-level-3 gap made concrete: the static
-image says "some microcode, built 2018-03-09, blob not yet located";
-the live machine says "revision 0xD6, independently dated 2019-10-03
-by a real changelog." Neither statement is wrong. They are answers to
-different questions, and only the second one describes what the CPU
-is actually running right now.
+This is the level-1-vs-level-3 gap made fully concrete, both sides
+directly read rather than one side inferred: the static image says
+"embeds revision `0xC2`, built 2017-11-16"; the live machine says
+"currently runs revision `0xD6`, independently dated 2019-10-03." Both
+statements are now `STATIC-CONFIRMED`/`LIVE-CONFIRMED` respectively —
+neither is guessed, and they genuinely disagree, because they are
+answers to different questions. Only the second one describes what the
+CPU is actually running right now.
 
 One further honest limit, not yet closed: what was read is Windows'
 *own* final view, after Windows' *own* microcode loader has already
