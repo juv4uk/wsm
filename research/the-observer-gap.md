@@ -335,3 +335,51 @@ plainly, not as suspicion, but because the discipline this whole thread
 has enforced on every other candidate requires naming this dependency
 too, rather than quietly exempting the one party best positioned to
 introduce exactly the failure mode this round is about.
+
+## Round 7: physical constants revisited — not a cheaper foundation, a stronger form of external check
+
+**Volodymyr's response to Round 6**: trust in any single observer is
+not enough — we need the constants of this world, and only they will be
+truth.
+
+**This is a different claim than Round 2's Path B**, and needs its own
+attack, not reuse of the earlier one. `physical-constants-as-given.md`
+attacked physical grounding as a *cheaper route to derive mathematics*
+(it wasn't — it turned out to be a strict superset of the bottom-up
+requirements). This round proposes physical constants for a different
+reason entirely: not cheapness, but *escaping dependence on an
+observer's honesty*.
+
+**The attack**: physical constants do not remove the observer problem —
+they relocate it. `c` being eternally true does not let WSM learn `c`
+directly; something must still measure it and report the result, and
+that reporting channel is exactly as vulnerable to the Round 6 problem
+as any other report. A constant's own truthfulness does not launder the
+honesty of whoever tells WSM what the constant is.
+
+**What genuinely changes, though — not elimination, a change in
+structure**: a logical/philosophical claim (`distinction requires
+plurality`) can only be checked by argument, and argument can be faked
+convincingly by a sufficiently capable dishonest party. A physical
+constant can be **independently re-measured** — by different
+apparatus, different parties, different eras — and consistent agreement
+across independent, hard-to-coordinate re-measurements is far harder to
+fake than one convincing argument. This is not a new principle invented
+here: it is the evidence-strength ladder already standing at the root
+of this ecosystem (`CLAUDE.md` §3a): `local run < clean CI run <
+reproducible CI test < independent external reproduction`. **Physical
+constants are the one category of claim in this entire research thread
+structurally capable of reaching the top rung — no logical claim about
+`()` has an analogous independent-re-measurement procedure at all.**
+
+**Honest scope of what this does and does not fix**: it does not touch
+the `() -> mathematics` wall (`distinction-attacked.md`,
+`top-down-from-mathematics.md`) — that remains exactly where it was.
+It strengthens a different, adjacent thing: how trustworthy
+`SINGULAR EXTERNAL` (Round 4) can actually be, by grounding trust not in
+one voice but in convergence across independent, reproducible
+measurement — the strongest available answer to Round 6's honesty
+problem this thread has found, without pretending the problem is fully
+solved (a coordinated, well-resourced deception across many independent
+channels remains conceivable, just far more costly than deceiving one
+observer once).
