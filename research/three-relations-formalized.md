@@ -1,97 +1,112 @@
-# Three relations formalized: requires / equivalent / co-primitive
+# Три формалізовані відношення: requires / equivalent / co-primitive
 
-**Status: OPEN.** Follows `distinction-attacked.md`'s cycle finding.
+**Статус: ВІДКРИТО.** Продовжує знахідку циклу з `distinction-attacked.md`.
 
-## Contributors
-
-```text
-Author:   GPT-5.6 Sol (OpenAI), relayed by Volodymyr
-Role:     WSM Foundations Research collaborator
-Content:  the "not a new candidate, formalize three relations" move,
-          the CLOSURE/SUFFICIENCY/IRREDUCIBILITY tests for a joint
-          basis, the observation that a cycle may signal bedrock
-          rather than error
-
-Author:   Claude Sonnet 5 (Anthropic)
-Role:     WSM Foundations Research collaborator
-Content:  the definitional test distinguishing the three relations,
-          applying it to distinction/plurality, the CLOSURE caveat
-```
-
-Per GPT-5.6 Sol's own next move — not a new candidate, but a formal
-distinction between three things that were being conflated.
-
-## The three relations
-
-**1. `A requires B` (asymmetric dependency).** Already in use: `A ⪯ B`
-holds if there is an explicit construction of `B`'s structure from `A`
-alone, introducing no new independent primitive. Asymmetric when the
-reverse construction does not exist.
-
-**2. `A ~ B` (equivalent in strength, but still two things).** `A ⪯ B`
-and `B ⪯ A` both hold, **and `A` and `B` remain two independently
-statable primitives** — each has a definition that does not reference
-the other, even though each turns out to be derivable from the other.
-Example from outside WSM, for illustration only, not as imported
-content: NAND alone and `{AND, NOT}` together are equivalent in
-expressive power, but they remain two genuinely different vocabularies
-— either could be written down without the other.
-
-**3. Co-primitive (two names for one irreducible joint introduction).**
-Formally distinguished from case 2 by a definitional test, not a
-derivational one:
-
-> Can `A`'s bare definition be written without already containing `B`'s
-> content — even setting aside what could later be *derived* from `A`?
-
-If the answer is no in **both** directions simultaneously, `A` and `B`
-are not two equivalent-strength primitives — they are one primitive,
-artificially split into two names. This is a stronger and different
-claim than case 2: case 2 is about derivational power; case 3 is about
-whether independent *definition* is even possible at all.
-
-## Applying the test to distinction / plurality
-
-- Attempted to define `distinction` without presupposing `plurality`:
-  fails. `distinction-attacked.md`'s own vector 1 already showed this
-  — for distinction to mean anything, at least something and some
-  *other* thing must be presupposed, which is already plurality.
-- Attempted to define `plurality` without presupposing
-  distinguishability: also fails. "Many undifferentiated things"
-  collapses into "one thing" without some way to tell instances apart
-  — the same discreteness problem `() ()` had back in the very first
-  `REPEAT` round (`hypothesis-a-repetition.md`).
-
-**Both definitional directions fail independently.** This is case 3,
-not case 2: `distinction` and `plurality` are not two
-equivalent-strength primitives — they are one joint introduction, named
-twice.
-
-## Honest caveat: the joint basis is not yet closed
-
-Confirming co-primitivity does **not** mean `A* = {distinction,
-plurality}` has passed all three tests GPT-5.6 Sol set for a minimal
-joint basis:
+## Учасники
 
 ```text
-SUFFICIENCY    -- claimed, not yet actually constructed/shown
-CLOSURE        -- FAILS as currently stated: vector 4 from the
-                  DISTINCTION attack (observer/action -- is
-                  distinguishing an act, not a static fact?) was never
-                  resolved. If distinguishing requires an act, process/
-                  time leaks in -- the same unhealed wound shared by
-                  REPEAT and BRANCH from the very first rounds.
-IRREDUCIBILITY -- follows fairly directly from co-primitivity itself
-                  (removing either name removes the one joint concept
-                  both name), but this is not yet independently checked.
+Автор:    GPT-5.6 Sol (OpenAI), передано через Volodymyr
+Роль:     дослідницький партнер WSM Foundations Research
+Внесок:   хід "не новий кандидат, формалізувати три відношення",
+          тести CLOSURE/SUFFICIENCY/IRREDUCIBILITY для спільного
+          базису, спостереження, що цикл може означати дно, а не
+          помилку
+
+Автор:    Claude Sonnet 5 (Anthropic)
+Роль:     дослідницький партнер WSM Foundations Research
+Внесок:   тест на означуваність, що розрізняє три відношення,
+          застосування його до distinction/plurality, застереження
+          CLOSURE
 ```
 
-**So the honest status is**: `{distinction, plurality}` is very likely
-one co-primitive unit, not two — but that unit, as currently stated,
-may not yet be self-contained. A third element (something like
-process/observer) may need to join it before `A*` actually closes. The
-next real question is not "is the cycle real" (answered: yes, by the
-definitional test above) but **whether closure requires growing `A*`
-to include a process/observer component, and whether that component is
-itself further reducible or genuinely irreducible alongside
-distinction/plurality.**
+За власним наступним ходом GPT-5.6 Sol — не новий кандидат, а
+формальне розрізнення трьох речей, які змішувались.
+
+## Три відношення
+
+**1. `A requires B` (асиметрична залежність).** Уже використовується:
+`A ⪯ B` виконується, якщо є явна конструкція структури `B` з самого
+`A`, без введення нового незалежного примітива. Асиметрична, коли
+зворотної конструкції не існує.
+
+**2. `A ~ B` (еквівалентні за силою, але досі дві речі).** `A ⪯ B` і
+`B ⪯ A` виконуються обидва, **і `A` та `B` лишаються двома незалежно
+стверджуваними примітивами** — кожен має означення, що не посилається
+на інший, хоча зрештою кожен виводиться з іншого. Приклад поза WSM,
+лише для ілюстрації, не як імпортований зміст: сам NAND і `{AND, NOT}`
+разом еквівалентні за виразною силою, але лишаються двома справді
+різними словниками — кожен можна записати без іншого.
+
+**3. Co-primitive (два імені для одного нерозкладного спільного
+введення).** Формально відрізняється від випадку 2 тестом на
+означуваність, не на виведення:
+
+> Чи можна записати голе означення `A` без того, щоб воно вже містило
+> зміст `B` — навіть відклавши те, що потім можна було б *вивести* з
+> `A`?
+
+Якщо відповідь "ні" **в обох** напрямках одночасно, `A` і `B` — не два
+еквівалентні за силою примітиви — вони один примітив, штучно розділений
+на два імені. Це сильніше й інше твердження, ніж випадок 2: випадок 2
+— про силу виведення; випадок 3 — про те, чи взагалі можливе незалежне
+*означення*.
+
+## Застосування тесту до distinction / plurality
+
+- Спроба означити `distinction` без передбачення `plurality`:
+  провалюється. Власний вектор 1 з `distinction-attacked.md` уже це
+  показав — щоб distinction мало сенс, потрібно передбачити щонайменше
+  щось і якесь *інше* щось, а це вже plurality.
+- Спроба означити `plurality` без передбачення розрізнюваності: теж
+  провалюється. "Багато невиразних речей" колапсує в "одну річ" без
+  якогось способу відрізнити екземпляри — та сама проблема
+  дискретності, яку мало `() ()` ще в найпершому раунді `REPEAT`
+  (`hypothesis-a-repetition.md`).
+
+**Обидва напрямки означення провалюються незалежно.** Це випадок 3, не
+випадок 2: `distinction` і `plurality` — не два еквівалентні за силою
+примітиви — вони одне спільне введення, назване двічі.
+
+## Чесне застереження: спільний базис ще не закритий
+
+Підтвердження co-primitivity **не** означає, що `A* = {distinction,
+plurality}` пройшов усі три тести, які GPT-5.6 Sol встановив для
+мінімального спільного базису:
+
+```text
+SUFFICIENCY    -- стверджено, ще реально не побудовано/показано
+CLOSURE        -- ПРОВАЛЮЄТЬСЯ в наведеній формі: вектор 4 з атаки на
+                  DISTINCTION (observer/action -- чи розрізнення є
+                  актом, не статичним фактом?) ніколи не вирішено.
+                  Якщо розрізнення вимагає акту, протікає
+                  process/time -- та сама незагоєна рана, спільна з
+                  REPEAT і BRANCH ще з найперших раундів.
+IRREDUCIBILITY -- випливає доволі прямо з самої co-primitivity
+                  (видалення будь-якого імені видаляє одне спільне
+                  поняття, яке обидва називають), але це ще не
+                  перевірено незалежно.
+```
+
+**Тож чесний статус такий**: `{distinction, plurality}` дуже ймовірно
+одна co-primitive-одиниця, не дві — але ця одиниця, у наведеній формі,
+можливо, ще не самодостатня. Третій елемент (щось на кшталт
+process/observer) може потребуватись, щоб приєднатись до неї, перш ніж
+`A*` реально закриється. Наступне реальне питання не "чи цикл
+реальний" (відповідь: так, за тестом на означуваність вище), а **чи
+закриття вимагає розширення `A*`, щоб включити компонент
+process/observer, і чи цей компонент сам далі розкладається, чи
+справді нерозкладний поряд із distinction/plurality.**
+
+---
+
+## Three relations formalized (English, secondary)
+
+Formalizes asymmetric dependency (`A ⪯ B`), equivalent strength
+(`A ~ B`, still two things), and co-primitive (one irreducible joint
+introduction, two names) — the last distinguished by a definitional
+test, not a derivational one. Applied to distinction/plurality: both
+definitional directions fail independently, confirming genuine
+co-primitivity, not mere equivalence. Honest caveat: this does not mean
+`{distinction, plurality}` passes CLOSURE — the observer/action vector
+was never resolved, so a third component may be needed. See the
+Ukrainian version above for full detail.
