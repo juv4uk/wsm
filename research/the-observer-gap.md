@@ -100,3 +100,45 @@ step must carry an `OBSERVED-BY` that is external to WSM. A claim whose
 only possible checker is WSM itself is not merely incomplete — it is
 disqualified, by the ruling above, as the specific trap this decision
 exists to close off.
+
+## Round 2: is "external" enough, or does OBSERVED-BY need independence?
+
+**Volodymyr's next proposal**: introduce "objects," not in the
+programming sense, but in the sense of personhood — and call them
+observers, or find a more fitting name.
+
+**Claude's attack**: `PERSONHOOD` as stated is not lighter than
+anything already found — it is heavier. For a "personal" observer to
+be the *same* observer across checks, it needs identity-over-time (the
+`REPEAT` wound). For it to tell itself apart from what it observes, it
+needs distinction (the `DISTINCTION` wound). Add intentionality — a
+subject that *does* something, not merely exists — and this enters
+philosophy of mind, a territory with *less* formal consensus than first
+order logic, not more. By the project's own partial-order methodology
+(`three-relations-formalized.md`), `PERSONHOOD` sits above every prior
+candidate's dependency closure, not below it — a "Path C" that is more
+expensive, not a shortcut.
+
+**What is likely real underneath the proposal, though not what was
+named**: not personhood, but **genuine independence of judgment**.
+"External" alone (the Round 1 ruling) is not sufficient — a mechanical
+comparator is external too, and `physical-constants-as-given.md`
+already showed a comparator just relocates semantics into transistors
+rather than avoiding it. The sharper requirement `OBSERVED-BY` may
+actually need: not merely *outside* the system, but **capable, in
+principle, of disagreeing** — an independent basis for judgment, not a
+passive echo of the system being checked. This is not abstract: it is
+the exact reason this research thread itself works the way it does —
+Claude and GPT-5.6 Sol attacking each other's proposals produces real
+results specifically because they *can* disagree, not merely because
+they are two different processes. The ecosystem already has this
+principle recorded for verification generally (same-model forks give
+role diversity, not independence; genuine cross-checking needs a
+genuinely different model) — not yet carried into WSM's own foundation
+until now.
+
+**No name is adopted here.** "Observer," "personhood," and every other
+candidate word in this thread that sounded right before being attacked
+(`Boolean`, `branch`) turned out to carry hidden cost. This capability
+— call it, for now, only `OBSERVED-BY-INDEPENDENT` until it survives
+its own attack — stays unnamed on purpose.
