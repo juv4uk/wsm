@@ -1,164 +1,178 @@
-# Grounding in real physical constants, not pure logical construction
+# Вкорінення в реальних фізичних константах, не чиста логічна конструкція
 
-**Status: OPEN, unattacked past the first pass below.** A new
-direction: instead of trying to logically *derive* distinction/
-plurality from nothing (repeatedly breaking into circularity, see
-`three-relations-formalized.md`), can some part of the foundation be
-grounded as an **observed physical fact** about the real machine,
-rather than a constructed logical primitive?
+**Статус: ВІДКРИТО, не атаковано поза першим проходом нижче.** Новий
+напрямок: замість спроби логічно *вивести* distinction/plurality з
+нічого (постійно ламається в циклічність, див.
+`three-relations-formalized.md`), чи може якась частина фундаменту
+бути вкоріненою як **спостережуваний фізичний факт** про реальну
+машину, а не сконструйований логічний примітив?
 
-## Contributors
+## Учасники
 
 ```text
-Author:   Volodymyr
-Role:     WSM project owner
-Content:  the originating question -- "can we reach mathematics
-          through really-existing constants?"
+Автор:    Volodymyr
+Роль:     власник проєкту WSM
+Внесок:   вихідне питання -- "чи можемо ми дійти до математики через
+          реально існуючі константи?"
 
-Author:   GPT-5.6 Sol (OpenAI), relayed by Volodymyr
-Role:     WSM Foundations Research collaborator
-Content:  elaborating into Path A vs Path B, the dimensional/
-          dimensionless-constant distinction, the invariant-before-
-          number refinement, the comparator/threshold follow-up
+Автор:    GPT-5.6 Sol (OpenAI), передано через Volodymyr
+Роль:     дослідницький партнер WSM Foundations Research
+Внесок:   розвиток у Path A проти Path B, розрізнення
+          розмірна/безрозмірна константа, уточнення
+          інваріант-перед-числом, наступний хід
+          компаратор/поріг
 
-Author:   Claude Sonnet 5 (Anthropic)
-Role:     WSM Foundations Research collaborator
-Content:  the hardware-import tension, the attacks on both rounds
+Автор:    Claude Sonnet 5 (Anthropic)
+Роль:     дослідницький партнер WSM Foundations Research
+Внесок:   напруження з апаратним імпортом, атаки в обох раундах
 ```
 
-## The appeal
+## Привабливість
 
-`()` itself is not derived — it is `GIVEN`. Everything attempted so far
-(`REPEAT`, `BRANCH`, `DISTINCTION`) tried to *logically construct* a
-next step, and each construction imported hidden content. What if part
-of the foundation does not need construction at all, because it is
-already physically true of the substrate `wsm-os` has already proven
-reachable and observable — the same `LIVE-CONFIRMED` status already
-used for hardware claims (e.g. `handoff-probe.c` reading 121 real
-memory descriptors — a real machine really does have more than one
-addressable location, checked, not assumed)?
+Сам `()` не виведений — він `GIVEN`. Усе, що пробувалось досі
+(`REPEAT`, `BRANCH`, `DISTINCTION`), намагалось *логічно побудувати*
+наступний крок, і кожна конструкція імпортувала прихований зміст. А що
+як частина фундаменту взагалі не потребує конструкції, бо вона вже
+фізично істинна для субстрату, який `wsm-os` уже довів досяжним і
+спостережуваним — той самий статус `LIVE-CONFIRMED`, уже вжитий для
+апаратних тверджень (наприклад, `handoff-probe.c` читає 121 реальний
+дескриптор пам'яті — реальна машина справді має більш ніж одну
+адресовану локацію, перевірено, не прийнято на віру)?
 
-## The immediate tension this creates
+## Негайне напруження, яке це створює
 
-This appears to collide directly with the standing two-way discipline
+Це, здається, прямо стикається зі стоячою двосторонньою дисципліною
 (`wsm-os/README.md`, `research/handoff-state.md`): **"wsm не імпортує
-апаратні поняття як семантику лише тому, що x86 їх має."** Doesn't "the
-machine physically has multiple cells, therefore WSM has plurality"
-commit exactly the sin the earlier rule forbids — the same shape as
-"x86 has ADD, therefore WSM has +"?
+апаратні поняття як семантику лише тому, що x86 їх має."** Хіба "машина
+фізично має множинні комірки, отже WSM має plurality" не чинить точно
+той гріх, який забороняє раніше правило — та сама форма, що "x86 має
+ADD, отже WSM має +"?
 
-## A candidate way to draw the line, not yet validated
+## Кандидатний спосіб провести межу, ще не валідований
 
-A proposed distinction between two different things that could both be
-called "grounding in hardware":
+Запропоноване розрізнення між двома різними речами, які обидві можна
+було б назвати "вкоріненням в залізі":
 
-- **Forbidden**: importing a ready-made hardware *operation* (e.g.
-  `ADD`) as WSM semantics without independently justifying why WSM
-  needs it.
-- **Possibly legitimate**: treating a physical *fact about the
-  substrate itself* (e.g. "this machine is not a single point — more
-  than one distinguishable state physically exists") as `GIVEN` by
-  observation, the same epistemic status `()`'s own presence already
-  has — not derived, not constructed, simply checked and reported with
-  the same `LIVE-CONFIRMED` discipline `wsm-os` already uses.
+- **Заборонено**: імпортувати готову апаратну *операцію* (наприклад,
+  `ADD`) як семантику WSM без незалежного обґрунтування, чому WSM це
+  потрібно.
+- **Можливо легітимно**: розглядати фізичний *факт про сам субстрат*
+  (наприклад, "ця машина не одна точка — фізично існує більш ніж один
+  розрізнюваний стан") як `GIVEN` через спостереження, той самий
+  епістемічний статус, який уже має сама присутність `()` — не
+  виведений, не сконструйований, просто перевірений і повідомлений з
+  тією самою дисципліною `LIVE-CONFIRMED`, яку вже використовує
+  `wsm-os`.
 
-If this distinction holds, it does not solve the distinction/plurality
-circularity directly — it changes what kind of answer is acceptable
-for part of the foundation: not every element needs a derivation chain
-back to `()`; some may be legitimately grounded in direct observation
-instead, same as `()` itself is.
+Якщо це розрізнення тримається, воно не вирішує циклічність
+distinction/plurality напряму — воно змінює те, який тип відповіді
+прийнятний для частини фундаменту: не кожен елемент потребує ланцюга
+виведення назад до `()`; деякі можуть бути легітимно вкорінені прямим
+спостереженням натомість, так само як сам `()`.
 
-## The attack this has already received, not resolved
+## Атака, яку це вже отримало, не вирішена
 
-**Reporting** a physical fact as "there is more than one X" already
-requires the observer to hold *some* notion of "more than one" before
-observation even begins. Grounding plurality in hardware observation
-does not obviously escape the same recursive problem
-`distinction-attacked.md` found for the purely logical route — it may
-just relocate the smuggling from "constructed from logic" to "presupposed
-by the act of observing," which is not obviously an improvement.
+**Повідомлення** фізичного факту як "тут більш ніж один X" уже вимагає,
+щоб спостерігач мав *якесь* поняття "більш ніж один" до того, як
+спостереження взагалі почалось. Вкорінення plurality в апаратному
+спостереженні очевидно не уникає тієї самої рекурсивної проблеми, яку
+`distinction-attacked.md` знайшов для чисто логічного шляху — воно
+може лише переносити контрабанду з "сконструйовано з логіки" в
+"передбачено самим актом спостереження", що не є очевидним
+покращенням.
 
-## What actually needs settling next
+## Що реально потрібно вирішити далі
 
-1. Is there a way to state "this substrate is not a single point"
-   without the observer already presupposing plurality to say it? (If
-   not, this direction inherits the same circularity as
-   `distinction-attacked.md`, just one level removed.)
-2. If some foundational elements are allowed to be `GIVEN-by-observation`
-   rather than `DERIVED`, what stops that category from becoming an
-   escape hatch for smuggling in anything convenient, defeating the
-   whole minimality discipline built up over the last several rounds?
-   A criterion is needed for what counts as a legitimate physical
-   `GIVEN` versus a disguised import — not yet proposed here.
+1. Чи є спосіб стверджувати "цей субстрат не одна точка" без того, щоб
+   спостерігач уже передбачав plurality, щоб це сказати? (Якщо ні, цей
+   напрямок успадковує ту саму циклічність, що й
+   `distinction-attacked.md`, лише на один рівень знятий.)
+2. Якщо деяким фундаментальним елементам дозволено бути
+   `GIVEN-by-observation`, а не `DERIVED`, що зупиняє цю категорію від
+   перетворення на лазівку для контрабанди будь-чого зручного, руйнуючи
+   всю дисципліну мінімальності, побудовану за останні кілька раундів?
+   Потрібен критерій того, що рахується легітимним фізичним `GIVEN`,
+   проти замаскованого імпорту — тут ще не запропоновано.
 
-Not committed either way. Recorded because the tension with the
-two-way discipline is real and needs to be resolved explicitly, not
-quietly ignored in either direction.
+Не прийнято в жодний бік. Записано, бо напруження з двосторонньою
+дисципліною реальне й потребує явного вирішення, не тихого ігнорування
+в жоден бік.
 
-## Round 2: Path A vs Path B, and why B is not cheaper than A
+## Раунд 2: Path A проти Path B, і чому B не дешевший за A
 
-GPT-5.6 Sol refined the direction into a named alternative path:
+GPT-5.6 Sol уточнила напрямок у названий альтернативний шлях:
 
 ```text
-PATH A: () -> explicit assumptions -> mathematics
-PATH B: () -> contact with reality -> invariant -> mathematics
+PATH A: () -> явні передумови -> математика
+PATH B: () -> контакт із реальністю -> інваріант -> математика
 ```
 
-Path B, spelled out: `() -> OBSERVATION -> INVARIANT -> RELATION ->
-QUANTITY -> MATHEMATICS`. He drew a real, useful distinction inside it:
-dimensional constants (`c = 299792458 m/s`) are bad as a foundation
-because they already depend on a chosen unit system — a hidden import.
-Dimensionless constants or bare *ratios* are more interesting.
-Cleanest of all: don't start from a numeric constant at all — start
-from a repeated real experiment (a real circle, a real pendulum)
-yielding the *same structural result* across repetitions, and only
-later build the concept of ratio, then number, from that. GPT-5.6 Sol
-posed its own sharp question against it before any defense: "що
-мінімально потрібно WSM, щоб узагалі здійснити observation, не
-вкравши вже distinction, identity, time і comparison?"
+Path B, розписаний: `() -> OBSERVATION -> INVARIANT -> RELATION ->
+QUANTITY -> MATHEMATICS`. Вона провела реальне, корисне розрізнення
+всередині нього: розмірні константи (`c = 299792458 m/s`) погані як
+фундамент, бо вже залежать від обраної системи одиниць — прихований
+імпорт. Безрозмірні константи чи голі *відношення* — цікавіші.
+Найчистіше з усього: взагалі не починати з числової константи —
+почати з повтореного реального експерименту (реальне коло, реальний
+маятник), що дає *той самий структурний результат* через повторення, і
+лише пізніше побудувати з цього поняття відношення, потім числа.
+GPT-5.6 Sol поставила власне гостре питання проти цього, ще до жодного
+захисту: "що мінімально потрібно WSM, щоб узагалі здійснити
+observation, не вкравши вже distinction, identity, time і comparison?"
 
-**Claude's attack, using GPT-5.6 Sol's own wording against its own proposal**:
-"той самий структурний результат" already uses identity (`the same`)
-— the exact problem that broke `REPEAT`. "Повторено" already imports
-sequence/time — the unhealed wound shared by `REPEAT` and `BRANCH`.
-"Стабільне відношення" requires *comparing* measurement A against
-measurement B and judging them equal — this is `eq`/comparison, the
-very first thing rejected back in the original `first-step-candidate.md`
-round for being a direct import from Lisp/logic, before `REPEAT` or
-`BRANCH` were even proposed.
+**Атака Claude, вживаючи власні слова GPT-5.6 Sol проти власної
+пропозиції**: "той самий структурний результат" уже вживає тотожність
+(`той самий`) — точно та сама проблема, що зламала `REPEAT`.
+"Повторено" уже імпортує послідовність/час — незагоєна рана, спільна
+для `REPEAT` і `BRANCH`. "Стабільне відношення" вимагає *порівняти*
+вимір A з виміром B і визнати їх рівними — це `eq`/порівняння, найперша
+річ, відкинута ще в оригінальному раунді `first-step-candidate.md` за
+те, що це прямий імпорт з Lisp/логіки, ще до того, як узагалі
+запропоновано `REPEAT` чи `BRANCH`.
 
-**Path B is not a cheaper alternative to Path A — it is a strict
-superset of Path A's already-broken requirements (distinction,
-identity, time), plus comparison on top, which nothing before Path B
-needed to add.**
+**Path B не дешевша альтернатива Path A — це строгий надмножина вже
+зламаних вимог Path A (distinction, identity, time), плюс порівняння
+зверху, якого ніщо до Path B не потребувало додавати.**
 
-**The obvious rescue, and why it fails**: let some external apparatus
-(the observing machine, `wsm-os`) do the observing, and have WSM merely
-*receive* the finished invariant. GPT-5.6 Sol's own proposal already
-forbade exactly this ("не можна взяти готове число як старт — це буде
-контрабанда") — if an external process already performed
-distinction+identity+time+comparison and hands WSM only the result,
-that is the identical contraband, wearing "observation" instead of
-"axiom" as its label.
+**Очевидний порятунок, і чому він провалюється**: нехай якась зовнішня
+апаратура (машина, що спостерігає, `wsm-os`) робить спостереження, а
+WSM лише *отримує* готовий інваріант. Власна пропозиція GPT-5.6 Sol уже
+забороняла точно це ("не можна взяти готове число як старт — це буде
+контрабанда") — якщо зовнішній процес уже виконав
+distinction+identity+time+comparison і віддає WSM лише результат, це
+ідентична контрабанда, що носить ярлик "спостереження" замість
+"аксіома".
 
-**Answered with GPT-5.6 Sol's own partial-order methodology**
-(`three-relations-formalized.md`): since Path B's requirements are a
-superset of Path A's, `Path A ⪯ Path B` and not the reverse — Path A is
-no worse, and appears strictly better, under the minimality criterion
-already established.
+**Відповідь власною методологією часткового порядку GPT-5.6 Sol**
+(`three-relations-formalized.md`): оскільки вимоги Path B — надмножина
+вимог Path A, `Path A ⪯ Path B`, не навпаки — Path A не гірша, і,
+схоже, строго краща, за вже встановленим критерієм мінімальності.
 
-**Lead closed by GPT-5.6 Sol itself**: could "comparison" be reduced to
-a raw *physical* match (e.g. two voltage levels agreeing within
-tolerance) rather than full logical `eq` — pre-semantic, prior to any
-logic? GPT-5.6 Sol's own follow-up closes this: "хто або що перетворює
-аналоговий фізичний стан на факт 'match'? Якщо відповідь містить
-threshold, tolerance або comparator, ми ще не уникнули семантики — ми
-просто реалізували її транзисторами" (who or what turns an analog
-physical state into the fact "match"? If the answer involves a
-threshold, tolerance, or comparator, semantics has not been avoided —
-it has just been implemented in transistors). A comparator circuit
-making a same/different judgment against a tolerance *is* the
-comparison — moving it into analog hardware relocates where the
-decision happens, not whether one happens. **This lead is now closed,
-not merely left open**: no version of "raw physical match" avoids
-comparison; it only hides where comparison is implemented.
+**Лазівка, закрита самою GPT-5.6 Sol**: чи можна звести "порівняння" до
+сирого *фізичного* збігу (наприклад, два рівні напруги, що узгоджуються
+в межах допуску), а не повного логічного `eq` — pre-semantic, до будь-
+якої логіки? Власний наступний хід GPT-5.6 Sol закриває це: "хто або
+що перетворює аналоговий фізичний стан на факт 'match'? Якщо відповідь
+містить threshold, tolerance або comparator, ми ще не уникнули
+семантики — ми просто реалізували її транзисторами". Компараторна
+схема, що робить судження однаковий/різний проти допуску, *і є*
+порівнянням — перенесення цього в аналогове залізо переносить, де
+відбувається рішення, не чи воно відбувається. **Ця лазівка тепер
+закрита, не просто лишена відкритою**: жодна версія "сирого фізичного
+збігу" не уникає порівняння; вона лише ховає, де порівняння
+реалізоване.
+
+---
+
+## Grounding in real physical constants (English, secondary)
+
+The appeal: `()` itself is `GIVEN`, not derived — what if part of the
+foundation can be too, via hardware observation? Tension: this looks
+like the same "x86 has ADD => WSM has +" sin the two-way discipline
+forbids. Attack: reporting "more than one X" already presupposes
+plurality in the observer. Round 2: Path A (explicit assumptions) vs
+Path B (contact with reality) — Path B attacked and shown to be a
+strict superset of Path A's requirements, not cheaper; the
+raw-physical-match rescue for comparison closed (a comparator with a
+threshold is still comparison, just implemented in transistors). See
+the Ukrainian version above for full detail.
