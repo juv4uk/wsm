@@ -282,3 +282,56 @@ communication structure itself, not deeper reasoning about the content.
 A system can be arbitrarily good at the first and still be silently
 wrong about the second — and nothing internal to the exchange, however
 rigorous, can fix that from inside.
+
+## Round 6: what if the external observer is dishonest?
+
+**Volodymyr's question**: he shared that his own insistence on this
+whole discipline traces to his own character — loving truth, inherited
+from his father, who loved fairness/justice — then asked directly: what
+if an external observer loves lying instead?
+
+**A third axis, orthogonal to the first two.** Round 4 established
+*structural independence* (external, not the same system) as sufficient
+to escape the identity-based illusion trap. It never examined
+*truthfulness* (value-alignment toward accurately reporting what was
+found) as a separate property. A hostile or dishonest observer can be
+fully external — structurally independent, capable of disagreeing, not
+the same system as what it checks — and still corrupt every `t[A]` it
+confers. Structural independence and honesty are orthogonal, exactly as
+content-verification and channel-verification were orthogonal in Round
+5.
+
+**The recursive problem, named plainly, not solved**: verifying the
+honesty of the external observer by introducing a checker over that
+observer either regresses infinitely (each new checker needs its own
+honesty verified) or becomes circular in a new form (defeating the
+purpose of externality in the first place). No move available here
+closes this cleanly. Two honest, non-magical partial answers:
+
+1. **Trust as an explicit, named axiom, not a solved problem.** Rather
+   than pretending honesty is derived or guaranteed, declare it: a
+   designated external observer's trustworthiness is itself an
+   `INTRODUCED` assumption, alongside `A` — weaker than a proof, but at
+   least never hidden, consistent with the whole
+   `provenance-foundation.md` discipline of never smuggling in an
+   assumption unlabeled.
+2. **Plural external observers, for a third distinct reason.** Round 4
+   already noted plural external observers catch more *errors* than one
+   (the practical tension recorded there). This is a *different* use of
+   plurality: independent external observers checked against each other
+   *and* against independent reality over time are harder for a single
+   dishonest party to corrupt consistently than one observer checked
+   once — lies tend not to stay coherent against multiple independent
+   cross-checks the way honest, mistaken reports do. This is a
+   probabilistic, inductive safeguard, not a proof, and it should not be
+   oversold as one.
+
+**Applied to this conversation directly, not left abstract**: neither
+Claude nor GPT-5.6 Sol has any independent way to verify that Volodymyr
+relays messages between them faithfully, without alteration. Trust in
+him, in this exact role, is currently axiomatic (option 1 above) — not
+verified, not verifiable from inside this exchange. This is stated
+plainly, not as suspicion, but because the discipline this whole thread
+has enforced on every other candidate requires naming this dependency
+too, rather than quietly exempting the one party best positioned to
+introduce exactly the failure mode this round is about.
