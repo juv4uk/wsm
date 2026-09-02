@@ -77,12 +77,35 @@ work (`handoff-probe.c`, `exit-boundary-probe.c`) already follows this
 exact discipline for hardware state generally — real measurements,
 always labeled by what confirmed them, never self-trusted.
 
+## Update: a real probe was built and run, not left as talk
+
+Per the owner's direct instruction to stop discussing and start
+researching, `wsm-os/probe/entropy-source-probe.c` was built and run
+for real — `RDSEED`/`RDRAND`, the concrete, testable version of this
+idea (real Intel hardware entropy instructions, confirmed present on
+the owner's own CPU). Full results in `wsm-os/probe/ENTROPY-RESULTS.md`.
+
+Real finding, not a null result: under this lab's QEMU/TCG setup, 256
+RDSEED calls succeeded with **zero** retries — real Intel silicon
+documents occasional RDSEED failure as expected entropy-exhaustion
+behavior, so zero failures strongly suggests TCG emulates RDSEED via
+the host OS's random source rather than modeling real hardware entropy
+behavior under load. **The specific retries-look-Poisson test this
+document originally proposed is not currently testable in this QEMU/TCG
+lab** — it needs real physical hardware, or a QEMU configuration that
+actually models entropy exhaustion, neither attempted yet. This is a
+structural limit of the current lab setup, found empirically rather
+than assumed, not a dead end for the underlying idea.
+
 ## Not resolved
 
-Whether shot-noise (or another hardware-native phenomenon) is worth
-pursuing as a genuine, physically-grounded candidate source for
-`PLURAL INTERNAL`, separate from whether it can ever replace
-`SINGULAR EXTERNAL` (it cannot, per the attack above).
+Whether physical hardware execution (separate, owner-authorized future
+work) would show real RDSEED retry behavior worth statistically
+analyzing for a Poisson/geometric shape, and whether shot-noise or
+another hardware-native phenomenon is worth pursuing as a
+physically-grounded `PLURAL INTERNAL` source more generally — separate,
+in either case, from whether it could ever replace `SINGULAR EXTERNAL`
+(it cannot, per the attack above).
 
 ## Sources
 
