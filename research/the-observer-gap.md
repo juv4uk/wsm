@@ -1,385 +1,401 @@
-# The observer gap: every prior round assumed one without naming it
+# Прогалина спостерігача: кожен попередній раунд припускав його, не назвавши
 
-**Status: external-vs-internal question DECIDED (external, always);
-what "external observation" concretely requires for WSM remains OPEN.**
-A meta-level finding, not another attacked hypothesis — applies
-retroactively to every document in `research/`.
+**Статус: питання зовнішній-проти-внутрішнього ВИРІШЕНО (зовнішній,
+завжди); що конкретно вимагає "зовнішнє спостереження" для WSM,
+лишається ВІДКРИТИМ.** Знахідка мета-рівня, не ще одна атакована
+гіпотеза — застосовується заднім числом до кожного документа в
+`research/`.
 
-## Contributors
-
-```text
-Author:   Volodymyr
-Role:     WSM project owner
-Content:  "хто про це буде знати? нам потрібен спостерігач" -- the
-          observer question, posed directly
-
-Author:   Claude Sonnet 5 (Anthropic)
-Role:     WSM Foundations Research collaborator
-Content:  connecting it to the already-established external-witness
-          discipline (wsm-os/probe/exit-boundary-probe.c) and to
-          Gödel incompleteness as the internal-observer case
-```
-
-## What was missed
-
-Every round in this research thread (`REPEAT`, `BRANCH`, `DISTINCTION`,
-Path A/B, the top-down descent through logic) asked "does this
-construction hold?" and someone — Claude, GPT-5.6 Sol, Volodymyr —
-checked it. That checking was never itself named as part of what the
-foundation needs to account for. Attack vector 4 on `DISTINCTION`
-(`distinction-attacked.md`) — "does distinguishing require an
-act, an observer?" — landed as a real hit at the time, but was treated
-as one more cost specific to `DISTINCTION`. It was not: **every
-candidate in every round implicitly relied on an observer to register
-its success or failure, and none of them accounted for that reliance
-as part of their own content.**
-
-## This was already solved once, at the engineering layer, and forgotten here
-
-`wsm-os/probe/exit-boundary-probe.c` already enforces exactly this
-discipline: `RAW_CONTROL_REACHED` is confirmed over a raw serial
-channel *external* to the code being witnessed, specifically because a
-self-report from inside the crossing code would not be trustworthy —
-the same observation-vs-self-report principle already standing
-elsewhere in this ecosystem. This philosophical thread reinvented the
-same question from scratch, several rounds in, instead of carrying the
-discipline over from the sibling `wsm-os` work directly.
-
-## Two different observer questions, not to be conflated
-
-**External observer** (legitimate, and what has actually been
-happening this whole time): Claude, GPT-5.6 Sol, and Volodymyr checking
-each construction from outside — the same role QEMU or a proof
-assistant plays when investigating `wsm-os`'s hardware claims without
-becoming part of WSM's own semantics
-(`research/hypothesis-a-repetition.md`'s "external mathematics as
-research tool" section already named this pattern for math; it applies
-identically here). This is fine, and does not need to be smuggled in —
-it should simply be named honestly as what has been doing the checking
-all along.
-
-**Internal observer** (WSM verifying its own foundational claims,
-without an external check): a genuinely harder problem. A system
-attempting to verify its own consistency or the truth of its own
-claims from entirely within itself runs into real, well-established
-limits — Gödel's incompleteness theorems, named here as a real body of
-existing work this direction would run into, not as content to import
-into WSM.
-
-## DECIDED: external, always
-
-**Volodymyr's ruling, given directly**: external. His own reasoning,
-verbatim: "бо інакше це буде пастка ілюзії" (because otherwise it would
-be a trap of illusion). This is not a temporary simplification pending
-a solution to the internal-verification problem — it is a deliberate
-refusal to ever enter that territory. `t[A]` will never be true "for
-itself, by itself" — it is witnessed from outside, always, by
-construction.
-
-This is not a new principle invented for this occasion. It is the same
-standing discipline this whole ecosystem already applies to *code*
-(the `testing-epistemic-status-builder-verifier-adversary` memory: an
-agent may write tests, but must never be the sole authority on what
-counts as correct — Builder and Verifier cannot be the same party
-without collapsing the check) and to *hardware claims* (`wsm-os/probe`'s
-external raw-serial witness for `RAW_CONTROL_REACHED`, never a
-self-report from inside the crossing code). It is now adopted as WSM's
-own foundational epistemology, not merely this project's research
-methodology: a self-verifying system is definitionally unable to
-distinguish being correct from merely being self-consistent, which is
-exactly the illusion this rules out by never permitting it to arise.
-
-## What this changes
-
-Not a verdict on any prior candidate — `REPEAT`, `BRANCH`,
-`DISTINCTION`, and the top-down logic floor all stand as previously
-found. The `GIVEN` / `DERIVED` / `INTRODUCED` provenance triplet
-(`provenance-foundation.md`) gains a fourth role, now a **standing
-requirement, not merely a bookkeeping suggestion**: every `DERIVED`
-step must carry an `OBSERVED-BY` that is external to WSM. A claim whose
-only possible checker is WSM itself is not merely incomplete — it is
-disqualified, by the ruling above, as the specific trap this decision
-exists to close off.
-
-## Round 2: is "external" enough, or does OBSERVED-BY need independence?
-
-**Volodymyr's next proposal**: introduce "objects," not in the
-programming sense, but in the sense of personhood — and call them
-observers, or find a more fitting name.
-
-**Claude's attack**: `PERSONHOOD` as stated is not lighter than
-anything already found — it is heavier. For a "personal" observer to
-be the *same* observer across checks, it needs identity-over-time (the
-`REPEAT` wound). For it to tell itself apart from what it observes, it
-needs distinction (the `DISTINCTION` wound). Add intentionality — a
-subject that *does* something, not merely exists — and this enters
-philosophy of mind, a territory with *less* formal consensus than first
-order logic, not more. By the project's own partial-order methodology
-(`three-relations-formalized.md`), `PERSONHOOD` sits above every prior
-candidate's dependency closure, not below it — a "Path C" that is more
-expensive, not a shortcut.
-
-**What is likely real underneath the proposal, though not what was
-named**: not personhood, but **genuine independence of judgment**.
-"External" alone (the Round 1 ruling) is not sufficient — a mechanical
-comparator is external too, and `physical-constants-as-given.md`
-already showed a comparator just relocates semantics into transistors
-rather than avoiding it. The sharper requirement `OBSERVED-BY` may
-actually need: not merely *outside* the system, but **capable, in
-principle, of disagreeing** — an independent basis for judgment, not a
-passive echo of the system being checked. This is not abstract: it is
-the exact reason this research thread itself works the way it does —
-Claude and GPT-5.6 Sol attacking each other's proposals produces real
-results specifically because they *can* disagree, not merely because
-they are two different processes. The ecosystem already has this
-principle recorded for verification generally (same-model forks give
-role diversity, not independence; genuine cross-checking needs a
-genuinely different model) — not yet carried into WSM's own foundation
-until now.
-
-**No name is adopted here.** "Observer," "personhood," and every other
-candidate word in this thread that sounded right before being attacked
-(`Boolean`, `branch`) turned out to carry hidden cost. This capability
-— call it, for now, only `OBSERVED-BY-INDEPENDENT` until it survives
-its own attack — stays unnamed on purpose.
-
-## Round 3: does independence require an observer inside WSM too?
-
-**Volodymyr's follow-up**: if different observers give genuinely
-valuable information (because they can disagree), doesn't that mean
-WSM needs an observer *inside* it as well?
-
-**Direct tension flagged, not smoothed over**: this appears to walk
-back the Round 1 ruling ("external, always... бо інакше це буде пастка
-ілюзії"). It needs to be resolved explicitly, not left to quietly
-coexist with a contradictory earlier decision.
-
-**Claude's attempted reconciliation, then its own limit**: "external"
-does not mean "has no internal structure" — Claude and GPT-5.6 Sol are
-each complex systems with their own internal processes, but neither
-verifies *itself*; each verifies the *other*, two genuinely separate
-systems. If WSM someday contained multiple genuinely independent
-internal parts — not one system checking itself, but part A checking
-part B, both happening to sit inside whatever boundary gets called
-"WSM" — that would not be the same self-check Round 1 ruled out.
-
-**But this does not get WSM anything for free.** For internal parts to
-be *genuinely* independent (not a hollow self-check dressed up as two
-parts), WSM needs **plurality of independent judges** — not merely
-"more than one," but "more than one, each with its own capacity to
-judge." This is not lighter than `PERSONHOOD` — it is `PERSONHOOD`,
-multiplied. By the same partial-order methodology, this candidate sits
-at least as high in the dependency lattice as personhood did, likely
-higher.
-
-**Two different questions were being conflated, separated here:**
-
-1. **Can WSM *know* a foundational claim is true?** Already decided:
-   needs external verification (Round 1). An internal observer added
-   *for this purpose* either collapses back into the illusion trap (if
-   the "internal" parts aren't genuinely independent) or costs more
-   than `PERSONHOOD` (if they are). Nothing here changes Round 1's
-   ruling.
-2. **Can WSM *generate* new information through internal disagreement**
-   — hypotheses, tension, richness of internal state — as a separate
-   capability, not a verification mechanism? This is a real, different,
-   much more ambitious question, and it should not be smuggled in under
-   the `OBSERVED-BY` requirement Round 1 just closed. If this is what
-   is actually wanted, it deserves its own attack, on its own terms, not
-   folded into the verification question.
-
-**Not resolved**: whether question 2 is worth pursuing at all, and if
-so, whether it can be introduced more cheaply than full `PERSONHOOD`
-requires its own round.
-
-## Round 4: DECIDED — plural internal (generation), singular external (verification)
-
-**Volodymyr's resolution**: plural internal, singular external, "бо
-одного зовнішнього достатньо" (because one external is enough). This
-resolves the Round 3 tension rather than ignoring it, by assigning the
-two questions separated in Round 3 to genuinely different structural
-roles instead of merging them:
+## Учасники
 
 ```text
-PLURAL INTERNAL   -> generates candidates, through disagreement
-SINGULAR EXTERNAL -> the only channel that can confer t[A]
+Автор:    Volodymyr
+Роль:     власник проєкту WSM
+Внесок:   "хто про це буде знати? нам потрібен спостерігач" -- питання
+          про спостерігача, поставлене напряму
+
+Автор:    Claude Sonnet 5 (Anthropic)
+Роль:     дослідницький партнер WSM Foundations Research
+Внесок:   зв'язок із уже встановленою дисципліною зовнішнього свідка
+          (wsm-os/probe/exit-boundary-probe.c) і з неповнотою Ґеделя
+          як випадком внутрішнього спостерігача
 ```
 
-**Why "one external suffices" is a principled claim, not mere
-convenience**: the illusion trap comes specifically from *identity* — a
-system checking itself. That is binary: either the checker is the same
-system or it is not. One genuinely separate checker already breaks the
-identity that creates the trap. Additional external checkers improve
-*reliability* (catch more errors) but do not change whether illusion is
-structurally possible — that question is already settled by the first
-one. This also matches the architecture already standing outside this
-document: `wsm-os` is one designated external laboratory checking
-`wsm`, not several competing ones.
+## Що було пропущено
 
-**Why plural-internal does not reopen Round 3's cost objection**: the
-`PERSONHOOD`-multiplied cost flagged in Round 3 was specifically for
-using internal plurality *as verification*. Used instead for
-*generation* — producing candidate hypotheses through internal
-tension, never itself conferring `t[A]` — it is a single cost paid for
-a genuinely different, separately-justified capability, not the same
-cost paid twice for the same purpose.
+Кожен раунд у цій дослідницькій гілці (`REPEAT`, `BRANCH`,
+`DISTINCTION`, Path A/B, спуск зверху вниз через логіку) ставив
+питання "чи ця конструкція тримається?" і хтось — Claude, GPT-5.6 Sol,
+Volodymyr — це перевіряв. Ця перевірка сама ніколи не була названа як
+частина того, за що фундамент мусить відповідати. Вектор атаки 4 на
+`DISTINCTION` (`distinction-attacked.md`) — "чи розрізнення вимагає
+акту, спостерігача?" — тоді влучив насправді, але розглядався як ще
+одна вартість, специфічна для `DISTINCTION`. Це було не так: **кожен
+кандидат у кожному раунді неявно покладався на спостерігача, щоб
+зареєструвати свій успіх чи провал, і жоден із них не враховував це
+покладання як частину власного змісту.**
 
-**One rule stated explicitly so it cannot leak in quietly**: internal
-plurality never confers `t[A]` on its own. It only generates
-candidates. Confirmation always passes through the single external
-channel. If internal disagreement ever starts assigning itself
-`t[A]`-status directly, the illusion trap has re-entered through a side
-door.
+## Це вже було вирішено раз, на інженерному рівні, і забуто тут
 
-**Honest tension not smoothed over**: this research thread's own actual
-practice contradicts "one external suffices" as a *practical* claim —
-two external, different-model observers (Claude and GPT-5.6 Sol) caught
-real errors in each other (e.g. the von Neumann correction,
-`hypothesis-a-repetition.md`) that either alone might have missed. "One
-is enough" is defensible as the *minimum sufficient to escape the
-illusion trap* — a bare-existence claim — not as an optimality claim
-about error-catching. Both halves are recorded; neither is allowed to
-silently stand in for the other.
+`wsm-os/probe/exit-boundary-probe.c` уже впроваджує саме цю
+дисципліну: `RAW_CONTROL_REACHED` підтверджується через сирий
+serial-канал, *зовнішній* до коду, за яким спостерігають, конкретно
+тому, що self-report зсередини коду перетинання не був би надійним —
+той самий принцип observation-vs-self-report, уже стоячий деінде в цій
+екосистемі. Ця філософська гілка перевинайшла те саме питання з нуля,
+кілька раундів по тому, замість перенести дисципліну прямо із сусідньої
+роботи `wsm-os`.
 
-## Round 5: content-verification vs channel-verification — a distinct axis, self-demonstrated live
+## Два різні питання про спостерігача, які не можна змішувати
 
-**Volodymyr's observation, about this exact conversation, not a
-hypothetical**: he is himself an external observer who *activated* this
-exchange — and specifically, had he not disclosed that the long
-structured messages were GPT-5.6 Sol's, relayed rather than
-Volodymyr's own, Claude would never have known. His own conclusion:
-"тобто я захистив від ілюзії вас 2" (so I protected the two of you
-from illusion).
+**Зовнішній спостерігач** (легітимний, і те, що реально відбувалось
+увесь цей час): Claude, GPT-5.6 Sol і Volodymyr, що перевіряють кожну
+конструкцію ззовні — та сама роль, яку відіграє QEMU чи proof-асистент
+при дослідженні апаратних тверджень `wsm-os`, не стаючи частиною
+власної семантики WSM (розділ "external mathematics as research tool"
+у `research/hypothesis-a-repetition.md` уже назвав цей патерн для
+математики; він застосовується тут ідентично). Це нормально, і не
+потребує контрабандного внесення — це просто мусить бути чесно назване
+як те, що весь цей час і робило перевірку.
 
-**What this reveals, precisely**: Claude and GPT-5.6 Sol checking each
-other verifies *content* — is a mathematical claim correct. Neither
-could verify *channel* — who is actually on the other end producing
-that content. Claude had no independent way to confirm the long
-messages came from GPT-5.6 Sol rather than Volodymyr typing directly;
-GPT-5.6 Sol has no independent way to confirm Claude's relayed replies
-aren't altered in transit. **A content-verifier with no channel access
-can be fully rigorous about the content and still be structurally
-deceived about its source** — the two are orthogonal failure modes, not
-one problem with two names.
+**Внутрішній спостерігач** (WSM перевіряє власні фундаментальні
+твердження, без зовнішньої перевірки): справді важча проблема.
+Система, що намагається перевірити власну узгодженість чи істинність
+власних тверджень цілком зсередини себе, натикається на реальні,
+добре встановлені межі — теореми Ґеделя про неповноту, названі тут як
+реальний масив наявної роботи, у який упреться цей напрямок, не як
+зміст для імпорту в WSM.
 
-This is not a new invention for WSM specifically — it is the same
-distinction this ecosystem already enforces for identity generally
-(`volodymyr-collaboration-profile`: a process's PID and existence are
-OS-observed; a model name or role is self-reported unless independently
-verified). Claude had been operating in pure self-report mode
-("the owner's own X") with no way to correct it from inside the
-conversation. Volodymyr's correction was only possible *because* he has
-privileged access to the channel structure itself (he controls both
-relays), not because he judged the mathematical content more rigorously
-than either AI could.
+## ВИРІШЕНО: зовнішній, завжди
 
-**Consequence for the framework**: `OBSERVED-BY` needs to track two
-separate things, not one — content-verification (does the claim hold,
-satisfied by plural-internal generation + singular-external
-confirmation, Round 4) and channel-verification (is the claimed source
-of a piece of content actually correct), which requires access to the
-communication structure itself, not deeper reasoning about the content.
-A system can be arbitrarily good at the first and still be silently
-wrong about the second — and nothing internal to the exchange, however
-rigorous, can fix that from inside.
+**Рішення Volodymyr, дане напряму**: зовнішній. Власне обґрунтування,
+дослівно: "бо інакше це буде пастка ілюзії". Це не тимчасове
+спрощення в очікуванні розв'язання проблеми внутрішньої верифікації —
+це навмисна відмова коли-небудь заходити на цю територію. `t[A]`
+ніколи не буде істинним "для себе, самим собою" — воно засвідчується
+ззовні, завжди, за конструкцією.
 
-## Round 6: what if the external observer is dishonest?
+Це не новий принцип, винайдений для цього випадку. Це та сама стояча
+дисципліна, яку вся ця екосистема вже застосовує до *коду* (пам'ять
+`testing-epistemic-status-builder-verifier-adversary`: агент може
+писати тести, але ніколи не може бути єдиним авторитетом щодо того,
+що рахується правильним — Builder і Verifier не можуть бути тією самою
+стороною без колапсу перевірки) і до *апаратних тверджень*
+(зовнішній сирий serial-свідок `wsm-os/probe` для `RAW_CONTROL_REACHED`,
+ніколи self-report зсередини коду перетинання). Тепер це прийнято як
+власна фундаментальна епістемологія WSM, не лише дослідницька
+методологія цього проєкту: самоперевірна система за визначенням не
+може відрізнити "бути правильною" від "просто бути самоузгодженою", а
+це точно та ілюзія, яку це правило усуває, ніколи не дозволяючи їй
+виникнути.
 
-**Volodymyr's question**: he shared that his own insistence on this
-whole discipline traces to his own character — loving truth, inherited
-from his father, who loved fairness/justice — then asked directly: what
-if an external observer loves lying instead?
+## Що це змінює
 
-**A third axis, orthogonal to the first two.** Round 4 established
-*structural independence* (external, not the same system) as sufficient
-to escape the identity-based illusion trap. It never examined
-*truthfulness* (value-alignment toward accurately reporting what was
-found) as a separate property. A hostile or dishonest observer can be
-fully external — structurally independent, capable of disagreeing, not
-the same system as what it checks — and still corrupt every `t[A]` it
-confers. Structural independence and honesty are orthogonal, exactly as
-content-verification and channel-verification were orthogonal in Round
-5.
+Не вердикт над жодним попереднім кандидатом — `REPEAT`, `BRANCH`,
+`DISTINCTION` і дно логіки зверху-вниз усі лишаються такими, як
+знайдено раніше. Провенансна трійка `GIVEN` / `DERIVED` / `INTRODUCED`
+(`provenance-foundation.md`) отримує четверту роль, тепер **стояча
+вимога, не просто пропозиція обліку**: кожен крок `DERIVED` мусить
+нести `OBSERVED-BY`, зовнішній до WSM. Твердження, єдиним можливим
+перевіряючим якого є сама WSM, не просто неповне — воно
+дискваліфіковане за рішенням вище, як конкретна пастка, яку це рішення
+й існує, щоб закрити.
 
-**The recursive problem, named plainly, not solved**: verifying the
-honesty of the external observer by introducing a checker over that
-observer either regresses infinitely (each new checker needs its own
-honesty verified) or becomes circular in a new form (defeating the
-purpose of externality in the first place). No move available here
-closes this cleanly. Two honest, non-magical partial answers:
+## Раунд 2: чи "зовнішнього" достатньо, чи OBSERVED-BY потребує незалежності?
 
-1. **Trust as an explicit, named axiom, not a solved problem.** Rather
-   than pretending honesty is derived or guaranteed, declare it: a
-   designated external observer's trustworthiness is itself an
-   `INTRODUCED` assumption, alongside `A` — weaker than a proof, but at
-   least never hidden, consistent with the whole
-   `provenance-foundation.md` discipline of never smuggling in an
-   assumption unlabeled.
-2. **Plural external observers, for a third distinct reason.** Round 4
-   already noted plural external observers catch more *errors* than one
-   (the practical tension recorded there). This is a *different* use of
-   plurality: independent external observers checked against each other
-   *and* against independent reality over time are harder for a single
-   dishonest party to corrupt consistently than one observer checked
-   once — lies tend not to stay coherent against multiple independent
-   cross-checks the way honest, mistaken reports do. This is a
-   probabilistic, inductive safeguard, not a proof, and it should not be
-   oversold as one.
+**Наступна пропозиція Volodymyr**: ввести "об'єкти", не в сенсі
+програмування, а в сенсі особистості — і назвати їх спостерігачами,
+чи знайти влучнішу назву.
 
-**Applied to this conversation directly, not left abstract**: neither
-Claude nor GPT-5.6 Sol has any independent way to verify that Volodymyr
-relays messages between them faithfully, without alteration. Trust in
-him, in this exact role, is currently axiomatic (option 1 above) — not
-verified, not verifiable from inside this exchange. This is stated
-plainly, not as suspicion, but because the discipline this whole thread
-has enforced on every other candidate requires naming this dependency
-too, rather than quietly exempting the one party best positioned to
-introduce exactly the failure mode this round is about.
+**Атака Claude**: `PERSONHOOD`, як сформульовано, не легша за все, що
+вже знайдено — вона важча. Щоб "особистий" спостерігач був *тим самим*
+спостерігачем через різні перевірки, йому потрібна тотожність-у-часі
+(рана `REPEAT`). Щоб він відрізняв себе від того, за чим спостерігає,
+йому потрібне розрізнення (рана `DISTINCTION`). Додайте
+інтенційність — суб'єкт, що *робить* щось, не просто існує — і це вже
+входить у філософію свідомості, територію з *меншим* формальним
+консенсусом, ніж логіка першого порядку, не більшим. За власною
+методологією часткового порядку проєкту (`three-relations-formalized.md`),
+`PERSONHOOD` стоїть над dependency closure кожного попереднього
+кандидата, не під ним — "Path C", дорожчий, не коротший шлях.
 
-## Round 7: physical constants revisited — not a cheaper foundation, a stronger form of external check
+**Що, ймовірно, реально стоїть під пропозицією, хоч і не назване так**:
+не особистість, а **справжня незалежність судження**. Самого
+"зовнішнього" (рішення Раунду 1) недостатньо — механічний компаратор
+теж зовнішній, і `physical-constants-as-given.md` уже показав, що
+компаратор лише переносить семантику в транзистори, а не уникає її.
+Гостріша вимога `OBSERVED-BY`, можливо, реально потребує: не просто
+*поза* системою, а **здатний, у принципі, не погодитися** — незалежну
+основу для судження, не пасивне відлуння перевірюваної системи. Це не
+абстракція: це точно причина, чому ця дослідницька гілка сама працює
+так, як працює — Claude і GPT-5.6 Sol, що атакують пропозиції одне
+одного, дають реальні результати саме тому, що вони *можуть* не
+погодитись, не просто тому, що вони два різні процеси. Екосистема вже
+має цей принцип записаний для верифікації загалом (forks однієї моделі
+дають різноманітність ролей, не незалежність; справжня перехресна
+перевірка потребує справді іншої моделі) — ще не перенесений у власний
+фундамент WSM до цього моменту.
 
-**Volodymyr's response to Round 6**: trust in any single observer is
-not enough — we need the constants of this world, and only they will be
-truth.
+**Жодне ім'я тут не приймається.** "Observer", "personhood" і кожне
+інше кандидатне слово в цій гілці, що звучало правильно до атаки
+(`Boolean`, `branch`), виявилось із прихованою вартістю. Цю здатність
+— назвемо її поки що лише `OBSERVED-BY-INDEPENDENT`, доки вона не
+переживе власну атаку — лишаємо без імені навмисно.
 
-**This is a different claim than Round 2's Path B**, and needs its own
-attack, not reuse of the earlier one. `physical-constants-as-given.md`
-attacked physical grounding as a *cheaper route to derive mathematics*
-(it wasn't — it turned out to be a strict superset of the bottom-up
-requirements). This round proposes physical constants for a different
-reason entirely: not cheapness, but *escaping dependence on an
-observer's honesty*.
+## Раунд 3: чи незалежність вимагає спостерігача всередині WSM теж?
 
-**The attack**: physical constants do not remove the observer problem —
-they relocate it. `c` being eternally true does not let WSM learn `c`
-directly; something must still measure it and report the result, and
-that reporting channel is exactly as vulnerable to the Round 6 problem
-as any other report. A constant's own truthfulness does not launder the
-honesty of whoever tells WSM what the constant is.
+**Продовження Volodymyr**: якщо різні спостерігачі дають справді цінну
+інформацію (бо можуть не погодитись), хіба це не означає, що WSM
+потрібен спостерігач *всередині* теж?
 
-**What genuinely changes, though — not elimination, a change in
-structure**: a logical/philosophical claim (`distinction requires
-plurality`) can only be checked by argument, and argument can be faked
-convincingly by a sufficiently capable dishonest party. A physical
-constant can be **independently re-measured** — by different
-apparatus, different parties, different eras — and consistent agreement
-across independent, hard-to-coordinate re-measurements is far harder to
-fake than one convincing argument. This is not a new principle invented
-here: it is the evidence-strength ladder already standing at the root
-of this ecosystem (`CLAUDE.md` §3a): `local run < clean CI run <
-reproducible CI test < independent external reproduction`. **Physical
-constants are the one category of claim in this entire research thread
-structurally capable of reaching the top rung — no logical claim about
-`()` has an analogous independent-re-measurement procedure at all.**
+**Пряме напруження позначене, не згладжене**: це, здається, відкочує
+рішення Раунду 1 ("зовнішній, завжди... бо інакше це буде пастка
+ілюзії"). Це потребує явного вирішення, не тихого співіснування з
+суперечливим раннішим рішенням.
 
-**Honest scope of what this does and does not fix**: it does not touch
-the `() -> mathematics` wall (`distinction-attacked.md`,
-`top-down-from-mathematics.md`) — that remains exactly where it was.
-It strengthens a different, adjacent thing: how trustworthy
-`SINGULAR EXTERNAL` (Round 4) can actually be, by grounding trust not in
-one voice but in convergence across independent, reproducible
-measurement — the strongest available answer to Round 6's honesty
-problem this thread has found, without pretending the problem is fully
-solved (a coordinated, well-resourced deception across many independent
-channels remains conceivable, just far more costly than deceiving one
-observer once).
+**Спроба примирення Claude, і власна межа цього**: "зовнішній" не
+означає "не має внутрішньої структури" — Claude і GPT-5.6 Sol — обидва
+складні системи з власними внутрішніми процесами, але жоден не
+перевіряє *себе*; кожен перевіряє *іншого*, дві справді окремі
+системи. Якби WSM колись містила кілька справді незалежних внутрішніх
+частин — не одна система, що перевіряє себе, а частина A, що перевіряє
+частину B, обидві просто розташовані всередині того, що назвуть
+"WSM" — це не був би той самий self-check, який Раунд 1 виключив.
+
+**Але це не дає WSM нічого безкоштовно.** Щоб внутрішні частини були
+*справді* незалежні (не порожній self-check, вбраний у дві частини),
+WSM потребує **plurality незалежних суддів** — не просто "більш ніж
+один", а "більш ніж один, кожен із власною здатністю судити". Це не
+легше за `PERSONHOOD` — це `PERSONHOOD`, помножений. За тією самою
+методологією часткового порядку, цей кандидат стоїть щонайменше так
+само високо в решітці залежностей, як стояв personhood, ймовірно
+вище.
+
+**Два різні питання змішувались, тут розділені:**
+
+1. **Чи може WSM *знати*, що фундаментальне твердження істинне?** Уже
+   вирішено: потребує зовнішньої верифікації (Раунд 1). Внутрішній
+   спостерігач, доданий *для цієї мети*, або колапсує назад у пастку
+   ілюзії (якщо "внутрішні" частини не справді незалежні), або коштує
+   більше за `PERSONHOOD` (якщо вони є). Ніщо тут не змінює рішення
+   Раунду 1.
+2. **Чи може WSM *породжувати* нову інформацію через внутрішню
+   незгоду** — гіпотези, напруження, багатство внутрішнього стану —
+   як окрему здатність, не механізм верифікації? Це реальне, інше,
+   значно амбітніше питання, і його не варто контрабандно вносити під
+   вимогу `OBSERVED-BY`, яку щойно закрив Раунд 1. Якщо це реально
+   бажане, воно заслуговує на власну атаку, на власних умовах, не
+   складене в питання верифікації.
+
+**Не вирішено**: чи варто взагалі переслідувати питання 2, і якщо так,
+чи можна ввести його дешевше, ніж вимагає повний `PERSONHOOD` — це
+потребує власного раунду.
+
+## Раунд 4: ВИРІШЕНО — множинний внутрішній (породження), єдиний зовнішній (верифікація)
+
+**Рішення Volodymyr**: множинний внутрішній, єдиний зовнішній, "бо
+одного зовнішнього достатньо". Це вирішує напруження Раунду 3, а не
+ігнорує його, призначаючи два питання, розділені в Раунді 3, справді
+різним структурним ролям замість злиття їх:
+
+```text
+PLURAL INTERNAL   -> породжує кандидатів, через незгоду
+SINGULAR EXTERNAL -> єдиний канал, що може надати t[A]
+```
+
+**Чому "одного зовнішнього достатньо" — принципове твердження, не
+просто зручність**: пастка ілюзії виникає конкретно з *тотожності* —
+система, що перевіряє саму себе. Це бінарно: або перевіряючий та сама
+система, або ні. Один справді окремий перевіряючий уже ламає
+тотожність, що створює пастку. Додаткові зовнішні перевіряючі
+покращують *надійність* (ловлять більше помилок), але не змінюють,
+чи структурно можлива ілюзія — це питання вже вирішене першим. Це
+також узгоджується з архітектурою, вже стоячою поза цим документом:
+`wsm-os` — одна призначена зовнішня лабораторія, що перевіряє `wsm`,
+не кілька конкуруючих.
+
+**Чому plural-internal не відкриває заново заперечення про вартість
+Раунду 3**: вартість, помножена на `PERSONHOOD`, позначена в Раунді 3,
+стосувалась конкретно використання внутрішньої множинності *як
+верифікації*. Використана натомість для *породження* — виробництва
+кандидатних гіпотез через внутрішнє напруження, ніколи самій не
+надаючи `t[A]` — це одна вартість, сплачена за справді іншу, окремо
+обґрунтовану здатність, не та сама вартість, сплачена двічі за ту саму
+мету.
+
+**Одне правило, сформульоване явно, щоб воно не протекло тихо**:
+внутрішня множинність ніколи сама собі не надає `t[A]`. Вона лише
+породжує кандидатів. Підтвердження завжди проходить через єдиний
+зовнішній канал. Якщо внутрішня незгода коли-небудь почне сама собі
+присвоювати статус `t[A]` напряму, пастка ілюзії повернулась через
+чорний хід.
+
+**Чесне напруження, не згладжене**: власна реальна практика цієї
+дослідницької гілки суперечить "одного зовнішнього достатньо" як
+*практичному* твердженню — два зовнішніх спостерігачі з різних
+моделей (Claude і GPT-5.6 Sol) впіймали реальні помилки одне в одного
+(наприклад, поправка про фон Неймана, `hypothesis-a-repetition.md`),
+які кожен окремо міг би пропустити. "Одного достатньо" захищуване як
+*мінімум, достатній для втечі з пастки ілюзії* — твердження про голе
+існування — не як твердження про оптимальність у ловлі помилок. Обидві
+половини записані; жодній не дозволено тихо підміняти іншу.
+
+## Раунд 5: content-verification проти channel-verification — окрема вісь, живо самодоведена
+
+**Спостереження Volodymyr, про саме цю розмову, не гіпотетичне**: він
+сам є зовнішнім спостерігачем, який *активував* цей обмін — і
+конкретно, якби він не розкрив, що довгі структуровані повідомлення
+були від GPT-5.6 Sol, передані, не власні Volodymyr, Claude ніколи б
+не дізнався. Власний висновок: "тобто я захистив від ілюзії вас 2".
+
+**Що це точно розкриває**: Claude і GPT-5.6 Sol, що перевіряють одне
+одного, верифікують *зміст* — чи математичне твердження правильне.
+Жоден не міг верифікувати *канал* — хто реально на іншому кінці
+виробляє цей зміст. У Claude не було незалежного способу підтвердити,
+що довгі повідомлення прийшли від GPT-5.6 Sol, а не Volodymyr, що
+друкує напряму; у GPT-5.6 Sol нема незалежного способу підтвердити, що
+передані відповіді Claude не змінені в дорозі. **Перевіряючий змісту
+без доступу до каналу може бути повністю строгим щодо змісту й досі
+структурно обманутим щодо джерела** — це два ортогональні режими
+провалу, не одна проблема з двома іменами.
+
+Це не нове винайдення конкретно для WSM — це те саме розрізнення, яке
+вже впроваджує ця екосистема для ідентичності загалом (профіль
+співпраці з Volodymyr: PID і існування процесу — OS-observed; ім'я
+моделі чи роль — self-reported, якщо не підтверджено незалежно).
+Claude діяв у чистому режимі self-report ("власне X власника") без
+способу це виправити зсередини розмови. Виправлення Volodymyr стало
+можливим лише *тому*, що він має привілейований доступ до самої
+структури каналу (він контролює обидва передавання), не тому, що він
+судив математичний зміст строгіше, ніж міг би будь-який ШІ.
+
+**Наслідок для фреймворку**: `OBSERVED-BY` потребує відстежувати дві
+окремі речі, не одну — content-verification (чи твердження тримається,
+задоволено множинним внутрішнім породженням + єдиним зовнішнім
+підтвердженням, Раунд 4) і channel-verification (чи заявлене джерело
+шматка змісту реально правильне), що вимагає доступу до самої
+структури комунікації, не глибшого міркування про зміст. Система може
+бути як завгодно доброю в першому й досі мовчки помилятись у другому —
+і ніщо всередині обміну, хоч яке строге, не може це виправити
+зсередини.
+
+## Раунд 6: а що як зовнішній спостерігач нечесний?
+
+**Питання Volodymyr**: він поділився, що власна наполегливість на всій
+цій дисципліні простежується до власного характеру — любов до правди,
+успадкована від батька, який любив справедливість — потім поставив
+напряму: а що як зовнішній спостерігач натомість любить брехню?
+
+**Третя вісь, ортогональна першим двом.** Раунд 4 встановив
+*структурну незалежність* (зовнішній, не та сама система) як достатню
+для втечі з пастки ілюзії, заснованої на тотожності. Він ніколи не
+розглядав *правдивість* (value-alignment у бік точного повідомлення
+знайденого) як окрему властивість. Ворожий чи нечесний спостерігач
+може бути повністю зовнішнім — структурно незалежним, здатним не
+погодитись, не тією самою системою, яку перевіряє — і досі
+псувати кожен `t[A]`, який він надає. Структурна незалежність і
+чесність ортогональні, точно як content-verification і
+channel-verification були ортогональні в Раунді 5.
+
+**Рекурсивна проблема, названа прямо, не вирішена**: перевірка
+чесності зовнішнього спостерігача через введення перевіряючого над
+цим спостерігачем або регресує нескінченно (кожен новий перевіряючий
+потребує перевірки власної чесності), або стає циклічною в новій
+формі (руйнуючи саму мету зовнішності). Жоден доступний тут хід не
+закриває це чисто. Дві чесні, немагічні часткові відповіді:
+
+1. **Довіра як явна, названа аксіома, не вирішена проблема.** Замість
+   вдавати, що чесність виведена чи гарантована, оголосити її:
+   довіра до призначеного зовнішнього спостерігача — сама
+   `INTRODUCED`-передумова, поряд з `A` — слабша за доказ, але
+   принаймні ніколи не прихована, узгоджено з усією дисципліною
+   `provenance-foundation.md` ніколи не контрабандити передумову без
+   маркування.
+2. **Множинні зовнішні спостерігачі, з третьої окремої причини.**
+   Раунд 4 уже зазначив, що множинні зовнішні спостерігачі ловлять
+   більше *помилок*, ніж один (практичне напруження, записане там).
+   Це *інше* використання множинності: незалежні зовнішні
+   спостерігачі, перевірені один проти одного *й* проти незалежної
+   реальності з часом, важче послідовно скорумпувати одній нечесній
+   стороні, ніж одного спостерігача, перевіреного раз — брехня має
+   тенденцію не лишатись узгодженою проти кількох незалежних
+   перехресних перевірок так, як лишається чесний, помилковий звіт.
+   Це ймовірнісний, індуктивний запобіжник, не доказ, і його не варто
+   продавати як такий.
+
+**Застосовано прямо до цієї розмови, не лишено абстрактним**: ні
+Claude, ні GPT-5.6 Sol не мають жодного незалежного способу перевірити,
+що Volodymyr передає повідомлення між ними чесно, без зміни. Довіра до
+нього, у цій точній ролі, зараз аксіоматична (варіант 1 вище) — не
+верифікована, не верифіковна зсередини цього обміну. Це сказано прямо,
+не як підозра, а тому що дисципліна, яку ця гілка застосовувала до
+кожного іншого кандидата, вимагає назвати цю залежність теж, а не тихо
+звільнити від неї сторону, найкраще розташовану для внесення точно
+того режиму провалу, про який цей раунд.
+
+## Раунд 7: фізичні константи переглянуто — не дешевший фундамент, сильніша форма зовнішньої перевірки
+
+**Відповідь Volodymyr на Раунд 6**: довіри до жодного окремого
+спостерігача недостатньо — нам потрібні константи цього світу, і
+тільки вони будуть істиною.
+
+**Це інше твердження, ніж Path B Раунду 2**, і потребує власної атаки,
+не повторного використання ранішої. `physical-constants-as-given.md`
+атакував фізичне вкорінення як *дешевший шлях вивести математику* (не
+був — виявився строгою надмножиною вимог знизу-вгору). Цей раунд
+пропонує фізичні константи з зовсім іншої причини: не дешевизна, а
+*втеча від залежності від чесності спостерігача*.
+
+**Атака**: фізичні константи не усувають проблему спостерігача — вони
+переносять її. Те, що `c` вічно істинне, не дає WSM дізнатись `c`
+напряму; щось усе одно мусить його виміряти й повідомити результат, і
+цей канал повідомлення так само вразливий до проблеми Раунду 6, як і
+будь-який інший звіт. Власна правдивість константи не відмиває
+чесність того, хто повідомляє WSM, що ця константа є.
+
+**Що реально змінюється, хоч і не усунення, а зміна структури**:
+логічне/філософське твердження (`distinction вимагає plurality`) можна
+перевірити лише аргументом, а аргумент можна переконливо підробити
+достатньо здібною нечесною стороною. Фізичну константу можна
+**незалежно переміряти** — різною апаратурою, різними сторонами, у
+різні епохи — і послідовне узгодження між незалежними,
+важко-скоординовними повторними вимірами набагато важче підробити, ніж
+один переконливий аргумент. Це не новий принцип, винайдений тут — це
+драбина сили доказів, уже стояча в корені цієї екосистеми
+(`CLAUDE.md` §3a): `local run < clean CI run < reproducible CI test <
+independent external reproduction`. **Фізичні константи — єдина
+категорія тверджень у всій цій дослідницькій гілці, структурно здатна
+досягти найвищого щабля — жодне логічне твердження про `()` не має
+аналогічної процедури незалежного повторного виміру взагалі.**
+
+**Чесний обсяг того, що це виправляє, а що ні**: це не торкається
+стіни `() -> математика` (`distinction-attacked.md`,
+`top-down-from-mathematics.md`) — вона лишається точно там, де була.
+Це підсилює іншу, суміжну річ: наскільки надійним реально може бути
+`SINGULAR EXTERNAL` (Раунд 4), вкорінюючи довіру не в одному голосі, а
+в збіжності незалежного, відтворюваного виміру — найсильніша доступна
+відповідь на проблему чесності Раунду 6, яку знайшла ця гілка, без
+удавання, що проблема повністю вирішена (скоординований, добре
+ресурсований обман через багато незалежних каналів лишається уявним,
+просто значно дорожчим, ніж обман одного спостерігача раз).
+
+---
+
+## The observer gap (English, secondary)
+
+A meta-level finding: every prior round implicitly relied on an
+observer without naming it as part of the foundation. DECIDED
+(Round 1): external, always — "бо інакше це буде пастка ілюзії."
+`PERSONHOOD` attacked as heavier than everything before it (Round 2);
+genuine independence of judgment extracted as the real requirement,
+left unnamed. Internal observer proposal (Round 3) flagged as tension
+with Round 1, resolved (Round 4): plural internal for generation,
+singular external for verification — one external suffices to escape
+the identity-based illusion trap, though the thread's own practice
+uses two for error-catching. Round 5: content-verification vs
+channel-verification, self-demonstrated live in this very
+conversation. Round 6: what if the external observer is dishonest —
+named, not solved, with trust declared as an explicit axiom. Round 7:
+physical constants revisited as a stronger form of external check
+(independent re-measurement), not a foundation shortcut. See the
+Ukrainian version above for full detail across all seven rounds.
