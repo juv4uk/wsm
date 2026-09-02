@@ -1,6 +1,8 @@
 # Вкорінення в реальних фізичних константах, не чиста логічна конструкція
 
-**Статус: ВІДКРИТО, не атаковано поза першим проходом нижче.** Новий
+**Статус: ВІДКРИТО, чотири раунди атаковано нижче (Path A/B, comparator,
+означення c через метр, раціональність-за-законом проти
+ірраціональності-за-структурою).** Новий
 напрямок: замість спроби логічно *вивести* distinction/plurality з
 нічого (постійно ламається в циклічність, див.
 `three-relations-formalized.md`), чи може якась частина фундаменту
@@ -24,7 +26,13 @@
 
 Автор:    Claude Sonnet 5 (Anthropic)
 Роль:     дослідницький партнер WSM Foundations Research
-Внесок:   напруження з апаратним імпортом, атаки в обох раундах
+Внесок:   напруження з апаратним імпортом, атаки в обох раундах;
+          Раунд 3 -- перевірка історичної конвергенції вимірів c і
+          знахідка означення метра через c (1983)
+
+Автор:    Volodymyr (Раунд 3)
+Роль:     власник проєкту WSM
+Внесок:   питання, чи машина зможе поступово вивести швидкість світла
 ```
 
 ## Привабливість
@@ -162,6 +170,186 @@ distinction+identity+time+comparison і віддає WSM лише результ
 збігу" не уникає порівняння; вона лише ховає, де порівняння
 реалізоване.
 
+## Раунд 3: чи може машина поступово вивести швидкість світла?
+
+**Питання Volodymyr, власне**: чи зможе машина поступово вивести
+швидкість світла — сама, через послідовні виміри, без готового числа
+ззовні?
+
+### Реальна історія — справді поступова, справді емпірична
+
+Перевірено пошуком проти відомої історії фізики, не прийнято на віру.
+Швидкість світла дійсно уточнювалась поступово, вимір за виміром,
+століттями:
+
+```text
+~1676  Рьомер   -- астрономічний метод (затемнення Іо), перша оцінка
+1728   Бредлі   -- зоряна аберація, ~301 000 км/с
+1849   Фізо     -- перший земний вимір (зубчасте колесо), 313 274 км/с
+                    (на ~4.5% завищено)
+1862   Фуко     -- обертове дзеркало, ~298 000 км/с
+1879+  Майкельсон -- ~299 910 ± 50 км/с, пізніше в середньому ~299 774 км/с
+1983   CGPM     -- значення ЗАФІКСОВАНЕ означенням: 299 792 458 м/с
+```
+
+Це справжня, документована, поступова емпірична конвергенція — кожен
+наступний метод точніший за попередній, значення сходиться до сучасного
+без стрибка. Якщо десь у цьому проєкті потрібен реальний історичний
+приклад того, як `Path B` (спостереження -> інваріант) реально виглядає
+на практиці протягом століть, це чудовий, чесний приклад.
+
+### Гостріша знахідка, яка робить цей кандидат гіршим, не кращим за попередні
+
+**У 1983 році 17-й CGPM (Генеральна конференція мір і ваг) означив
+метр як відстань, яку світло проходить у вакуумі за 1/299 792 458
+секунди.** Звідси випливає, що швидкість світла у вакуумі — **точно**
+299 792 458 м/с, за означенням, не за виміром. Це не наближення й не
+округлення — це юридично зафіксоване число.
+
+Наслідок, гостріший за все, що вже знайдено в Раунді 2 цього документа
+("розмірні константи погані як фундамент, бо залежать від обраної
+системи одиниць"): **у сучасній системі SI машина не може "виміряти"
+`c` в метрах за секунду, бо метр *сам визначений через* `c`.** Будь-яка
+спроба "виміряти" швидкість світла сучасним обладнанням, каліброваним
+у метрах, насправді вимірює **власну точність калібрування лінійки**
+проти вже зафіксованого означення — не відкриває незалежний інваріант.
+Це не гіпотетична пастка контрабанди, як у попередніх раундах — це
+буквальний, юридично зафіксований факт про сучасну систему одиниць.
+
+### Вердикт
+
+Історична конвергенція (Рьомер -> Майкельсон) реальна й цінна як
+приклад `Path B`, але сама вимагала незалежно означених одиниць
+довжини й часу (фізичний еталон метра, обертання Землі, пізніше
+атомний годинник) — вона не виводила ці одиниці з нуля, вона їх уже
+мала. А з 1983 року навіть цей шлях закритий для сучасного вимірювання:
+`c` перейшло з категорії "виміряний інваріант" (Path B) у категорію
+"означена передумова" (Path A) офіційним міжнародним рішенням. Машина,
+що намагається "поступово вивести" `c` сьогодні, у кращому разі
+поступово підтверджує калібрування власної лінійки проти вже
+внесеного означення — не відкриває нову математику з нуля.
+
+**Що машина реально могла б зробити** (не зроблено, не почато без
+дозволу): виміряти реальну швидкість поширення сигналу в реальному
+фізичному середовищі цього заліза (наприклад, затримку сигналу по
+кабелю чи PCIe/DMI-доріжці відносно власного годинника) — це дало б
+реальне число, менше `c` (типовий velocity factor коаксіального кабелю
+~0.66c), цінний `PLURAL INTERNAL` кандидат-дані, точно як ентропійна
+проба чи shot-noise/Арреніус-знахідки вище. Це **не** відкрило б `c` як
+незалежний інваріант — воно виміряло б властивість конкретного кабелю
+цієї плати, ще одне спостереження, що потребує `SINGULAR EXTERNAL`
+підтвердження, як і все інше в цій лінії дослідження.
+
+## Раунд 4: раціональність за означенням проти ірраціональності за структурою
+
+**Спостереження Volodymyr, власне**: якщо хочемо міряти в десяткових
+одиницях, нам потрібна константа, яка раціональна — точність
+ірраціональних чисел нам не підходить.
+
+**Перевірено пошуком, не прийнято на віру — і спостереження
+підтверджується буквально й точно.** Повна ревізія SI 2019 року
+означила **сім** базових констант, і **кожна** з них — точне, скінченне
+десяткове число, без жодної невизначеності, за прямим міжнародним
+рішенням:
+
+```text
+ΔνCs (цезій, надтонкий перехід):   9 192 631 770 Гц
+c (швидкість світла):               299 792 458 м/с
+h (стала Планка):                   6.62607015 × 10⁻³⁴ Дж·с
+e (елементарний заряд):             1.602176634 × 10⁻¹⁹ Кл
+k (стала Больцмана):                1.380649 × 10⁻²³ Дж/К
+Nₐ (стала Авогадро):                6.02214076 × 10²³ /моль
+K_cd (світлова ефективність):       683 лм/Вт
+```
+
+**Застереження щодо позначень, варте негайної фіксації**: серед сімки —
+знову `e`, цього разу **елементарний електричний заряд**, той самий
+символ, що вже спричинив пастку позначень у Раунді 1
+`hardware-native-constants.md` (`S = 2eI`, де `e` — заряд, не число
+Ейлера). Тут це не помилка — офіційна SI-позначення справді
+використовує `e` для заряду — але це нагадування, що символ `e` у
+фізичній літературі систематично неоднозначний, і кожна нова поява
+потребує перевірки, яка `e` мається на увазі, а не припущення за
+звичкою.
+
+### Чому це підтверджує спостереження, а не просто збігається з ним
+
+Кожна з семи величин вище — **не мала бути** скінченним десятковим
+числом. До 2019 року вони вимірювались з похибкою, як звичайні фізичні
+величини. Рішення зробити їх точними — це **людський вибір**, зроблений
+саме тому, що для практичного калібрування (виробництво, метрологія,
+торгівля) потрібне число, яке можна записати повністю, скінченно, і
+відтворити без залишкової невизначеності. **Ірраціональне число
+принципово не може виконати цю роль** — його неможливо записати
+повністю в жодній скінченній системі числення, тож воно не годиться як
+*означення* еталона, хоч би яким фізично реальним воно було.
+
+### Різкий контраст: дві різні категорії "константи"
+
+```text
+Категорія 1 -- "узаконені" (c, h, e-заряд, k, Nₐ, ΔνCs, K_cd)
+  - розмірні або прив'язані до умовної одиниці
+  - РАЦІОНАЛЬНІ, скінченні десяткові -- людський вибір, не математична
+    необхідність
+  - "точні" через законодавче рішення, не через вимір
+  - вже показано в Раунді 3: цей вибір закриває шлях Path B назавжди
+    для c зокрема
+
+Категорія 2 -- "структурні" (e -- число Ейлера, π)
+  - безрозмірні
+  - ІРРАЦІОНАЛЬНІ, трансцендентні -- виникають необхідно з визначення
+    самої математичної структури (експоненційна функція, коло)
+  - НЕ можна узаконити зручним раціональним значенням, не зламавши
+    математику, що їх породжує -- на відміну від Категорії 1
+  - саме ця категорія виринала в Раундах 2-3 `hardware-native-
+    constants.md` (діод Шоклі, старіння кремнію)
+
+Категорія 3 -- "справді відкриті" (стала тонкої структури α ≈ 1/137.036)
+  - безрозмірна (переживає критику залежності від системи одиниць,
+    як і Категорія 2)
+  - НЕ узаконена SI 2019 -- досі вимірюється емпірично, не означена
+  - чи вона раціональна, ірраціональна, чи має замкнену математичну
+    форму -- НЕВІДОМО. Жодна фізична теорія не виводить її значення;
+    вона вставляється як зовнішній параметр (Standard Model, ~20 таких
+    параметрів). Загадка, яку фізика не розв'язала більше століття.
+```
+
+**Чому Категорія 3 структурно найцікавіша для цього дослідження, з
+чесним застереженням масштабу**: вона єдина, що не є ні артефактом
+людської угоди (Категорія 1, закрито Раундом 3), ні вже поясненою
+чистою математикою (Категорія 2, закрито Раундами 2-3
+`hardware-native-constants.md`). Якщо колись і є кандидат на "щось, що
+машина могла б реально відкрити, чого математика ще не пояснила
+наперед" — це, ймовірно, він. **Але** це також означає братися за
+задачу, яку вся фізична спільнота не розв'язала за понад сто років
+спроб (Фейнман називав це "one of the greatest damn mysteries of
+physics") — не заявка на легкий наступний крок, а чесне визнання
+масштабу, якщо цей напрямок колись обиратиметься для реальної роботи.
+
+**Повний розбір α, на пряму просьбу власника** — `fine-structure-
+constant-alpha.md`. Знахідка загострює, а не пом'якшує застереження
+вище: питання раціональності α виявилось не просто нерозв'язаним, а,
+ймовірно, некоректно поставленим за нинішнім розумінням (немає
+замкненої формули, лише скінченно-точний вимір); знайдено реальну
+задокументовану розбіжність >5σ між двома незалежними методами виміру
+α; і сама α "біжить" зі шкалою енергії, тож навіть вона — не єдине
+число.
+
+## Джерела (Раунд 4)
+
+- [BIPM: The International System of Units (SI) — Defining constants](https://www.bipm.org/en/measurement-units/si-defining-constants)
+- [Wikipedia: 2019 revision of the SI](https://en.wikipedia.org/wiki/2019_revision_of_the_SI)
+- [Wikipedia: Fine-structure constant](https://en.wikipedia.org/wiki/Fine-structure_constant)
+- [Wikipedia: Elementary charge](https://en.wikipedia.org/wiki/Elementary_charge)
+
+## Джерела (Раунд 3)
+
+- [BIPM: Mise en pratique for the metre](https://www.bipm.org/documents/20126/41489670/SI-App2-metre.pdf)
+- [Wikipedia: Speed of light — history and 1983 SI definition](https://en.wikipedia.org/wiki/Speed_of_light)
+- [Wikipedia: History of the metre](https://en.wikipedia.org/wiki/History_of_the_metre)
+- [Rømer's determination of the speed of light — Wikipedia](https://en.wikipedia.org/wiki/R%C3%B8mer's_determination_of_the_speed_of_light)
+- [Fizeau's measurement of the speed of light in air — Wikipedia](https://en.wikipedia.org/wiki/Fizeau%27s_measurement_of_the_speed_of_light_in_air)
+
 ---
 
 ## Grounding in real physical constants (English, secondary)
@@ -174,5 +362,42 @@ plurality in the observer. Round 2: Path A (explicit assumptions) vs
 Path B (contact with reality) — Path B attacked and shown to be a
 strict superset of Path A's requirements, not cheaper; the
 raw-physical-match rescue for comparison closed (a comparator with a
-threshold is still comparison, just implemented in transistors). See
-the Ukrainian version above for full detail.
+threshold is still comparison, just implemented in transistors).
+
+Round 3 (Volodymyr's own question): could a machine gradually derive
+the speed of light through successive measurement? Verified: the
+historical convergence (Rømer, Bradley, Fizeau, Foucault, Michelson,
+1676-1920s) is real and genuinely gradual — a fair real-world example of
+Path B. Sharper finding: since 1983, the metre is *defined* as the
+distance light travels in 1/299,792,458 s, making `c` exactly
+299,792,458 m/s by definition, not measurement — a modern machine using
+SI units cannot measure `c` at all; it can only measure its own ruler's
+calibration against that fixed definition. This is a stronger version of
+the earlier finding that dimensional constants depend on the chosen
+unit system: for `c` specifically, the modern unit system was built by
+folding the constant into the definition of length itself. What a
+machine on this hardware genuinely could do (not started, not
+authorized): measure real signal-propagation delay in a real physical
+medium (e.g. a cable's velocity factor, ~0.66c) — real `PLURAL INTERNAL`
+data, not a `SINGULAR EXTERNAL`-independent discovery of `c` itself.
+
+Round 4 (Volodymyr's own observation): decimal measurement needs a
+rational constant, because irrational precision doesn't fit. Verified
+and confirmed exactly: all seven 2019 SI defining constants (ΔνCs, c, h,
+elementary charge e, k, Nₐ, Kcd) are exact, finite-decimal (hence
+rational) numbers by deliberate legislation — a human convenience
+choice only possible because these are conventional/dimensional
+constants, not a mathematical necessity. (Notation-trap reminder: `e`
+among them is elementary charge again, not Euler's number — same
+symbol collision flagged in Round 1 of `hardware-native-constants.md`.)
+Contrast drawn into three categories: "legislated" (rational by
+convention — c, h, e-charge, k, Nₐ, ΔνCs, Kcd), "structural"
+(irrational, forced by the mathematics that generates them, cannot be
+legislated to convenience — Euler's `e`, π), and "genuinely open" (the
+dimensionless fine-structure constant α ≈ 1/137.036 — not fixed by
+convention, still measured, its rational/irrational/closed-form status
+unknown, unsolved for over a century). α flagged as the most
+structurally interesting remaining candidate — neither a convention
+artifact nor already explained by known mathematics — with an explicit
+caveat about the scale of that open problem. See the Ukrainian version
+above for full detail and sources.

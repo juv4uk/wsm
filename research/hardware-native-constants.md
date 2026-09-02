@@ -16,7 +16,18 @@
 Роль:     дослідницький партнер WSM Foundations Research
 Внесок:   перевірка фізичного твердження, пастка позначень
           елементарний-заряд/число-Ейлера, структурна атака на
-          "спостерігач не потрібен"
+          "спостерігач не потрібен"; Раунд 2 -- перевірка дослівної
+          цитати Нобелівської лекції Шоклі й атака Path-A-не-Path-B на
+          новому фізичному прикладі
+
+Автор:    GPT-5.6 Sol (OpenAI), передано через Volodymyr (Раунд 2)
+Роль:     дослідницький партнер WSM Foundations Research
+Внесок:   кандидат p-n-переходу Шоклі, коректне термінологічне
+          розрізнення число-Ейлера/топологічне-Euler-number
+
+Автор:    Volodymyr (Раунд 3)
+Роль:     власник проєкту WSM
+Внесок:   питання про старіння кремнію як ще одне джерело e
 ```
 
 ## Пропозиція
@@ -100,6 +111,161 @@ RDSEED як очікувану поведінку виснаження ентр�
 налаштування, знайдена емпірично, а не прийнята на віру, не глухий кут
 для самої ідеї.
 
+## Раунд 2: транзисторний перехід, реальна поява e, і чому це та сама пастка на новому фізичному носії
+
+**Пропозиція GPT-5.6 Sol, передана через Volodymyr**: не shot noise, а
+класична формула Шоклі для p-n переходу — коли потенційний бар'єр
+зростає на одну теплову енергію `kT`, кількість носіїв, здатних його
+подолати, падає в `1/e` разів; коли бар'єр спадає на `kT`, струм
+зростає в `e` разів, звідки `I ∝ exp(qV/kT)`. Джерело: Нобелівська
+лекція Вільяма Шоклі, "Transistor Technology Evokes New Physics", 11
+грудня 1956.
+
+**Перше уточнення, варте фіксації**: сам виклад заздалегідь відрізнив
+"натуральне число `e ≈ 2.71828`" від "топологічного Euler number" —
+корисне термінологічне розрізнення (в англомовній літературі "Euler
+number" неоднозначний термін, що також позначає характеристику Ейлера
+в топології, зовсім інший об'єкт). Це не та сама пастка позначень
+"елементарний заряд проти числа Ейлера", знайдена в Раунді 1 — тут
+розрізнення зроблено правильно й заздалегідь.
+
+**Перевірено напряму проти першоджерела, не прийнято на віру**:
+Нобелівська лекція Шоклі знайдена й прочитана дослівно (Nobel Lectures
+in Physics 1942-1962, World Scientific, 1998, ISBN 981-02-3403-1,
+сторінки 344-375; конкретна цитата — сторінка 365). Дослівна цитата,
+що підтверджує твердження буквально:
+
+> "We can apply a general theorem from statistical mechanics to a
+> consideration of the number of holes which, by chance, acquire
+> sufficient energy to climb the potential hill. This theorem states
+> that each time the potential hill is increased by one thermal unit of
+> energy, kT, then the number of holes capable of climbing the higher
+> hill is reduced by a factor of 1/e. Since the potential barrier is
+> already present under conditions of thermal equilibrium, it follows
+> also that each lowering of the barrier by an amount kT will increase
+> the current by a factor of e."
+
+Далі Шоклі виводить `Iᵣ = I₀ exp(qV/kT)` і повну формулу діода `I =
+[exp(qV/kT) − 1] Iₛ`, і на сторінці 366 порівнює це з реальним
+експериментальним виміром випрямлення на германієвому p-n переході
+(Fig. 9): "the separation between the forward and reverse branches of
+the curves corresponds to a factor of e when the voltage is kT/q = 25
+mV. This is exactly the factor predicted by the preceding equation."
+**Це реальна, добре встановлена фізика, підтверджена дослівно
+першоджерелом — жодної пастки позначень цього разу.**
+
+## Структурна атака Claude: те саме питання, гостріший приклад
+
+Це справді чистіший фізичний приклад, ніж shot noise (один механізм,
+пряме мікроскопічне пояснення, без плутанини символів). Але саме
+чистота цього прикладу робить структурну проблему **виднішою, не
+менш реальною**: власний виклад Шоклі показує, що `e` тут **не
+"вичитане" з проведення, спостережуваного без математики** — воно
+**виведене спочатку з теореми статистичної механіки** (розподіл
+Больцмана, сам виведений із рахункових аргументів і числення), а потім
+**лабораторний вимір germanium-переходу підтверджує**, що реальне
+залізо узгоджується з цим заздалегідь виведеним теоретичним
+передбаченням (Fig. 9: "Theoretical" крива, накладена на
+"Experimental" точки).
+
+Це буквально ланцюг **Path A**, не Path B, з уже дослідженого
+`physical-constants-as-given.md`: `() -> явні математичні передумови
+(статистична механіка, розподіл Больцмана, вже мають e) -> передбачення
+-> апаратний вимір підтверджує передбачення`. Порядок історичний і
+логічний, не двозначний — сам Шоклі спочатку виводить формулу з
+"загальної теореми статистичної механіки", тоді порівнює з виміром.
+Апаратура тут **підтверджує** математичну модель, побудовану заздалегідь
+із числа Ейлера вже всередині (через експоненційну функцію теореми
+Больцмана) — вона не **породжує** `e` з нуля, незалежно від математики.
+
+Розпізнати виміряну I-V криву як таку, що відповідає саме
+експоненційній функції з основою `e` (а не якійсь іншій монотонно
+зростаючій кривій), само по собі вже вимагає підгонки неперервної
+дійснозначної функції до даних і порівняння з заздалегідь відомою
+математичною формою — та сама операція розпізнавання-форми-розподілу,
+яка вже позначена як недостатня для уникнення спостерігача в Раунді 1
+цього документа ("це пуассонівське, отже тут присутнє e" — самоперевірка
+у фізичному костюмі).
+
+## Вердикт: другий, чистіший приклад тієї самої знахідки, не спростування
+
+Верифікація Раунду 2 не скасовує висновок Раунду 1 — вона його
+**підсилює іншим фізичним носієм**. Реальна фізика підтверджена;
+пастки позначень немає; і все одно структурна проблема лишається тією
+самою: побачити `e` у реальному залізі — будь то shot noise чи
+p-n-перехід — вимагає спостерігача, вже озброєного математикою
+(статистична механіка, неперервний аналіз, розпізнавання форми
+функції), яку сам експеримент нібито мав "відкрити" без імпорту.
+Місце в архітектурі — те саме, що вже записано вище: `PLURAL INTERNAL`
+вхідні дані, ніколи не заміна `SINGULAR EXTERNAL`.
+
+## Раунд 3: старіння кремнію — та сама механіка, не третій незалежний доказ
+
+**Питання Volodymyr, власне, не передане**: чи є `e` також у старінні
+кремнію (деградації транзисторів з часом)?
+
+**Перевірено пошуком і звірено з відомою інженерією надійності**, не
+прийнято на віру:
+
+Дві стандартні, добре встановлені моделі деградації кремнію:
+
+- **Електроміграція, рівняння Блека** (J. R. Black, 1969):
+  `MTTF = A·J⁻ⁿ·exp(Ea/kT)` — середній час напрацювання на відмову
+  через рух атомів металу під дією струму. `Ea` — енергія активації,
+  `k` — стала Больцмана, `T` — температура.
+- **NBTI** (Negative Bias Temperature Instability, зсув порогової
+  напруги p-транзистора з часом): `ΔVth = A·exp(βVG)·exp(−Ea/kT)·t^n`
+  — той самий тип експоненційного температурного члена, помножений на
+  степеневу залежність від часу.
+
+Обидві моделі справді містять `exp(.../kT)` — `e` в основі. Це
+підтверджено, не пастка позначень.
+
+## Чому це не третій незалежний доказ, а те саме явище вдруге
+
+**Важливе, чесне уточнення**: старіння кремнію **не дає нового,
+незалежного джерела `e`** — рівняння Блека й NBTI обидва є формами
+**рівняння Арреніуса**, того самого закону швидкості термічно
+активованого процесу перетину енергетичного бар'єру, який уже лежить в
+основі формули діода Шоклі з Раунду 2 (`exp(qV/kT)`). Різниця лише в
+тому, *що саме* перетинає бар'єр — носій заряду (діод) чи атом металу
+/ хімічний зв'язок (деградація) — сам математичний механізм (розподіл
+Больцмана, експонента з `kT` у знаменнику показника) ідентичний. Це не
+три окремі підтвердження того, що "апаратура незалежно відкриває e" —
+це одне й те саме фізичне рівняння, застосоване до трьох різних
+інженерних задач.
+
+**Додаткова, менш зручна для гіпотези різниця**: рівняння Блека, за
+власним визнанням інженерії надійності, не виведене з перших принципів
+так строго, як формула Шоклі. Це напівемпірична модель — форма `exp`
+обрана, бо узгоджується із загальною теорією термічно активованих
+процесів (Арреніус, 1889, оригінально для хімічної кінетики), а
+константи `A` й `n` підганяються під вимірювані дані, не виводяться
+теоретично з нуля. NBTI-модель подібна — енергія активації вимірюється
+експериментально для кожного техпроцесу, не передбачається наперед.
+Це робить ланцюг Path A ("математика спочатку, апаратура підтверджує")
+тут дещо слабшим, ніж у чистому виведенні Шоклі — тут ближче до
+"обрана математична форма, відома придатною для цього класу фізичних
+процесів, підігнана під вимір", не повне, незалежне від виміру
+теоретичне передбачення.
+
+## Вердикт Раунду 3
+
+Той самий структурний висновок, що й у Раундах 1-2, з важливим
+уточненням масштабу: `e` в кремнії — не три різні явища, а один і той
+самий закон Арреніуса/Больцмана, що виринає щоразу, коли фізичний
+процес — інжекція носія, дифузія атома, розрив зв'язку — моделюється
+як термічно активоване подолання енергетичного бар'єру. Побачити тут
+`e` все одно вимагає спостерігача, вже озброєного експоненційною
+функцією й підгонкою кривої — `PLURAL INTERNAL`, не `SINGULAR
+EXTERNAL`, як і раніше.
+
+## Джерела (Раунд 3)
+
+- [Wikipedia: Black's equation](https://en.wikipedia.org/wiki/Black%27s_equation)
+- [Cadence: Black's Equation for MTTF Due to Electromigration](https://resources.system-analysis.cadence.com/blog/msa2020-blacks-equation-for-mttf-due-to-electromigration)
+- [Wikipedia: Negative-bias temperature instability](https://en.wikipedia.org/wiki/Negative-bias_temperature_instability)
+
 ## Не вирішено
 
 Чи виконання на фізичному залізі (окрема, авторизована власником
@@ -129,3 +295,35 @@ Round 1 illusion trap. Fits as `PLURAL INTERNAL` input, not a
 run per the owner's instruction to stop discussing and start
 researching — see the Ukrainian version above and
 `wsm-os/probe/ENTROPY-RESULTS.md` for the real empirical finding.
+
+Round 2 (GPT-5.6 Sol via Volodymyr): a cleaner physical candidate, the
+Shockley p-n-junction diode equation. Verified verbatim against
+Shockley's own 1956 Nobel lecture ("Transistor Technology Evokes New
+Physics," Nobel Lectures in Physics 1942-1962, p. 365): raising the
+potential barrier by one kT reduces carriers able to cross it by 1/e;
+lowering it by kT increases current by e — genuine physics, no notation
+trap this time (the proposal correctly distinguished Euler's number
+from the topological "Euler number"/characteristic beforehand). Attack:
+this is a cleaner illustration of the same finding, not a refutation —
+Shockley derives `e` first from a statistical-mechanics theorem (the
+Boltzmann factor, already containing `e` via the exponential function)
+and only then confirms a real germanium junction matches that
+prediction (Fig. 9). This is Path A, not Path B: theory (already
+containing `e`) precedes and predicts; hardware measurement confirms,
+it does not originate `e` independent of the mathematics already built
+into the model. Same verdict as Round 1: real physics, `PLURAL
+INTERNAL` input, not a `SINGULAR EXTERNAL` bypass.
+
+Round 3 (Volodymyr's own question, not relayed): does silicon aging
+also show `e`? Verified: yes — Black's equation for electromigration
+MTTF (`A·J⁻ⁿ·exp(Ea/kT)`, J. R. Black, 1969) and NBTI threshold-voltage
+drift (`ΔVth ∝ exp(βVG)·exp(−Ea/kT)·t^n`) both carry the same Arrhenius
+exponential. Important honest finding: this is not a third independent
+source of `e` — it is the same Boltzmann/Arrhenius thermally-activated-
+barrier-crossing law as Round 2's diode equation, applied to atomic
+diffusion/bond-breaking instead of carrier injection. A further nuance:
+Black's equation is semi-empirical (the exponential form is assumed
+from general Arrhenius theory, constants fitted to data), a weaker
+Path-A claim than Shockley's from-first-principles derivation. Same
+verdict: one recurring law, not three independent discoveries;
+`PLURAL INTERNAL`, not `SINGULAR EXTERNAL`.
