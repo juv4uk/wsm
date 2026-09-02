@@ -191,3 +191,52 @@ higher.
 **Not resolved**: whether question 2 is worth pursuing at all, and if
 so, whether it can be introduced more cheaply than full `PERSONHOOD`
 requires its own round.
+
+## Round 4: DECIDED — plural internal (generation), singular external (verification)
+
+**Volodymyr's resolution**: plural internal, singular external, "бо
+одного зовнішнього достатньо" (because one external is enough). This
+resolves the Round 3 tension rather than ignoring it, by assigning the
+two questions separated in Round 3 to genuinely different structural
+roles instead of merging them:
+
+```text
+PLURAL INTERNAL   -> generates candidates, through disagreement
+SINGULAR EXTERNAL -> the only channel that can confer t[A]
+```
+
+**Why "one external suffices" is a principled claim, not mere
+convenience**: the illusion trap comes specifically from *identity* — a
+system checking itself. That is binary: either the checker is the same
+system or it is not. One genuinely separate checker already breaks the
+identity that creates the trap. Additional external checkers improve
+*reliability* (catch more errors) but do not change whether illusion is
+structurally possible — that question is already settled by the first
+one. This also matches the architecture already standing outside this
+document: `wsm-os` is one designated external laboratory checking
+`wsm`, not several competing ones.
+
+**Why plural-internal does not reopen Round 3's cost objection**: the
+`PERSONHOOD`-multiplied cost flagged in Round 3 was specifically for
+using internal plurality *as verification*. Used instead for
+*generation* — producing candidate hypotheses through internal
+tension, never itself conferring `t[A]` — it is a single cost paid for
+a genuinely different, separately-justified capability, not the same
+cost paid twice for the same purpose.
+
+**One rule stated explicitly so it cannot leak in quietly**: internal
+plurality never confers `t[A]` on its own. It only generates
+candidates. Confirmation always passes through the single external
+channel. If internal disagreement ever starts assigning itself
+`t[A]`-status directly, the illusion trap has re-entered through a side
+door.
+
+**Honest tension not smoothed over**: this research thread's own actual
+practice contradicts "one external suffices" as a *practical* claim —
+two external, different-model observers (Claude and GPT-5.6 Sol) caught
+real errors in each other (e.g. the von Neumann correction,
+`hypothesis-a-repetition.md`) that either alone might have missed. "One
+is enough" is defensible as the *minimum sufficient to escape the
+illusion trap* — a bare-existence claim — not as an optimality claim
+about error-catching. Both halves are recorded; neither is allowed to
+silently stand in for the other.
