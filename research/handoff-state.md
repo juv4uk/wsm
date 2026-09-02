@@ -1,69 +1,69 @@
-# The handoff state — what limits WSM, not how we found it
+# Handoff state — що обмежує WSM, а не як ми це знайшли
 
-Firmware/BIOS/UEFI research only matters to WSM insofar as it answers
-what state the hardware is in the moment control passes to WSM's own
-code. All of that research — BIOS structure, the FIT table, real
-microcode revisions, QEMU/OVMF/clang/gnu-efi tooling, the actual probe
-code that crossed `ExitBootServices()` — lives in the sibling `wsm-os`
-repository (`wsm-os/hardware/bios-f22e/`, `wsm-os/probe/`,
-`wsm-os/docs/POWER-ON-SEQUENCE.md`), not here. This file keeps only the
-conclusions that actually constrain `wsm`'s own design — not the
-evidence, tooling, or narrative that produced them (own correction,
-2026-09-02: this file had started accumulating exactly that duplicated
-technical detail, and stopped).
+Дослідження firmware/BIOS/UEFI має значення для WSM лише настільки,
+наскільки воно відповідає на питання, у якому стані апаратне
+забезпечення в момент, коли керування переходить до власного коду
+WSM. Уся ця робота — структура BIOS, таблиця FIT, реальні ревізії
+мікрокоду, інструментарій QEMU/OVMF/clang/gnu-efi, реальний код проби,
+що перетнув `ExitBootServices()` — живе в сусідньому репозиторії
+`wsm-os` (`wsm-os/hardware/bios-f22e/`, `wsm-os/probe/`,
+`wsm-os/docs/POWER-ON-SEQUENCE.md`), не тут. Цей файл зберігає лише
+висновки, які реально обмежують власний дизайн `wsm` — не докази,
+інструментарій чи наратив, що їх виробили (власна поправка,
+2026-09-02: цей файл почав був накопичувати саме той дубльований
+технічний деталь, і зупинився).
 
-## What is settled
+## Що вирішено
 
-- WSM begins after the firmware handoff, not before it and not as part
-  of it.
-- That handoff is reachable, not just theorized — `wsm-os` has crossed
-  it for real (`ExitBootServices()`, then zero UEFI calls, confirmed
-  over an independent raw hardware channel).
-- `readable != physically representative`. A successful read from a
-  virtual/emulated environment is not evidence the value carries the
-  same physical meaning a real machine would give it. Three separate
-  realities exist — STATIC firmware image, LIVE/VIRTUAL machine,
-  LIVE/PHYSICAL machine — and a fact established in one does not
-  transfer to the others without separately checking there too.
-- A tool's failure is not a property of the machine. A broken build
-  pipeline can produce a symptom indistinguishable from a broken
-  machine; only real bisection tells them apart.
-- Machine state is not the same claim as observable state. What a
-  probe can read depends on what channel and privilege level it has,
-  not only on what the machine actually is.
-- A concrete representation for `()` has not been chosen. Nothing in
-  the boundary-crossing work encodes it, and nothing there is entitled
-  to.
+- WSM починається після handoff від прошивки, не до нього і не як
+  частина нього.
+- Цей handoff досяжний, не лише теоретизований — `wsm-os` реально
+  його перетнув (`ExitBootServices()`, потім нуль викликів UEFI,
+  підтверджено через незалежний сирий апаратний канал).
+- `readable != physically representative`. Успішне читання з
+  віртуального/емульованого середовища не є доказом, що значення несе
+  той самий фізичний зміст, який дала б реальна машина. Існують три
+  окремі реальності — STATIC-образ прошивки, LIVE/VIRTUAL-машина,
+  LIVE/PHYSICAL-машина — і факт, встановлений в одній, не переноситься
+  на інші без окремої перевірки там теж.
+- Збій інструмента — не властивість машини. Зламаний build-пайплайн
+  може дати симптом, невідрізнимий від зламаної машини; тільки
+  реальна бісекція розрізняє їх.
+- Стан машини — не те саме твердження, що спостережуваний стан. Що
+  проба може прочитати, залежить від того, який у неї канал і рівень
+  привілеїв, не лише від того, чим машина реально є.
+- Конкретне представлення для `()` ще не обрано. Ніщо в роботі з
+  перетинання межі його не кодує, і ніщо там на це не має права.
 
-## The two-way discipline this implies
+## Двостороння дисципліна, яку це передбачає
 
-> `wsm-os` does not invent capabilities. It only tests capabilities
-> already formulated in `wsm`.
+> `wsm-os` не винаходить можливості. Він лише перевіряє можливості,
+> вже сформульовані в `wsm`.
 >
-> `wsm` does not import a hardware concept as semantics just because
-> the machine happens to have one.
+> `wsm` не імпортує апаратне поняття як семантику лише тому, що машина
+> його має.
 
 ```text
-wsm:      "we need operation X"
+wsm:      "нам потрібна операція X"
               |
               v
-wsm-os:   "can it be realized, and at what cost"
+wsm-os:   "чи можна її реалізувати, і якою ціною"
 
-NOT:
-x86 has ADD
+НЕ:
+x86 має ADD
     |
     v
-    => WSM has +
+    => WSM має +
 ```
 
-`wsm-os/README.md` carries the same rule and an explicit list of what
-it is not to add ahead of a real semantic need from here (scheduler,
+`wsm-os/README.md` несе те саме правило й явний список того, чого не
+додавати наперед реальної семантичної потреби звідси (scheduler,
 allocator, SMP/interrupt framework, driver model, filesystem, heap,
-runtime, ABI). `asm/` in this repo stays empty on the same principle —
-its first file should be forced by a real semantic statement, not
-filled in for the sake of activity.
+runtime, ABI). `asm/` у цьому репозиторії лишається порожнім за тим
+самим принципом — його перший файл має бути змушений реальним
+семантичним твердженням, не заповнений заради активності.
 
-## The one open question
+## Єдине відкрите питання
 
 ```text
 Який найменший додатковий крок після () можна ввести так, щоб:
@@ -74,6 +74,22 @@ filled in for the sake of activity.
 4. його можна було фізично реалізувати на машині?
 ```
 
-Only when a real candidate for this exists does `wsm-os` wake back up
-to check point 4 against real hardware. Nothing here answers points
-1–3 in advance.
+Тільки коли з'явиться реальний кандидат на це, `wsm-os` знову
+прокидається перевірити пункт 4 на реальному залізі. Ніщо тут не
+відповідає на пункти 1–3 наперед.
+
+---
+
+## The handoff state (English, secondary)
+
+Firmware research matters to WSM only insofar as it answers what state
+the hardware is in at handoff. All technical evidence and tooling lives
+in the sibling `wsm-os` repository, not here — this file keeps only
+conclusions constraining `wsm`'s own design. Settled: WSM begins after
+handoff; the handoff is reachable (proven); `readable != physically
+representative`; a tool's failure is not a machine property; machine
+state != observable state; `()`'s representation is not yet chosen.
+The two-way discipline (`wsm-os` invents nothing `wsm` hasn't asked
+for; `wsm` imports no hardware concept as semantics) and the one
+standing open question, with its four criteria, are recorded above.
+See the Ukrainian version for full detail.
