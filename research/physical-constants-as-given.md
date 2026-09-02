@@ -147,8 +147,18 @@ superset of Path A's, `Path A ⪯ Path B` and not the reverse — Path A is
 no worse, and appears strictly better, under the minimality criterion
 already established.
 
-**One lead deliberately left open, not resolved**: could "comparison"
-be reduced to a raw *physical* match (e.g. two voltage levels agreeing
-within tolerance) rather than full logical `eq` — pre-semantic, prior
-to any logic? This does not rescue Path B as stated, but it is the one
-place worth attacking next, not yet attempted here.
+**Lead closed by GPT-5.6 Sol itself**: could "comparison" be reduced to
+a raw *physical* match (e.g. two voltage levels agreeing within
+tolerance) rather than full logical `eq` — pre-semantic, prior to any
+logic? GPT-5.6 Sol's own follow-up closes this: "хто або що перетворює
+аналоговий фізичний стан на факт 'match'? Якщо відповідь містить
+threshold, tolerance або comparator, ми ще не уникнули семантики — ми
+просто реалізували її транзисторами" (who or what turns an analog
+physical state into the fact "match"? If the answer involves a
+threshold, tolerance, or comparator, semantics has not been avoided —
+it has just been implemented in transistors). A comparator circuit
+making a same/different judgment against a tolerance *is* the
+comparison — moving it into analog hardware relocates where the
+decision happens, not whether one happens. **This lead is now closed,
+not merely left open**: no version of "raw physical match" avoids
+comparison; it only hides where comparison is implemented.
