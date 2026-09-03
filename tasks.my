@@ -1,0 +1,13 @@
+; tasks.my — durable task plan for wsm (independent research project,
+; separate from my-lisp per ECO-DECISION-2026-09-03-MYLISP-WSM-NAME-
+; CLARIFICATION -- do not conflate the two).
+
+((tasks . (
+  ("WSM-BOOTSTRAP-TASK-TRACKING" . (
+    (priority . 3.0)
+    (capabilities . (documentation research-tracking))
+    (origin . wsm)
+    (description . "First tasks.my entry for this independent research project (() -> ? -> mathematics; research/: REPEAT, BRANCH, DISTINCTION, provenance-foundation, the-observer-gap, hardware-native-constants). No prior task-tracking convention established here -- this entry exists so the file has a valid, non-empty starting shape; the owner or a future pass should replace it with the project's actual current research priority rather than leaving this placeholder as the real plan.")
+    (done . ())
+  ))
+)))
