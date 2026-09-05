@@ -47,3 +47,7 @@ is a research instrument for understanding the machine's capabilities
 and limits, not a foundation.
 
 Long-term experimental witness: `() → ... → mathematics → 2 + 2 = 4 → t`.
+
+## Ліцензія
+
+Цей твір поширюється під [ВОЛЬНІСТЮ](LICENSE) — простим словом про свободу творити, пам'ятаючи про волю іншого.
